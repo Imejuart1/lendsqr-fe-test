@@ -9,24 +9,55 @@ import "./Sidebar.scss"
 const SidebarLink = styled(Link)`
   display: flex;
   align-items: center;
-  margin-left: -1rem;
+  margin-left: -7vw;
+  padding-left:1rem;
   margin-top:2rem;
 list-style: none;
   text-decoration: none;
   font-family: Work Sans;
-  font-size: 16px;
+  font-size: 1vw;
   font-weight: 400;
   line-height: 19px;
   letter-spacing: 0px;
   text-align: left;
-  color:black;
+  color: #213F7D;
+  opacity: 0.7;
+
   &:hover {
     border-left: 2px solid black;
-    color:blue;
+    background: #6aa7a7;
+     blend: Pass through;
     cursor: pointer;
   }
 `;
 
+const Ride = styled.div`
+display:flex;
+flex-direction:row;
+font-weight:bold;
+color: #213F7D;
+margin-left: -5vw;
+`
+const Pide = styled.p`
+font-weight:bold;
+color: #213F7D;
+font-size:0.7vw
+ 
+`
+const Lide = styled.a`
+display:flex;
+flex-direction:row;
+font-weight:bold;
+color: #213F7D;
+margin-left: -5vw;
+`;
+
+const Side = styled.p`
+font-weight:bold;
+color: #213F7D;
+font-size:0.7vw
+ 
+`
 
 const SidebarLabel = styled.span`
  padding-left:1rem;
@@ -62,6 +93,7 @@ const SubMenu = ({ item }) => {
           <div >
           {item.icon}
           <SidebarLabel >{item.title}</SidebarLabel>
+         
            <SidebarLabel>{item.subNav && subnav
             ? item.iconOpened
             : item.subNav
@@ -69,7 +101,22 @@ const SubMenu = ({ item }) => {
             : null}</SidebarLabel>
             </div>
            </SidebarLink>
-      
+
+           <Ride>
+            {item.picon}
+             <Side>{item.pitle}</Side>
+              <SidebarLabel>{item.subNav && subnav
+            ? item.piconOpened
+            : item.subNav
+            ? item.piconClosed
+            : null}</SidebarLabel>
+            </Ride>
+          
+          <Lide>{item.licon}
+             <Pide>{item.litle}</Pide>
+          
+            </Lide>
+
       {subnav &&
         item.subNav.map((item, index) => {
           return (
