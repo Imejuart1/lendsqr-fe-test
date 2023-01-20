@@ -1,0 +1,87 @@
+.usermain_container{
+
+    margin-top: -53rem;
+    margin-left: 20vw;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    text-align: left;
+         background: linear-gradient(0deg, rgba(33, 63, 125, 0.06), rgba(33, 63, 125, 0.06)),
+linear-gradient(0deg, #FFFFFF, #FFFFFF);
+     min-height:60rem;
+    .heading{
+        text-align: left;
+        font-family: "Work Sans";
+        font-size: 2vw;
+        font-weight: 500;
+        text-align: left;
+        color: #213F7D;
+        padding-top: 5rem;
+
+    }
+    }
+    .users_record{
+        display: flex;
+        flex-direction: row;
+        gap:4%;
+    
+    .users_record_users{
+       max-height:fit-content;
+      width: 24vw;
+     padding-left: 1.5vw;
+     padding-top: 5vh;
+     border-radius: 4px;
+     background: white;
+    margin-top:2rem;
+    }
+    .user1{
+        height:30%;
+    }
+   }
+    
+
+.completeinfo{
+        display: flex;
+        background: WHITE;
+        margin-top: 4rem;
+        width: fit-content;
+         ul{
+                list-style-type: none;
+                 li{
+             color: #545F7D;   
+             font-size: 0.9vw;
+            font-family: "Work Sans";
+            padding-left: 1vw;
+               margin-top: 2rem;
+            
+            }
+            }
+            .iconss{
+                display: flex;
+                flex-direction: row;
+                
+            img{
+                height:0.4vw;
+                margin-top: 1.7rem;
+                padding-left: 1vw;
+            }
+            h5{
+                font-size: 0.9vw;
+                font-family: "Work Sans";
+            font-weight: 600;
+             padding-top: 3vh;
+             padding-left: 3vw;
+            color: #545F7D;
+            }
+           
+            }
+            
+        
+    }
+
+ @media only screen and (max-width : 768px) {
+.usermain_container{
+
+margin-top: 2rem;
+
+}
+ }
