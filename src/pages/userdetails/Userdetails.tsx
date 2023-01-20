@@ -52,50 +52,204 @@ export default class Userdetails extends Component<Props, State> {
            <a href="/userdetails">App and System</a>
           </div>
         </div>
-
+       {/*personal information*/}
         <div className='info_section'>
           <h4>Personal Information</h4>
           <div className='person_info'>
-            <div className='ronald'>
-            <div className="full_name">
+            <div className='person_infooo'>
+              <div className="first_person_inf">
+            <div>
               <h5>FULL  NAME</h5>
               <h6>Grace Effion</h6>
-            </div>
-            <div className="full_name">
-              <h5>PHONE NUMBER</h5>
-              <h6>07060780922</h6>
-            </div>
-            <div className="full_name">
-              <h5>EMAIL ADDRESS</h5>
-              <h6>grace@gmail.com</h6>
-            </div>
-            <div className="full_name">
-              <h5>BVN</h5>
-              <h6>07060780922</h6>
-            </div>
-            <div className="full_name">
-              <h5>GENDER</h5>
-              <h6>Female</h6>
-            </div>
-            </div>
-            <div className='ronald'>
-            <div className="pull_name">
+              </div>
+              <div >
               <h5>MARITAL STATUS</h5>
               <h6>Single</h6>
             </div>
-            <div className="pull_name">
-              <h5>CHILDREN</h5>
-              <h6>None</h6>
             </div>
-            <div className="pull_name">
-              <h5>TYPE OF RESIDENCE</h5>
+            <div className="first_person_inf">
+            <div>
+              <h5>PHONE NUMBER</h5>
+              <h6>07060780922</h6>
+              </div>
+              <div >
+                <h5>CHILDREN</h5>
+              <h6>None</h6>
+             
+            </div>
+            </div>
+
+            <div className="first_person_inf">
+            <div>
+             <h5>EMAIL ADDRESS</h5>
+              <h6>grace@gmail.com</h6>
+              </div>
+              <div >
+                <h5>TYPE OF RESIDENCE</h5>
               <h6>Parent's Apartment</h6>
             </div>
-           </div>
+            </div>
+
+            <div className="first_person_inf">
+            <div>
+              <h5>BVN</h5>
+              <h6>07060780922</h6>
+              </div>
+              <div >
+              
+            </div>
+            </div>
+
+            <div className="first_person_inf">
+            <div>
+              <h5>GENDER</h5>
+              <h6>Female</h6>
+              </div>
+              <div >
+              
+            </div>
+            </div>
+            </div>
           </div>
              <img className="lane" src={Dividr} alt=""/>
-        </div>
 
+
+        {/*Education and Employment*/}
+          <h4>Education and Employment</h4>
+          <div className='person_info'>
+            <div className='employ_infooo'>
+              <div className="first_person_inf">
+            <div>
+              <h5>LEVEL OF EDUCATION</h5>
+              <h6>B.Sc</h6>
+              </div>
+              <div >
+                    <h5>OFFICE EMAIL</h5>
+              <h6>grace@lendsqr.com</h6>
+            </div>
+            </div>
+            <div className="first_person_inf">
+            <div>
+             <h5>EMPLOYMENT STATUS</h5>
+              <h6>Employed</h6>
+              </div>
+              <div >
+              <h5>MONTHLY INCOME</h5>
+              <h6>N200,000-N400,000</h6>
+             
+            </div>
+            </div>
+
+            <div className="first_person_inf">
+            <div>
+             <h5>EMAIL ADDRESS</h5>
+              <h6>grace@gmail.com</h6>
+              </div>
+              <div >
+                <h5>TYPE OF RESIDENCE</h5>
+              <h6>Parent's Apartment</h6>
+            </div>
+            </div>
+
+            <div className="first_person_inf">
+            <div>
+                 <h5>SECTION OF EMPLOYMENT</h5>
+              <h6>Fintech</h6>
+              </div>
+               <h5>LOAN REPAYMENT</h5>
+              <h6>40,000</h6>
+              <div >
+              
+            </div>
+            </div>
+
+            <div className="first_person_inf">
+            <div>
+              <h5>DURATION OF EMPLOYMENT</h5>
+              <h6>2 years</h6>
+              </div>
+              <div >
+              
+            </div>
+            </div>
+            </div>
+          </div>
+             <img className="lane" src={Dividr} alt=""/>
+
+             {/*socials*/}
+          <h4>Socials</h4>
+          <div className='person_info'>
+            <div className='person_infooo'>
+              <div className="first_person_inf">
+            <div>
+              <h5>TWITTER</h5>
+              <h6>grace@effong</h6>
+              </div>
+              <div >
+            </div>
+            </div>
+            <div className="first_person_inf">
+            <div>
+             <h5>FACEBOOK</h5>
+              <h6>GRACE EFFIONG</h6>
+              </div>
+              <div >
+            </div>
+            </div>
+
+            <div className="first_person_inf">
+            <div>   
+               <h5>INSTAGRAM</h5>
+              <h6>@grace_effiong</h6>
+              </div>
+              <div >
+            </div>
+            </div>
+            </div>
+          </div>
+             <img className="lane" src={Dividr} alt=""/>
+
+             <h4>Guarantor</h4>
+          <div className='person_info'>
+            <div className='person_infooo'>
+              <div className="first_person_inf">
+            <div>
+              <h5>FULL NAME</h5>
+              <h6>Debby Ogana</h6>
+              </div>
+              <div >
+            </div>
+            </div>
+            <div className="first_person_inf">
+            <div>
+             <h5>PHONE NUMBER</h5>
+              <h6>09087463522</h6>
+              </div>
+              <div >
+            </div>
+            </div>
+
+            <div className="first_person_inf">
+            <div>   
+               <h5>EMAIL ADDRESS</h5>
+              <h6>debby@gmail.com</h6>
+              </div>
+              <div >
+            </div>
+            </div>
+
+            <div className="first_person_inf">
+            <div>   
+               <h5>RELATIONSHIP</h5>
+              <h6>Sister</h6>
+              </div>
+              <div >
+            </div>
+            </div>
+            </div>
+          </div>
+             
+        </div>
      
         </div>
       

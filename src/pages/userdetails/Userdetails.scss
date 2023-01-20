@@ -7,7 +7,7 @@
     text-align: left;
          background: linear-gradient(0deg, rgba(33, 63, 125, 0.06), rgba(33, 63, 125, 0.06)),
 linear-gradient(0deg, #FFFFFF, #FFFFFF);
-     min-height:60rem;
+     height:100rem;
     .heading{
         text-align: left;
         font-family: "Work Sans";
@@ -67,15 +67,18 @@ linear-gradient(0deg, #FFFFFF, #FFFFFF);
       gap:5%;
         a{
             font-family: "SF Compact Text";
-font-size: 1vw;
-font-weight: 400;
-line-height: 19px;
-letter-spacing: 0em;
-text-align: center;
-margin-top: 2rem;
-padding-left: 3vw;
-border-radius: nullpx;
-color: #000000CC;
+            font-size: 1vw;
+            font-weight: 400;
+            line-height: 19px;
+            letter-spacing: 0em;
+            text-align: center;
+            margin-top: 2rem;
+            padding-left: 3vw;
+            border-radius: nullpx;
+            color: #000000CC;
+
+            
+
 
         }
         a:hover{
@@ -90,80 +93,92 @@ color: #000000CC;
     .info_section{
         margin-top: 4rem;
         background: white;
+        margin-bottom: 4rem;
         h4{
             text-align: left;
             margin-left: 3vw;
             padding-top: 3rem;
+            color: #213F7D;
+         
         }
         .person_info{
             display: flex;
             flex-direction: column;
-            .ronald{
+            .person_infooo{
                 display: flex;
                 flex-direction: row;
-                
-                gap:5%;
-                .full_name{
+               gap:7%; 
+                    .first_person_inf{
                 display: flex;
                 flex-direction: column;
-            
-        
-        h5{
-             font-family: "SF Compact Text";
-font-size: 1vw;
-font-weight: 400;
-line-height: 19px;
-letter-spacing: 0em;
-text-align: center;
-margin-top: 2rem;
-padding-left: 3vw;
-border-radius: nullpx;
-color: #000000CC;
-        }
-        h6{
-             font-family: "SF Compact Text";
-font-size: 1vw;
-font-weight: 600;
-line-height: 19px;
-letter-spacing: 0em;
-text-align: center;
-margin-top: 2rem;
-padding-left: 3vw;
-border-radius: nullpx;
-color: #000000CC;
-        }
-    }
+                text-align: left;
+                justify-content: flex-start;
+                h5{
+                    text-align: left;
+                    font-family: "SF Compact Text";
+                    font-size: 0.9vw;
+                    font-weight: 400;
+                    line-height: 19px;
+                    letter-spacing: 0em;
+                    margin-top: 2rem;
+                    padding-left: 3vw;
+                 
+                    color: #545F7D;
+                }
+                h6{
+                    text-align: left;             
+                    font-family: "SF Compact Text";
+             font-size: 0.9vw;
+             font-weight: 600;
+             line-height: 19px;
+             letter-spacing: 0em;
+             margin-top: 2rem;
+             padding-left: 3vw;
+             border-radius: nullpx;
+             color: #545F7D;      
+                }
             }
+             
             
-         .pull_name{
+            
+        }
+         .employ_infooo{
+                display: flex;
+                flex-direction: row;
+                gap: 2%;
+                    .first_person_inf{
                 display: flex;
                 flex-direction: column;
-                margin-top: 2rem;
+                text-align: left;
+                justify-content: flex-start;
+                h5{
+                    text-align: left;
+                    font-family: "SF Compact Text";
+                    font-size: 0.9vw;
+                    font-weight: 400;
+                    line-height: 19px;
+                    letter-spacing: 0em;
+                    margin-top: 2rem;
+                    padding-left: 3vw;
+                 
+                    color: #545F7D;
+                }
+                h6{
+                    text-align: left;             
+                    font-family: "SF Compact Text";
+             font-size: 0.9vw;
+             font-weight: 600;
+             line-height: 19px;
+             letter-spacing: 0em;
+             margin-top: 2rem;
+             padding-left: 3vw;
+             border-radius: nullpx;
+             color: #545F7D;      
+                }
+            }
+             
             
-        }
-        h5{
-             font-family: "SF Compact Text";
-font-size: 1vw;
-font-weight: 400;
-line-height: 19px;
-letter-spacing: 0em;
-text-align: center;
-margin-top: 2rem;
-padding-left: 3vw;
-border-radius: nullpx;
-color: #000000CC;
-        }
-        h6{
-             font-family: "SF Compact Text";
-font-size: 1vw;
-font-weight: 600;
-line-height: 19px;
-letter-spacing: 0em;
-text-align: center;
-margin-top: 2rem;
-padding-left: 3vw;
-border-radius: nullpx;
-color: #000000CC;
+            
         }
     }
     .lane{
@@ -171,4 +186,6 @@ color: #000000CC;
          margin-left: 3vw;
          margin-top: 2rem;
     }
-    }
+     
+   
+}
