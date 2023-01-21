@@ -78,6 +78,90 @@ linear-gradient(0deg, #FFFFFF, #FFFFFF);
         
     }
 
+    .filters{
+        border:2px solid rgb(118, 110, 110);
+        margin-bottom: 4rem;
+        margin-top: -660vh;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        position: relative;
+        background-color: #FFFFFF;
+        height: fit-content;
+           width: fit-content;
+        border-radius: 4px;
+
+        .filter{
+           color: linear-gradient(0deg, #213F7D, #213F7D),
+linear-gradient(0deg, #FFFFFF, #FFFFFF);
+border: 1px solid #213F7D;
+            height: 40px;
+width: 230px;
+left: 378px;
+top: 540px;
+border-radius: 8px;
+
+        }
+        h6{
+            text-align: left;
+            height: 16px;
+width: 87px;
+left: 378px;
+top: 518px;
+border-radius: nullpx;
+font-family: "Work Sans";
+font-size: 14px;
+font-weight: 500;
+line-height: 16px;
+letter-spacing: 0em;
+text-align: left;
+color: #545F7D;
+
+        }
+        .buttons{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap:1rem;
+      
+        .filter-submit{
+            height: 40px;
+            width: 98px;
+            border-radius: 8px;
+            background: #39CDCC;
+            font-family: Work Sans;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 16px;
+            letter-spacing: 0em;
+            text-align: center;
+            color:white;
+            border: 1px solid #39CDCC;
+
+        }
+        .filter-reset{
+            height: 40px;
+            width: 98px;
+            border-radius: 8px;
+            background: white;
+            font-family: "Work Sans";
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 16px;
+            letter-spacing: 0em;
+            text-align: center;
+            color:black;
+            border: 1px solid black;
+            
+        }
+    }
+        
+    }
+
  @media only screen and (max-width : 768px) {
 .usermain_container{
 
