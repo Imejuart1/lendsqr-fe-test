@@ -9,7 +9,7 @@ import "./Sidebar.scss"
 const SidebarLink = styled(Link)`
   display: flex;
   align-items: center;
-  margin-left: -7vw;
+ margin-left:-0vw;
   padding-left:1rem;
   margin-top:2rem;
 list-style: none;
@@ -28,6 +28,7 @@ list-style: none;
     background: #6aa7a7;
      blend: Pass through;
     cursor: pointer;
+    
   }
 `;
 
@@ -36,14 +37,15 @@ display:flex;
 flex-direction:row;
 font-weight:bold;
 color: #213F7D;
-margin-left: -5vw;
+margin-left: 3vw;
 `
 
 
 const Side = styled.p`
 font-weight:bold;
 color: #213F7D;
-font-size:0.7vw
+font-size:0.8vw;
+margin-top:0.2rem;
  
 `
 
@@ -76,9 +78,8 @@ const SubMenu = ({ item }) => {
   return (
     <>
     
-       
         <SidebarLink to={item.path} onClick={item.subNav && showSubnav} >
-          <div className="navlin">
+         
           <SidebarLabel className="iconns" >{item.icon}</SidebarLabel>
           <SidebarLabel className="title">{item.title}</SidebarLabel>
             
@@ -87,14 +88,11 @@ const SubMenu = ({ item }) => {
             : item.subNav
             ? item.iconClosed
             : null}</SidebarLabel>
-            </div>
+        
            </SidebarLink>
-
-           <Ride className="navlin">
            
-             <Side className="title">{item.pitle}</Side>
-            </Ride>
-          
+           
+       
      
 
       {subnav &&

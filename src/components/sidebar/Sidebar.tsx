@@ -25,7 +25,7 @@ const Nav = styled.div`
 `;
  
 const NavIcon = styled(Link)`
-  margin-left: 1vw;
+  margin-left: 2vw;
   font-size: 2rem;
   display: flex;
   justify-content: flex-start;
@@ -36,8 +36,6 @@ const SidebarNav = styled.nav`
   background: #FFFFFF;
   width: 20.58vw;
   display: flex;
-  justify-content: center;
-  top: 80px;
   left: ${({ sidebar }) => (sidebar ? "0" : "-100%")};
   transition: 350ms;
   z-index: 10;
@@ -75,7 +73,7 @@ const Sidebar = () => {
           <span className="Docs">Docs</span>
           <img src={Bell} className="bell"/>
           <img src={Avatar} className="avatar"/>
-          <h6>Adedeji</h6>  <RiIcons.RiArrowDownSFill />
+          <h6>Adedeji</h6>  <RiIcons.RiArrowDownSFill /><RiIcons.RiArrowUpSFill />,
           </div>
           </form>
           

@@ -52,7 +52,7 @@ export const SidebarData =  [
   },
   {
     id:"3",
-    pitle: "CUSTOMERS",
+    title: "CUSTOMERS",
     
   },
   {
@@ -108,7 +108,8 @@ export const SidebarData =  [
   },
    {
     id:"10",
-    pitle: "BUSINESSES",
+    title: "BUSINESSES",
+    
    
   },
    {
@@ -168,7 +169,7 @@ export const SidebarData =  [
   },
     {
     id:"15",
-    pitle: "Settings",
+    title: "SETTINGS",
     
   },
 
