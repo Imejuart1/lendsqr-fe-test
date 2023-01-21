@@ -10,6 +10,9 @@ import { IconContext } from "react-icons/lib";
 import Union from '../../assets/images/Union.png';
 import Lendsqr from '../../assets/images/lendsqr.png';
 import Vector from '../../assets/images/vector.png';
+import Bell from '../../assets/images/bell.png';
+import Avatar from '../../assets/images/avatar (3).png';
+import * as RiIcons from "react-icons/ri";
 import "./Sidebar.scss"
 import { Component } from 'react'
 
@@ -69,6 +72,10 @@ const Sidebar = () => {
             < div className="search_here">
           <input type="search" name="search-form" id="search-form" className="search-input" placeholder="Search for anything"/>
           <button className="styled-button" type="submit"><img src={Vector} /></button>
+          <span className="Docs">Docs</span>
+          <img src={Bell} className="bell"/>
+          <img src={Avatar} className="avatar"/>
+          <h6>Adedeji</h6>  <RiIcons.RiArrowDownSFill />
           </div>
           </form>
           

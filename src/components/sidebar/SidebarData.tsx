@@ -1,7 +1,4 @@
 import React from "react";
-import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
-import * as IoIcons from "react-icons/io";
 import * as RiIcons from "react-icons/ri";
 import Briefcase from  "../../assets/images/briefcase.png";
 import Home from  "../../assets/images/home.png"
@@ -65,8 +62,7 @@ export const SidebarData =  [
     icon: <img src={Users} alt="briefcase"/>,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
-    subNav: [
-    ],
+   
   },
   {
     id:"5",
@@ -202,9 +198,9 @@ export const SidebarData =  [
   },
      {
     id:"34",
-    litle: "Logout",
+    title: "Logout",
     path: "/",
-    licon: <img src={Signout} alt="briefcase"/>,
+    icon: <img src={Signout} alt="briefcase"/>,
   },
 ];
 

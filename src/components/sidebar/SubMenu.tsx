@@ -38,19 +38,7 @@ font-weight:bold;
 color: #213F7D;
 margin-left: -5vw;
 `
-const Pide = styled.p`
-font-weight:bold;
-color: #213F7D;
-font-size:0.7vw
- 
-`
-const Lide = styled.a`
-display:flex;
-flex-direction:row;
-font-weight:bold;
-color: #213F7D;
-margin-left: -5vw;
-`;
+
 
 const Side = styled.p`
 font-weight:bold;
@@ -103,19 +91,11 @@ const SubMenu = ({ item }) => {
            </SidebarLink>
 
            <Ride>
-            {item.picon}
+           
              <Side>{item.pitle}</Side>
-              <SidebarLabel>{item.subNav && subnav
-            ? item.piconOpened
-            : item.subNav
-            ? item.piconClosed
-            : null}</SidebarLabel>
             </Ride>
           
-          <Lide>{item.licon}
-             <Pide>{item.litle}</Pide>
-          
-            </Lide>
+     
 
       {subnav &&
         item.subNav.map((item, index) => {
