@@ -78,10 +78,10 @@ const SubMenu = ({ item }) => {
     
        
         <SidebarLink to={item.path} onClick={item.subNav && showSubnav} >
-          <div >
-          {item.icon}
-          <SidebarLabel >{item.title}</SidebarLabel>
-         
+          <div className="navlin">
+          <SidebarLabel className="iconns" >{item.icon}</SidebarLabel>
+          <SidebarLabel className="title">{item.title}</SidebarLabel>
+            
            <SidebarLabel>{item.subNav && subnav
             ? item.iconOpened
             : item.subNav
@@ -90,9 +90,9 @@ const SubMenu = ({ item }) => {
             </div>
            </SidebarLink>
 
-           <Ride>
+           <Ride className="navlin">
            
-             <Side>{item.pitle}</Side>
+             <Side className="title">{item.pitle}</Side>
             </Ride>
           
      

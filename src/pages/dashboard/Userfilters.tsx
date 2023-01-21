@@ -141,6 +141,7 @@ function Userfilters() {
         </div>
         
         </div>
+         <form>
          <div className='filters'>
           <div>
           <h6>Organization</h6>
@@ -148,7 +149,9 @@ function Userfilters() {
            
           </select>
            </div>
+          
            <div>
+            
           <h6>Username</h6>
           <input className='filter' type="username" name="username" placeholder='Username'required/>
           </div>
@@ -172,8 +175,11 @@ function Userfilters() {
           <div className='buttons'>
           <button className='filter-reset' type='reset'>Reset</button>
           <button className='filter-submit' type="submit">Filter</button>
+         
           </div>
+          
          </div>
+          </form>
         </div>
     )
   }

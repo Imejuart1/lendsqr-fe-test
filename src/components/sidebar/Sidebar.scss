@@ -86,17 +86,32 @@ margin-left: 1vw;
 }
 
 
-.run{
-   color:red;
-   margin-top: 10px;
-}
+
   @media only screen and (max-width : 768px) {
 .SidebarNav{
-   position:fixed;
+   position:relative;
+   font-size: 3vw;
 }
 .hamburger{
    display: block;
    position: absolute;
   left:90vw;
+}
+
+.iconns{
+ display: none;
+}
+.title{
+   font-size: 3vw;
+   margin-left: 1vw;
+   text-align: center;
+
+}
+.navlin{
+   width: fit-content;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: row;
 }
 }
