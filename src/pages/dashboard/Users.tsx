@@ -7,6 +7,8 @@ import Userr from '../../assets/images/icon.png';
 import Userrr from '../../assets/images/icon3.png';
 import Userrrr from '../../assets/images/icon 4.png';
 import Vectororg from '../../assets/images/Vectororg.png';
+import Dot from '../../assets/images/dot.png';
+
 
 
 
@@ -16,6 +18,9 @@ function Users() {
   const [error, setError] = useState(null);
         const [isLoaded, setIsLoaded] = useState(false);
         const [items, setItems] = useState([]);
+  
+  const [currentPage, setCurrentPage] = useState(1);
+  const [recordsPerPage] = useState(9);
 
 
         useEffect(() => {
@@ -135,20 +140,27 @@ function Users() {
           <img src={Vectororg} className="user1" alt=""/>
           </div>
           <div className='activate'>
+             <div className='tatus'>
               <select  className='filter'>
                 <option value="pending">Pending</option>
                  <option value="inactive">Inactive</option>
                  
                  <option value="active">Active</option>
                  <option value="blacklisted">Blacklisted</option>
+                 
           </select>
+          <img src={Dot} className="user1" alt=""/>
+          </div>
+           <div className='tatus'>
                   <select  className='filter'>
-                   <option value="inactive">Inactive</option>
+                   <option className="inactive">Inactive</option>
                  <option value="pending">Pending</option>
                  <option value="active">Active</option>
                  <option value="blacklisted">Blacklisted</option>
-           
           </select>
+          <img src={Dot} className="user1" alt=""/>
+          </div>
+          <div className='tatus'>
                   <select  className='filter'>
                     <option value="active">Active</option>
                   <option value="inactive">Inactive</option>
@@ -156,6 +168,10 @@ function Users() {
                  
                  <option value="blacklisted">Blacklisted</option>
           </select>
+          <img src={Dot} className="user1" alt=""/>
+
+          </div>
+          <div className='tatus'>
                   <select  className='filter'>
                     <option value="blacklisted">Blacklisted</option>
                     <option value="inactive">Inactive</option>
@@ -163,18 +179,27 @@ function Users() {
                  <option value="active">Active</option>
                  
           </select>
+           <img src={Dot} className="user1" alt=""/>
+          </div>
+           <div className='tatus'>
                   <select  className='filter'>
                     <option value="inactive">Inactive</option>
                  <option value="pending">Pending</option>
                  <option value="active">Active</option>
                  <option value="blacklisted">Blacklisted</option>  
           </select>
+           <img src={Dot} className="user1" alt=""/>
+           </div>
+           <div className='tatus'>
                   <select  className='filter'>
                 <option value="inactive">Inactive</option>
                  <option value="pending">Pending</option>
                  <option value="active">Active</option>
                  <option value="blacklisted">Blacklisted</option>
           </select>
+          <img src={Dot} className="user1" alt=""/>
+          </div>
+           <div className='tatus'>
                   <select  className='filter'>
                     <option value="pending">Pending</option>
                     <option value="inactive">Inactive</option>
@@ -182,6 +207,9 @@ function Users() {
                  <option value="active">Active</option>
                  <option value="blacklisted">Blacklisted</option>
           </select>
+          <img src={Dot} className="user1" alt=""/>
+          </div>
+           <div className='tatus'>
                   <select  className='filter'>
                      <option value="blacklisted">Blacklisted</option>
                     <option value="inactive">Inactive</option>
@@ -189,6 +217,10 @@ function Users() {
                  <option value="active">Active</option>
                 
           </select>
+          <img src={Dot} className="user1" alt=""/>
+          </div>
+
+           <div className='tatus'>
                   <select  className='filter'>
                     <option value="active">Active</option>
                     <option value="inactive">Inactive</option>
@@ -196,6 +228,8 @@ function Users() {
                  
                  <option value="blacklisted">Blacklisted</option>
           </select>
+          <img src={Dot} className="user1" alt=""/>
+          </div>
            </div>
            {/*{items.map((item) => (
           <ul>

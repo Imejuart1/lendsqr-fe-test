@@ -2,8 +2,8 @@
 
     margin-top: -86.5rem;
     margin-left: 15vw;
-    padding-left: 4vw;
-    padding-right: 4vw;
+    padding-left: 2vw;
+    padding-right: 1vw;
     text-align: left;
          background: linear-gradient(0deg, rgba(33, 63, 125, 0.06), rgba(33, 63, 125, 0.06)),
 linear-gradient(0deg, #FFFFFF, #FFFFFF);
@@ -43,7 +43,8 @@ linear-gradient(0deg, #FFFFFF, #FFFFFF);
         display: flex;
         background: WHITE;
         margin-top: 4rem;
-        width: fit-content;
+        min-width:33vw;
+       
          ul{
                 list-style-type: none;
                  li{
@@ -166,19 +167,29 @@ color: #545F7D;
         display: flex;
         flex-direction: column;
         margin-top: 2rem;
+        margin-left: 3vw;
+        padding-right: 3vw;
         gap: 2.5rem;
+        background-color: white;
+        img{
+            height: 20%;
+            align-self: center;
+        }
+        .tatus{
+            display: flex;
+            flex-direction: row;
+            gap:25%;
+        }
          .filter{
            color: linear-gradient(0deg, #213F7D, #213F7D),linear-gradient(0deg, #FFFFFF, #FFFFFF);
            border: 1px solid #213F7D;
            height: 4vh;
-           width: 6.0vw;
+           width: 6.2vw;
            border-radius: 100px;
-
-           .inactive{
-            color:#545F7D;
-           }
+           font-size: 1vw;
 
         }
+            
     }
 
  @media only screen and (max-width : 768px) {
