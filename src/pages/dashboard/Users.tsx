@@ -8,7 +8,7 @@ import Userrr from '../../assets/images/icon3.png';
 import Userrrr from '../../assets/images/icon 4.png';
 import Vectororg from '../../assets/images/Vectororg.png';
 import Dot from '../../assets/images/dot.png';
-
+import Pagination from '../../components/Pagination/Pagination.tsx';
 
 
 
@@ -18,9 +18,12 @@ function Users() {
   const [error, setError] = useState(null);
         const [isLoaded, setIsLoaded] = useState(false);
         const [items, setItems] = useState([]);
-  
+  // User is currently on this page
   const [currentPage, setCurrentPage] = useState(1);
+  // No of Records to be displayed on each page   
   const [recordsPerPage] = useState(9);
+  
+
 
 
         useEffect(() => {
@@ -41,13 +44,26 @@ function Users() {
                 );
         }, []);
 
+        const indexOfLastRecord = currentPage * recordsPerPage;
+const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
+
+// Records to be displayed on the current page
+const currentRecords = items.slice(indexOfFirstRecord, 
+                                    indexOfLastRecord);
+   //calculate the number of pages                                 
+const nPages = Math.ceil(items.length / recordsPerPage)
+
         if (error) {
             return <>{error.message}</>;
         } else if (!isLoaded) {
             return <>loading...</>;
         } else {
             return (
+              
       <div className="usermain_container">
+
+            {/*<Records data={currentRecords}/>*/}
+            
         
       <h2 className='heading'>Users</h2>
        <div className='users_record'>
@@ -73,14 +89,14 @@ function Users() {
         </div>
          </div>
         <div className="completeinfo">
-          
+          {items}={currentRecords};
           <div className='organization' >
 
             <div className='iconss'>
            <h5>ORGANIZATION</h5>
            <img src={Vectororg} className="user1" alt="remote"/>
            </div>
-
+              
             {items.map((item) => (
           <ul>
           <li>{item.orgName}</li></ul>))}
@@ -230,15 +246,23 @@ function Users() {
           </select>
           <img src={Dot} className="user1" alt=""/>
           </div>
+         
+
            </div>
+           
            {/*{items.map((item) => (
           <ul>
            <li>{item.userName}</li></ul>))}*/}
 
         </div>
         
+        
         </div>
-      
+         <Pagination
+                nPages={nPages}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+            />
         </div>
     )
   }
