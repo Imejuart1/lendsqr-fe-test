@@ -18,7 +18,7 @@ function Items({ currentItems }) {
   );
 }
 
-function App({ itemsPerPage }) {
+function PaginatedItems({ itemsPerPage }) {
   // Here we use item offsets; we could also use page offsets
   // following the API or data you're working with.
   const [itemOffset, setItemOffset] = useState(0);
@@ -42,7 +42,7 @@ function App({ itemsPerPage }) {
 
   return (
     <>
-      <Items currentItems={currentItems} /><div id="container">run</div>
+      <Items currentItems={currentItems} />
       <ReactPaginate
         breakLabel="..."
         nextLabel="next >"
@@ -52,50 +52,13 @@ function App({ itemsPerPage }) {
         previousLabel="< previous"
         renderOnZeroPageCount={null}
       />
-    
     </>
   );
 }
 
 // Add a <div id="container"> to your HTML to see the componend rendered.
+ReactDOM.render(
+  <PaginatedItems itemsPerPage={4} />,
+  document.getElementById('container')
+);
 
-export default App;
-
-
-
-
-{/*import logo from './logo.svg';
-import './App.css';
-import Login from './pages/login/login.tsx';
-import Sidebar from "./components/sidebar/Sidebar.tsx";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useLocation } from "react-router-dom";
-import Users from "./pages/dashboard/Users.tsx";
-import FetchAPI from './components/sidebar/FetchAPI.tsx';
-import Userdetails from './pages/userdetails/Userdetails.tsx';
-import Userfilters from './pages/dashboard/Userfilters.tsx';
-
-
-function App() {
-  const location = useLocation();
-  console.log(location);
-   return (
-    
-    <div className="App">*/}
-      {/*setup to show sidebar in the pages*/}
-      {/*{(location.pathname === "/users")  && (<><Sidebar/></>)}
-      {(location.pathname === "/userdetails")  && (<><Sidebar/></>)}
-      {(location.pathname === "/userfilters")  && (<><Sidebar/></>)}
-
-      <Routes>
-        <Route path="/" element={<Login/>} />
-        <Route path="/userdetails" element={<Userdetails/>} />
-       <Route path="/users" element={<Users/>} />
-       <Route path="/userfilters" element={<Userfilters/>} />
-        <Route path="/sidebar" element={<Sidebar />} />
-      </Routes>
-
-    </div>
-  );
-}
-export default App;*/}
