@@ -162,6 +162,25 @@ color: #545F7D;
         
     }
 
+    .activate{
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        gap: 2.5rem;
+         .filter{
+           color: linear-gradient(0deg, #213F7D, #213F7D),linear-gradient(0deg, #FFFFFF, #FFFFFF);
+           border: 1px solid #213F7D;
+           height: 4vh;
+           width: 6.0vw;
+           border-radius: 100px;
+
+           .inactive{
+            color:#545F7D;
+           }
+
+        }
+    }
+
  @media only screen and (max-width : 768px) {
 .usermain_container{
 

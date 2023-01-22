@@ -134,10 +134,72 @@ function Users() {
             <h5>STATUS</h5>
           <img src={Vectororg} className="user1" alt=""/>
           </div>
-          
-           {items.map((item) => (
+          <div className='activate'>
+              <select  className='filter'>
+                <option value="pending">Pending</option>
+                 <option value="inactive">Inactive</option>
+                 
+                 <option value="active">Active</option>
+                 <option value="blacklisted">Blacklisted</option>
+          </select>
+                  <select  className='filter'>
+                   <option value="inactive">Inactive</option>
+                 <option value="pending">Pending</option>
+                 <option value="active">Active</option>
+                 <option value="blacklisted">Blacklisted</option>
+           
+          </select>
+                  <select  className='filter'>
+                    <option value="active">Active</option>
+                  <option value="inactive">Inactive</option>
+                 <option value="pending">Pending</option>
+                 
+                 <option value="blacklisted">Blacklisted</option>
+          </select>
+                  <select  className='filter'>
+                    <option value="blacklisted">Blacklisted</option>
+                    <option value="inactive">Inactive</option>
+                 <option value="pending">Pending</option>
+                 <option value="active">Active</option>
+                 
+          </select>
+                  <select  className='filter'>
+                    <option value="inactive">Inactive</option>
+                 <option value="pending">Pending</option>
+                 <option value="active">Active</option>
+                 <option value="blacklisted">Blacklisted</option>  
+          </select>
+                  <select  className='filter'>
+                <option value="inactive">Inactive</option>
+                 <option value="pending">Pending</option>
+                 <option value="active">Active</option>
+                 <option value="blacklisted">Blacklisted</option>
+          </select>
+                  <select  className='filter'>
+                    <option value="pending">Pending</option>
+                    <option value="inactive">Inactive</option>
+                 
+                 <option value="active">Active</option>
+                 <option value="blacklisted">Blacklisted</option>
+          </select>
+                  <select  className='filter'>
+                     <option value="blacklisted">Blacklisted</option>
+                    <option value="inactive">Inactive</option>
+                 <option value="pending">Pending</option>
+                 <option value="active">Active</option>
+                
+          </select>
+                  <select  className='filter'>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                 <option value="pending">Pending</option>
+                 
+                 <option value="blacklisted">Blacklisted</option>
+          </select>
+           </div>
+           {/*{items.map((item) => (
           <ul>
-          <li>{item.userName}</li></ul>))}
+           <li>{item.userName}</li></ul>))}*/}
 
         </div>
         
