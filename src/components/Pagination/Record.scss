@@ -7,9 +7,9 @@
         min-width:33vw;
         border:none;
        
-         ul{
+         tr{
                 list-style-type: none;
-                 li{
+                 td{
              color: #545F7D;   
              font-size: 0.9vw;
             font-family: "Work Sans";
@@ -18,7 +18,7 @@
             
             }
             }
-            .iconss{
+            thead{
                 display: flex;
                 flex-direction: row;
                 
@@ -27,7 +27,7 @@
                 margin-top: 1.7rem;
                 padding-left: 1vw;
             }
-            h5{
+            th{
                 font-size: 0.9vw;
                 font-family: "Work Sans";
             font-weight: 600;
