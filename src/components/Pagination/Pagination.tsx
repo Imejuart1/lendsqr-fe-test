@@ -1,6 +1,6 @@
 import React from "react";
 import * as RiIcons from "react-icons/ri";
-import './Pagination.scss'
+
 
 
 const Pagination = ({ nPages, currentPage, setCurrentPage }) => {
