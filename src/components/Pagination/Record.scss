@@ -5,8 +5,7 @@ table{
         background: WHITE;
         margin-top: 4rem;
         min-width:33vw;
-        border:none;
-       
+       tbody {
          tr{
                 list-style-type: none;
                  td{
@@ -18,8 +17,11 @@ table{
             
             }
             }
+           }
             thead{
-              
+              border:0px;
+             tr{ border:0px;}
+
                 
             img{
                 height:0.4vw;
