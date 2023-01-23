@@ -3,15 +3,23 @@ import Pablo from '../../assets/images/pablo-sign.png';
 import Lendsqr from '../../assets/images/lendsqr.png';
 import Union from '../../assets/images/Union.png';
 import  './login.scss';
+import { useState } from 'react';
 
 type Props = {}
 
 type State = {}
 
-export default class login extends Component<Props, State> {
-  state = {}
+ 
+function Login()  {
 
-  render() {
+
+const [passwordShown, setPasswordShown] = useState(false);
+const togglePassword = () => {
+    // When the handler is invoked
+    // inverse the boolean state of passwordShown
+    setPasswordShown(!passwordShown);
+  };
+   
     return (
                     
       <div className= "login-main_container">
@@ -44,7 +52,8 @@ export default class login extends Component<Props, State> {
             </div>
             {/*input for password*/}
             <div>
-            <input  className='login-password' type="password"name="password" placeholder='Your full name' required/>
+            <div className='login-pasword'><input  className='login-password' type={passwordShown ? "text" : "password"} name="password" placeholder='Password' required/></div>
+           <div className='span-sow'> <button className='span-show' onClick={togglePassword}>SHOW</button></div>
              {/*<span className='span-show'>SHOW</span>*/}
             </div>
             <div>
@@ -58,4 +67,7 @@ export default class login extends Component<Props, State> {
       </div>
     )
   }
-}
+
+
+
+export default Login

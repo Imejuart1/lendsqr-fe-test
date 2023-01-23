@@ -1,6 +1,6 @@
 .usermain_container{
 
-    margin-top: -86.5rem;
+    margin-top: -85rem;
     margin-left: 15vw;
     padding-left: 2vw;
     padding-right: 1vw;
@@ -195,7 +195,11 @@ color: #545F7D;
  @media only screen and (max-width : 768px) {
 .usermain_container{
 
-margin-top: -90rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
+margin-top: -90em;
+  margin-left: 0vw;
 
 }
  }
