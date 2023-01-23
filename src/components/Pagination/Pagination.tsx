@@ -22,7 +22,7 @@ const Pagination = ({ nPages, currentPage, setCurrentPage }) => {
                 <li className="page-item">
                     <a className="page-link"  onClick={prevPage} href='#'>
                         
-                        Previous
+                        &lt;
                     </a>
                 </li>
                 {pageNumbers.map(pgNumber => (
@@ -40,7 +40,7 @@ const Pagination = ({ nPages, currentPage, setCurrentPage }) => {
                         onClick={nextPage}
                         href='#'>
                         
-                        Next
+                       &gt;
                     </a>
                 </li>
             </ul>

@@ -73,7 +73,7 @@ const Sidebar = () => {
           <span className="Docs">Docs</span>
           <img src={Bell} className="bell"/>
           <img src={Avatar} className="avatar"/>
-          <h6>Adedeji</h6>  <RiIcons.RiArrowDownSFill /><RiIcons.RiArrowUpSFill />,
+          <h6>Adedeji</h6>  <RiIcons.RiArrowDownSFill />,
           </div>
           </form>
           
