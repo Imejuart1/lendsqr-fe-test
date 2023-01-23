@@ -9,19 +9,22 @@ import Userrrr from '../../assets/images/icon 4.png';
 import Vectororg from '../../assets/images/Vectororg.png';
 import Dot from '../../assets/images/dot.png';
 import Pagination from '../../components/Pagination/Pagination.tsx';
+import Records from '../../components/Pagination//Records.tsx';
 
 
 
 function Users() {
 
 
-  const [error, setError] = useState(null);
+const [error, setError] = useState(null);
         const [isLoaded, setIsLoaded] = useState(false);
-        const [items, setItems] = useState([]);
+        const [data, setData] = useState([])
+        //const [items, setItems] = useState([]);
   // User is currently on this page
-  const [currentPage, setCurrentPage] = useState(1);
+   const [currentPage, setCurrentPage] = useState(1);
   // No of Records to be displayed on each page   
-  const [recordsPerPage] = useState(9);
+const [recordsPerPage] = useState(9);
+  
   
 
 
@@ -32,7 +35,7 @@ function Users() {
                 .then(
                     (result) => {
                         setIsLoaded(true);
-                        setItems(result);
+                        setData(result);
                     },
                     // Note: it's important to handle errors here
                     // instead of a catch() block so that we don't swallow
@@ -44,15 +47,10 @@ function Users() {
                 );
         }, []);
 
-        const indexOfLastRecord = currentPage * recordsPerPage;
-const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
-
-// Records to be displayed on the current page
-const currentRecords = items.slice(indexOfFirstRecord, 
-                                    indexOfLastRecord);
-   //calculate the number of pages                                 
-const nPages = Math.ceil(items.length / recordsPerPage)
-
+   const indexOfLastRecord = currentPage * recordsPerPage;
+    const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
+    const currentRecords = data.slice(indexOfFirstRecord, indexOfLastRecord);
+    const nPages = Math.ceil(data.length / recordsPerPage)
         if (error) {
             return <>{error.message}</>;
         } else if (!isLoaded) {
@@ -89,22 +87,22 @@ const nPages = Math.ceil(items.length / recordsPerPage)
         </div>
          </div>
         <div className="completeinfo">
-          {items}={currentRecords};
-          <div className='organization' >
+          
+           {/* <div className='organization' >
 
-            <div className='iconss'>
+            <div className='iconss' >
            <h5>ORGANIZATION</h5>
            <img src={Vectororg} className="user1" alt="remote"/>
            </div>
-              
+          
             {items.map((item) => (
           <ul>
           <li>{item.orgName}</li></ul>))}
-          
+             
         </div>
       
         
-        <div className='username'>
+      <div className='username'>
           
           <div className='iconss'><h5>USERNAME</h5>
           <img src={Vectororg} className="user1" alt=""/>
@@ -249,20 +247,18 @@ const nPages = Math.ceil(items.length / recordsPerPage)
          
 
            </div>
-           
-           {/*{items.map((item) => (
-          <ul>
-           <li>{item.userName}</li></ul>))}*/}
+  
 
-        </div>
+        </div>*/}
         
         
         </div>
+        <Records data={currentRecords}/>
          <Pagination
                 nPages={nPages}
                 currentPage={currentPage}
                 setCurrentPage={setCurrentPage}
-            />
+          />
         </div>
     )
   }
