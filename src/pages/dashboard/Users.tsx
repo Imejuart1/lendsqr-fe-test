@@ -250,10 +250,10 @@ const [recordsPerPage] = useState(9);
   
 
         </div>*/}
+        <Records data={currentRecords}/>
         
         
         </div>
-        <Records data={currentRecords}/>
          <Pagination
                 nPages={nPages}
                 currentPage={currentPage}
