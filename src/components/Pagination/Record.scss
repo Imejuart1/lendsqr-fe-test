@@ -1,52 +1,46 @@
+thead{
+    tr{
+        border:3px solid white;
+    }
+}
+tbody{
 
-
-table{
+    tr{
        
-        background: WHITE;
-        margin-top: 4rem;
-        min-width:33vw;
-       tbody {
-         tr{
-                list-style-type: none;
-                 td{
+        td{
              color: #545F7D;   
              font-size: 0.9vw;
             font-family: "Work Sans";
             padding-left: 1vw;
                margin-top: 2rem;
+               
+        }
+      
+    }
+}
+  .tbdy{
+    display: flex;
             
-            }
-            }
-           }
-            thead{
-              border:0px;
-               border-color: white;
-             tr{ border:0px; 
-                 border-color:white;
-
-                
-            img{
-                height:0.4vw;
-                margin-top: 1.7rem;
-                padding-left: 1vw;
-            }
-            th{
-                border:0px;
-                border-color: white;
+            align-items: center;
+        }
+.try{
+    display: flex;
+    flex-direction: row;
+    gap:10%;
+    margin-top: 1rem;
+     border: 0px;
+    img{
+        height: 1vw;
+        align-self: center;
+    }
+    h5{
                 font-size: 0.9vw;
                 font-family: "Work Sans";
             font-weight: 600;
-             padding-top: 3vh;
-             padding-left: 3vw;
+            margin-top: 0.4rem;
             color: #545F7D;
             }
-           }
-            }
-            
-        
-    }
-
-    
+}
  @media only screen and (max-width : 768px) {
 .usermain_container{
 

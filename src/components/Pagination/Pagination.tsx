@@ -1,5 +1,6 @@
 import React from "react";
 import * as RiIcons from "react-icons/ri";
+import './Pagination.scss'
 
 
 
@@ -15,6 +16,7 @@ const Pagination = ({ nPages, currentPage, setCurrentPage }) => {
         if(currentPage !== 1) setCurrentPage(currentPage - 1)
     }
     return (
+        <div className="page">
         <nav>
             <ul className='pagination justify-content-center'>
                 <li className="page-item">
@@ -43,6 +45,7 @@ const Pagination = ({ nPages, currentPage, setCurrentPage }) => {
                 </li>
             </ul>
         </nav>
+        </div>
     )
                 }
 export default Pagination
