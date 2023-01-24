@@ -47,4 +47,47 @@ tbody{
 margin-top: -90rem;
 
 }
+thead{
+    tr{
+        border:3px solid white;
+    }
+}
+tbody{
+
+    tr{
+       
+        td{
+             color: #545F7D;   
+             font-size: 1vw;
+            font-family: "Work Sans";
+            padding-left: 1vw;
+               margin-top: 2rem;
+               
+        }
+      
+    }
+}
+  .tbdy{
+    display: flex;
+            
+            align-items: center;
+        }
+.try{
+    display: flex;
+    flex-direction: row;
+    gap:10%;
+    margin-top: 1rem;
+     border: 0px;
+    img{
+        height: 1vw;
+        align-self: center;
+    }
+    h5{
+                font-size: 1vw;
+                font-family: "Work Sans";
+            font-weight: 600;
+            margin-top: 0.4rem;
+            color: #545F7D;
+            }
+}
  }
