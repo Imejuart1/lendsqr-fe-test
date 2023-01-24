@@ -42,11 +42,7 @@ tbody{
             }
 }
  @media only screen and (max-width : 768px) {
-.usermain_container{
 
-margin-top: -90rem;
-
-}
 thead{
     tr{
         border:3px solid white;
@@ -58,7 +54,7 @@ tbody{
        
         td{
              color: #545F7D;   
-             font-size: 1vw;
+             font-size: 2vw;
             font-family: "Work Sans";
             padding-left: 1vw;
                margin-top: 2rem;
@@ -83,7 +79,7 @@ tbody{
         align-self: center;
     }
     h5{
-                font-size: 1vw;
+                font-size: 2vw;
                 font-family: "Work Sans";
             font-weight: 600;
             margin-top: 0.4rem;
