@@ -46,16 +46,19 @@ const [recordsPerPage] = useState(9);
                     }
                 );
         }, []);
-
+        const firstPageIndex = (currentPage - 1) * PageSize;
+ const lastPageIndex = firstPageIndex + PageSize;
+ const currentTableData = data.slice(firstPageIndex, lastPageIndex);
+ 
    {/*const indexOfLastRecord = currentPage * recordsPerPage;
     const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
     const currentRecords = data.slice(indexOfFirstRecord, indexOfLastRecord);
       const nPages = Math.ceil(data.length / recordsPerPage)*/}
-       const currentTableData = useMemo(() => {
+      {/*} const currentTableData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
     return data.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage]);
+  }, [currentPage]);*/}
 
         if (error) {
             return <>{error.message}</>;
@@ -99,6 +102,7 @@ const [recordsPerPage] = useState(9);
         
         
         </div>
+        <div><span>Showing <select></select> out of {lastPageIndex}</span></div>
           <Pagination
         className="pagination-bar"
         currentPage={currentPage}
