@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react'
 import './Users.scss'
 import { useState, useEffect } from "react"
+import Select from "react-select";
 import Sidebar from "../../components/sidebar/Sidebar.tsx"
 import User from '../../assets/images/icon@2x.png';
 import Userr from '../../assets/images/icon.png';
@@ -15,7 +16,12 @@ let PageSize = 10;
 
 function Users() {
 
-
+const options = [
+    { value: "blues", label: "Blues" },
+    { value: "rock", label: "Rock" },
+    { value: "jazz", label: "Jazz" },
+    { value: "orchestra", label: "Orchestra" },
+  ];
 const [error, setError] = useState(null);
         const [isLoaded, setIsLoaded] = useState(false);
         const [data, setData] = useState([])
@@ -49,7 +55,7 @@ const [recordsPerPage] = useState(9);
         const firstPageIndex = (currentPage - 1) * PageSize;
  const lastPageIndex = firstPageIndex + PageSize;
  const currentTableData = data.slice(firstPageIndex, lastPageIndex);
- 
+
    {/*const indexOfLastRecord = currentPage * recordsPerPage;
     const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
     const currentRecords = data.slice(indexOfFirstRecord, indexOfLastRecord);

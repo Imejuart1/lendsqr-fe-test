@@ -1,8 +1,16 @@
 import React from 'react'
 import './Record.scss' 
 import Vectororg from '../../assets/images/Vectororg.png';
+import Select from "react-select";
+import Dot from '../../assets/images/dot.png';
+
 const Records = ({data}) => {
-    
+     const options = [
+    { value: "blacklisted", label: "Blacklisted" },
+    { value: "inactive", label: "Inactive" },
+    { value: "pending", label: "Pending" },
+    { value: "active", label: "Active" },
+  ];
   return (  
     <table className="table">
         <thead>
@@ -26,13 +34,10 @@ const Records = ({data}) => {
                     <td><div className='tbdy'>{item.phoneNumber}</div> </td>
                     <td><div className='tbdy'>{item.lastActiveDate}</div></td>
                     <td>  
-                    <div className='tbdy'>   
-                    <select  className='filter'>
-                     <option value="blacklisted">Blacklisted</option>
-                    <option value="inactive">Inactive</option>
-                 <option value="pending">Pending</option>
-                 <option value="active">Active</option>
-                 </select>
+                    <div className='tbdy'>
+                         <Select className='filter' options={options} />   
+                         <img src={Dot} alt=""/>
+               
                   </div>
                   </td>
                 
