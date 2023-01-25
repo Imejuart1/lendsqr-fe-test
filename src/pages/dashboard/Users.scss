@@ -192,6 +192,11 @@ color: #545F7D;
             
     }
 
+    .pagination-bar {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
  @media only screen and (max-width : 768px) {
 .usermain_container{
 

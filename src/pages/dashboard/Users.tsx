@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useMemo } from 'react'
 import './Users.scss'
 import { useState, useEffect } from "react"
 import Sidebar from "../../components/sidebar/Sidebar.tsx"
@@ -11,7 +11,7 @@ import Dot from '../../assets/images/dot.png';
 import Pagination from '../../components/Pagination/Pagination.tsx';
 import Records from '../../components/Pagination//Records.tsx';
 
-
+let PageSize = 10;
 
 function Users() {
 
@@ -24,9 +24,9 @@ const [error, setError] = useState(null);
    const [currentPage, setCurrentPage] = useState(1);
   // No of Records to be displayed on each page   
 const [recordsPerPage] = useState(9);
-  
-  
 
+
+ 
 
 
         useEffect(() => {
@@ -47,10 +47,16 @@ const [recordsPerPage] = useState(9);
                 );
         }, []);
 
-   const indexOfLastRecord = currentPage * recordsPerPage;
+   {/*const indexOfLastRecord = currentPage * recordsPerPage;
     const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
     const currentRecords = data.slice(indexOfFirstRecord, indexOfLastRecord);
-    const nPages = Math.ceil(data.length / recordsPerPage)
+      const nPages = Math.ceil(data.length / recordsPerPage)*/}
+       const currentTableData = useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * PageSize;
+    const lastPageIndex = firstPageIndex + PageSize;
+    return data.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage]);
+
         if (error) {
             return <>{error.message}</>;
         } else if (!isLoaded) {
@@ -89,15 +95,17 @@ const [recordsPerPage] = useState(9);
         <div className="completeinfo">
           
         
-        <Records data={currentRecords}/>
+        <Records data={currentTableData}/>
         
         
         </div>
-         <Pagination
-                nPages={nPages}
-                currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
-          />
+          <Pagination
+        className="pagination-bar"
+        currentPage={currentPage}
+        totalCount={data.length}
+        pageSize={PageSize}
+        onPageChange={page => setCurrentPage(page)}
+      />
         </div>
     )
   }
