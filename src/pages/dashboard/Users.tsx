@@ -12,24 +12,37 @@ import Dot from '../../assets/images/dot.png';
 import Pagination from '../../components/Pagination/Pagination.tsx';
 import Records from '../../components/Pagination//Records.tsx';
 
+
 let PageSize = 10;
 
-function Users() {
 
+function Users() {
+  const [selected, setSelected] = useState(1);
+
+  const handleChange = (selectedOption) => {
+    setSelected(selectedOption);
+    console.log(`Option selected:`, selectedOption);
+  };
 const options = [
-    { value: "blues", label: "Blues" },
-    { value: "rock", label: "Rock" },
-    { value: "jazz", label: "Jazz" },
-    { value: "orchestra", label: "Orchestra" },
+    { value: "10", label: "10" },
+    { value: "20", label: "20" },
+    { value: "30", label: "30" },
+    { value: "40", label: "40" },
+     { value: "50", label: "50" },
+      { value: "60", label: "60" },
+       { value: "80", label: "80" },
+        { value: "100", label: "100" },
   ];
+
+
 const [error, setError] = useState(null);
         const [isLoaded, setIsLoaded] = useState(false);
         const [data, setData] = useState([])
         //const [items, setItems] = useState([]);
   // User is currently on this page
    const [currentPage, setCurrentPage] = useState(1);
-  // No of Records to be displayed on each page   
-const [recordsPerPage] = useState(9);
+   const [recordsPerPage] = useState(9);
+  
 
 
  
@@ -52,19 +65,15 @@ const [recordsPerPage] = useState(9);
                     }
                 );
         }, []);
-        const firstPageIndex = (currentPage - 1) * PageSize;
- const lastPageIndex = firstPageIndex + PageSize;
- const currentTableData = data.slice(firstPageIndex, lastPageIndex);
 
-   {/*const indexOfLastRecord = currentPage * recordsPerPage;
-    const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
-    const currentRecords = data.slice(indexOfFirstRecord, indexOfLastRecord);
-      const nPages = Math.ceil(data.length / recordsPerPage)*/}
-      {/*} const currentTableData = useMemo(() => {
-    const firstPageIndex = (currentPage - 1) * PageSize;
-    const lastPageIndex = firstPageIndex + PageSize;
-    return data.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage]);*/}
+        const indexOfLastRecord = currentPage * PageSize;
+    const indexOfFirstRecord = indexOfLastRecord - PageSize;
+    const currentTableData = data.slice(indexOfFirstRecord, indexOfLastRecord);
+         if (selected.value>1){
+     PageSize= selected.value
+  }
+
+
 
         if (error) {
             return <>{error.message}</>;
@@ -103,19 +112,29 @@ const [recordsPerPage] = useState(9);
          </div>
         <div className="completeinfo">
           
-        
+        {/*the Mock API data records*/}
         <Records data={currentTableData}/>
         
         
         </div>
-        <div><span>Showing <select></select> out of {lastPageIndex}</span></div>
+        <div className='show'>
+          <div className='show'>
+            <span>Showing</span> 
+            <Select className="filtr" options={options}  onChange={handleChange} autoFocus={true}  defaultValue={options[0]} /> 
+            <span>out </span><span>of</span> 
+            <p>{data.length}</p>
+
+            
+            </div>
           <Pagination
         className="pagination-bar"
         currentPage={currentPage}
         totalCount={data.length}
         pageSize={PageSize}
         onPageChange={page => setCurrentPage(page)}
+
       />
+      </div>
         </div>
     )
   }

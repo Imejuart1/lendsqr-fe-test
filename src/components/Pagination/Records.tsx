@@ -5,10 +5,12 @@ import Select from "react-select";
 import Dot from '../../assets/images/dot.png';
 
 const Records = ({data}) => {
+    
+
      const options = [
     { value: "blacklisted", label: "Blacklisted" },
     { value: "inactive", label: "Inactive" },
-    { value: "pending", label: "Pending" },
+    { value: "#E9B200", label: "Pending" },
     { value: "active", label: "Active" },
   ];
   return (  
