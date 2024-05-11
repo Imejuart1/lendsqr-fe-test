@@ -1,15 +1,15 @@
 import logo from './logo.svg';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Login from './components/Login/Login';
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import Login from './components/Login/Login.tsx';
 import './App.css';
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/login" component={Login} />
-      </Switch>
-    </Router>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
