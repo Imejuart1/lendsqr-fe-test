@@ -3,10 +3,113 @@
     align-items: center;
     justify-self: center;
     height:100vh;
+    .login-left_main{   
+      height:100vh;     
+      width: 50%;     
+      background-color: rgba(223, 226, 236, 0.15);
     .login-left {
-        width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      margin: 10rem 5rem;
+      gap:7rem;
+
+        .lendqr-logo{
+          margin-top: -4rem;
+          margin-left: 2rem;
+          width:173.76px;
+          height:36px;
+        }
+      
+        .pablo{
+          //margin-top: 6rem;
+          width: 39.4vw;
+          height: 46.3vh;
+        }
+      }
       }
     .login-right {
         width: 50%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 0rem 6rem;
+        .right-info{
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap:10px;
+          margin-bottom: 3.5rem;
+          h2{
+            font-size: 40px;
+            font-weight: 700;
+            text-align: left; 
+            color:rgba(33, 63, 125, 1)          
+          }
+          p{
+            font-size: 20px;
+            font-weight: 400;
+            text-align: left;
+            color: rgba(84, 95, 125, 1);
+          }
+        }
+       .right-inputs{
+          display: flex;
+        flex-direction: column;
+        gap:20px;
+        width: 29.4vw;
+        input{ 
+          padding: 15px 10px;
+          border-radius: 5px;
+          opacity: 0px;
+          border-color: rgba(84, 95, 125, 0.15);
+        }
+ 
+        input::placeholder{
+          font-size: 14px;
+          font-weight: 400;
+          text-align: left;
+          color:rgba(84, 95, 125, 1);
+          opacity: 60%;        
+          left: 60px;     
+        }
+        .password-input {
+          position: relative;
+          box-sizing: border-box;
+          width:100%;
+          input{
+            
+            width: calc(100% - 25px);
+          }
+          .password-toggle {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            cursor: pointer;
+          }
+          
+        }
+           span{
+          font-size: 12px;
+          font-weight: 600;
+          color:rgba(57, 205, 204, 1);
+          letter-spacing: 1px;
+        }
+        button{
+          
+          margin-top: 1rem;
+          padding: 15px 10px;
+          border: none;
+          border-radius: 8px;
+          color:rgba(255, 255, 255, 1);
+          background-color: rgba(57, 205, 204, 1);
+          font-size: 14px;
+          font-weight: 600;
+          letter-spacing: 0.1em;
+          text-align: center;    
+        }
+        }
       }
 }
