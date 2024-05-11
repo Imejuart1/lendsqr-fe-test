@@ -1,0 +1,12 @@
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    height:100vh;
+    .login-left {
+        width: 50%;
+      }
+    .login-right {
+        width: 50%;
+      }
+}
