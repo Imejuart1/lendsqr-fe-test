@@ -1,0 +1,126 @@
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 10px 10px;
+    //color: #fff;
+  }
+  .logosearch{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  .logo{
+    margin-right: 20%;
+    img {
+        width:144.8px;
+        height: 30px;
+        margin-left: 30px;
+      
+      }
+  }
+  .search {
+    position: relative;
+    display: flex;
+    align-items: center;
+  
+    input {
+      width: 400px;
+      height: 40px;
+      border-radius: 8px;
+      border: 1px solid rgba(33, 63, 125, 0.2);
+      padding-left: 20px;
+  
+      &::placeholder {
+        font-family: 'Work Sans';
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+        text-align: left;
+        color: rgba(84, 95, 125, 1);
+        opacity: 0.5;
+      }
+      &:focus {
+                outline: none;
+                border:  1px solid rgba(33, 63, 125, 0.2);
+                box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2);
+      }
+    }
+  
+    .search_iconbackgnd {
+      position: absolute;
+      right: 0;
+      background-color: rgba(57, 205, 204, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 43px;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+  
+      .search-icon {
+        color: #fff;
+      }
+    }
+  }
+}
+
+
+  .navbar-nav {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap:10%;
+    margin-right: 3rem;
+  }
+  
+  .nav-item {
+    margin-right: 30px;
+  }
+  .nav-item_notify {
+    margin-right: 10px;
+  }
+  .nav-link {
+    text-decoration: underline;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: left;
+    color: rgba(33, 63, 125, 1);
+  }
+  
+  .nav-link:hover {
+    text-decoration: underline;
+  }
+  
+  .profile {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap:20px;
+    img{
+        width: 48px;
+        height: 48px;
+        border-radius: 100px;
+    }
+    .profile-name{
+        font-family: 'Work Sans';
+        font-size: 16px;
+        font-weight: 500;
+        color:rgba(33, 63, 125, 1);
+        text-align: left;  
+    }
+    .profile-info {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        gap:3px;
+        .drop_icon{
+            width: 20px;
+            height: 20px;           
+        }
+      }
+  }
+  
