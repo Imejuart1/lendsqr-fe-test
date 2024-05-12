@@ -1,11 +1,11 @@
 .sidebar {
-    width: 250px;
-    height: 100vh;
-    background-color: #f4f7fa;
-    padding: 20px;
+width: 283px;
+   // background-color: #f4f7fa;
+    padding: 30px 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: rgba(255, 255, 255, 1)
   }
   
   .sidebar-header {
@@ -27,6 +27,13 @@
   
   .switch {
     margin-left: 10px;
+    margin-right: 10px;
+    font-family: 'Work Sans';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18.77px;
+    text-align: left;
+    color:rgba(33, 63, 125, 1)
   }
   
   .dropdown-icon {

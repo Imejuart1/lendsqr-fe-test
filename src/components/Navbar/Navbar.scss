@@ -4,8 +4,8 @@
     align-items: center;
     justify-content: space-between;
     background-color: rgba(255, 255, 255, 1);
-    padding: 10px 10px;
-    //color: #fff;
+    padding: 0px 40px;
+
   }
   .logosearch{
     display: flex;
@@ -16,7 +16,6 @@
     img {
         width:144.8px;
         height: 30px;
-        margin-left: 30px;
       
       }
   }
@@ -24,7 +23,7 @@
     position: relative;
     display: flex;
     align-items: center;
-    margin-top: -10px;
+    //margin-top: -10px;
     input {
       width: 400px;
       height: 40px;

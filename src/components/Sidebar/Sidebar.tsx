@@ -8,11 +8,10 @@ const Sidebar: React.FC = () => {
   return (
     <div className="sidebar">
       <div className="sidebar-header">
-        <img src="/images/logo.webp" alt="Logo" className="logo" />
         <div className="org-switch">
-          <BsGearFill className="icon" />
+        <img src="/images/switch_org.svg" alt="switch_org" />
           <span className="switch">Switch Organization</span>
-          <FiChevronDown className="dropdown-icon" />
+          <img src="/images/downarrow2.svg" className="icon" />
         </div>
       </div>
       <ul className="sidebar-menu">
