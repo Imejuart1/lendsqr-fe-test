@@ -1,22 +1,22 @@
 .lendsqr-table{
   background-color: white;
-  padding: 1.32vw 1.1vw;
+  padding: 2vw;
   margin-top: 4vw;
 .table {
     width: 100%;
    
     border-collapse: collapse;
   
-    th, td {
-      padding: 8px;
-      text-align: left;
-    }
+
     tr{
       display: flex;
       align-items:center;
       justify-content: space-between;
+     
     }
-  
+   .tr_line{
+    border-bottom: 1px solid rgba(33, 63, 125, 0.1);
+   }
     th {
       display: flex;
       align-items:center;
@@ -28,11 +28,57 @@
       line-height: 14.08px;
       text-align: left;
       color:rgba(84, 95, 125, 1);
-      
+      margin-bottom: 1vw;
     }
-  
-    tr:nth-child(even) {
+     .status{
+      border-radius: 100px;
+      opacity: 0.1px;      
+     }
+    td {
+      font-family: 'Work Sans';
+      padding: 2vw 0vw;
+     
+      font-size: 0.875rem;
+      font-weight: 400;
+      //line-height: 16.42px;
+      text-align: left;
+      align-items:center;
+      color:rgba(84, 95, 125, 1);
     }
   }
+
+  th:first-child,
+  td:first-child {
+    width: 15.83%;
+  }
+  
+  th:nth-child(2),
+  td:nth-child(2) {
+    width: 20%;
+  }
+  
+  th:nth-child(3),
+  td:nth-child(3) {
+    width: 20%;
+  }
+  
+  th:nth-child(4),
+  td:nth-child(4) {
+    width: 20%;
+  }
+  
+  th:nth-child(5),
+  td:nth-child(5) {
+    width: 20%;
+  }
+  
+  th:nth-child(6),
+  td:nth-child(6) {
+    width: 15%;
+  }
+  th:nth-child(7),
+td:nth-child(7) {
+width: 1%;
+}
 }
   
