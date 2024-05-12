@@ -1,19 +1,38 @@
+.lendsqr-table{
+  background-color: white;
+  padding: 1.32vw 1.1vw;
+  margin-top: 4vw;
 .table {
     width: 100%;
+   
     border-collapse: collapse;
   
     th, td {
-      border: 1px solid #ddd;
       padding: 8px;
       text-align: left;
     }
+    tr{
+      display: flex;
+      align-items:center;
+      justify-content: space-between;
+    }
   
     th {
-      background-color: #f2f2f2;
+      display: flex;
+      align-items:center;
+      gap:0.5rem;
+      //flex-direction: row;
+      font-family: 'Work Sans';
+      font-size: 0.75rem;
+      font-weight: 600;
+      line-height: 14.08px;
+      text-align: left;
+      color:rgba(84, 95, 125, 1);
+      
     }
   
     tr:nth-child(even) {
-      background-color: #f2f2f2;
     }
   }
+}
   
