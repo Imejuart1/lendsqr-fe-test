@@ -1,7 +1,18 @@
 .dashboard-container {
-    margin-left: 24.33vw; 
-    width: calc(97% - 24.33vw); 
-    padding: 20px 2.63vw;
+    margin-left: 21vw; 
+    background-color: rgba(210, 212, 224, 0.15);
+    .dashboard_main{
+        padding: 4vw;
+    }
+    h2{
+        //margin-top: 30px;
+        margin-bottom: 30px;
+        font-family: 'Work Sans';
+        font-size: 1.58vw;
+        font-weight: 500;
+        text-align: left;
+        color: rgba(33, 63, 125, 1);
+    }
     .dashboard-cards{
         display: flex;
         flex-direction: row;

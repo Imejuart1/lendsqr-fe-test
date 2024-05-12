@@ -14,7 +14,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-h2, p {
+h3,h2, p {
   margin: 0;
 }
 a {
