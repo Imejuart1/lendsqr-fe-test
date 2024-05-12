@@ -4,18 +4,18 @@
     align-items: center;
     justify-content: space-between;
     background-color: rgba(255, 255, 255, 1);
-    padding: 0px 2.63vw;
+    padding: 1vw 2.63vw;
 
-  }
+  
   .logosearch{
     display: flex;
     flex-direction: row;
     align-items: center;
   .logo{
-    margin-right: 12vw;
+    margin-right: 13.2vw;
     img {
-        width:144.8px;
-        height: 30px;
+      width: 9.53vw; 
+      height: 1.97vw; 
       
       }
   }
@@ -23,17 +23,16 @@
     position: relative;
     display: flex;
     align-items: center;
-    //margin-top: -10px;
     input {
-      width: 400px;
-      height: 40px;
-      border-radius: 8px;
-      border: 1px solid rgba(33, 63, 125, 0.2);
-      padding-left: 20px;
-  
+      width: 26.33vw;
+      height: 2.63vw;
+      border-radius: 0.53vw;
+      border: 0.066vw solid rgba(33, 63, 125, 0.2);
+      padding-left: 1.32vw; 
+      font-size: 0.92vw;
       &::placeholder {
         font-family: 'Work Sans';
-        font-size: 14px;
+        font-size: 0.92vw;
         font-weight: 400;
         letter-spacing: 0.5px;
         text-align: left;
@@ -54,13 +53,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 56px;
-      height: 43px;
-      border-top-right-radius: 8px;
-      border-bottom-right-radius: 8px;
+      width: 3.69vw;
+      height: 2.9vw;
+      border-top-right-radius: 0.53vw;
+      border-bottom-right-radius: 0.53vw;
   
       .search-icon {
         color: #fff;
+        width: 0.92vw;
+        height: 1.92vh;
       }
     }
   }
@@ -72,22 +73,26 @@
     display: flex;
     align-items: center;
     gap:10%;
-    margin-right: 3rem;
+    margin-right: 1.975vw;
   }
   
   .nav-item {
-    margin-right: 30px;
+    margin-right: 1.975vw;
   }
   .nav-item_notify {
-    margin-right: 10px;
+     margin-right: 0.658vw;
   }
   .nav-link {
     text-decoration: underline;
-    font-family: Roboto;
-    font-size: 16px;
+    font-family: 'Roboto';
+    font-size: 1.05vw;
     font-weight: 400;
     text-align: left;
     color: rgba(33, 63, 125, 1);
+  }
+  .notify{
+    width: 1.71vw;
+    height: 1.71vw;
   }
   
   .nav-link:hover {
@@ -98,15 +103,15 @@
     position: relative;
     display: flex;
     align-items: center;
-    gap:20px;
+    gap:1.318vw;
     img{
-        width: 48px;
-        height: 48px;
+        width: 3.16vw;
+        height: 3.16vw;
         border-radius: 100px;
     }
     .profile-name{
         font-family: 'Work Sans';
-        font-size: 16px;
+        font-size: 1.05vw;
         font-weight: 500;
         color:rgba(33, 63, 125, 1);
         text-align: left;  
@@ -115,11 +120,11 @@
         display: flex;
         align-items: center;
         flex-direction: row;
-        gap:3px;
+        gap:0.2vw;
         .drop_icon{
-            width: 20px;
-            height: 20px;           
+            width: 1.32vw;
+            height: 1.32vw;         
         }
       }
   }
-  
+}

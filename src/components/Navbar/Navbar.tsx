@@ -17,27 +17,28 @@ const Navbar: React.FC = () => {
           </div>
         </div>
       </div>
-      <ul className="navbar-nav">
-        <li className="nav-item">
-          <Link to="/docs" className="nav-link">
-            Docs
-          </Link>
-        </li>
-        <li className="nav-item_notify">
-          <Link to="/notifications" className="nav-link">
-          <img src="/images/notify.svg" alt="notify" />
-          </Link>
-        </li>
-        <li className="nav-item">
-          <div className="profile">
-            <img src="/images/profile_icon.webp" alt="Profile" />
-            <div className="profile-info">
-            <span className="profile-name">Adedeji</span>
-            <img src="/images/dropdown.svg" alt="dropdown" className='drop_icon'/>
-            </div>
-          </div>
-        </li>
-      </ul>
+      <div className="navbar-nav">
+  <div className="nav-item">
+    <Link to="/docs" className="nav-link">
+      Docs
+    </Link>
+  </div>
+  <div className="nav-item_notify">
+    <Link to="/notifications" className="nav-link">
+      <img src="/images/notify.svg" alt="notify" className='notify'/>
+    </Link>
+  </div>
+  <div className="nav-item">
+    <div className="profile">
+      <img src="/images/profile_icon.webp" alt="Profile" />
+      <div className="profile-info">
+        <span className="profile-name">Adedeji</span>
+        <img src="/images/dropdown.svg" alt="dropdown" className='drop_icon'/>
+      </div>
+    </div>
+  </div>
+</div>
+
     </nav>
   );
 };
