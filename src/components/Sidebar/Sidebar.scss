@@ -1,70 +1,71 @@
 .sidebar {
-width: 283px;
-   // background-color: #f4f7fa;
-    padding: 30px 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: rgba(255, 255, 255, 1)
-  }
-  
-  .sidebar-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 40px;
-  }
-  
-  .logo {
-    width: 100px;
-  }
-  
-  .org-switch {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .switch {
-    margin-left: 10px;
-    margin-right: 10px;
+  width: 18.63vw;
+  padding: 30px 2.63vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 1);
+  position: fixed;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.63vw;
+}
+
+.org-switch {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.switch {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-family: 'Work Sans';
+  font-size: 1.05vw;
+  font-weight: 400;
+  line-height: 18.77px;
+  text-align: left;
+  color: rgba(33, 63, 125, 1);
+}
+
+.dropdown-icon {
+  margin-left: 5px;
+}
+
+.sidebar-menu {
+  padding: 0;
+  margin: 0;
+  .section-title {
+    margin-top: 0px;
+    margin-bottom:1.5vw;
     font-family: 'Work Sans';
-    font-size: 16px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14.08px;
+    text-align: left;
+    color:rgba(84, 95, 125, 1)
+  }
+  a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-bottom:2vw;
+    font-family: 'Work Sans';
+    font-size: 1.05vw;
     font-weight: 400;
     line-height: 18.77px;
-    text-align: left;
-    color:rgba(33, 63, 125, 1)
+    text-align: l/eft;
+    color: rgba(33, 63, 125, 1);
+    opacity: 70%;
   }
   
-  .dropdown-icon {
-    margin-left: 5px;
-  }
-  
-  .sidebar-menu {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  li {
-    margin-bottom: 10px;
-  }
-  
-  a {
-    display: flex;
-    align-items: center;
-    color: #333;
-    text-decoration: none;
-  }
-  
-  .icon {
-    margin-right: 10px;
-  }
-  
-  .section-title {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    color: #666;
-    font-weight: bold;
-  }
-  
+}
+.icon {
+  margin-right: 10px;
+}

@@ -1,3 +1,12 @@
-.body{
-    
-}
+.dashboard-container {
+    margin-left: 24.33vw; 
+    width: calc(97% - 24.33vw); 
+    padding: 20px 2.63vw;
+    .dashboard-cards{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+  }
+
+  
