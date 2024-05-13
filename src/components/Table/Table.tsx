@@ -49,8 +49,13 @@ const Table: React.FC = () => {
                         <td>{user.EMAIL}</td>
                         <td>{user['PHONE NUMBER']}</td>
                         <td>{user['DATE JOINED']}</td>
-                        <td style={{ backgroundColor: getUserStatusColor(user.STATUS)}}
-                        className='status'>{user.STATUS}</td>
+                        <td >
+                        <div style={{ backgroundColor: getUserStatusBackgroundColor(user.STATUS)}} 
+                         className={`status ${user.STATUS}`}>
+                          <div className='spanstatus'
+                          style={{ color: getUserStatusColor(user.STATUS)}} >{user.STATUS}</div>
+                          </div>
+                        </td>
                         <td><img src='images/dot3.svg' alt="icon" /></td>
                       </tr>
           ))}
@@ -63,15 +68,30 @@ const Table: React.FC = () => {
 const getUserStatusColor = (status: string) => {
   switch (status) {
     case 'Active':
-      return 'rgba(144, 238, 144, 0.2)'; // Green
+      return 'rgba(57, 205, 98, 1)'; 
     case 'Pending':
-      return 'rgba(255, 255, 0, 0.2)'; // Yellow
+      return 'rgba(233, 178, 0, 1)';
     case 'Blacklisted':
-      return 'rgba(255, 99, 71, 0.2)'; // Red
+      return 'rgba(228, 3, 59, 1)'; 
     case 'Inactive':
-      return 'rgba(169, 169, 169, 0.2)'; // Grey
+      return 'rgba(84, 95, 125, 1)'; 
     default:
-      return 'rgba(255, 255, 255, 1)'; // White
+      return 'rgba(255, 255, 255, 1)'; 
+  }
+};
+
+const getUserStatusBackgroundColor = (status: string) => {
+  switch (status) {
+    case 'Active':
+      return 'rgba(57, 205, 98, 0.1)';
+    case 'Pending':
+      return 'rgba(233, 178, 0, 0.1)'; 
+    case 'Blacklisted':
+      return 'rgba(228, 3, 59, 0.1)'; 
+    case 'Inactive':
+      return 'rgba(84, 95, 125, 0.1)'; 
+    default:
+      return 'rgba(255, 255, 255, 1)';
   }
 };
 

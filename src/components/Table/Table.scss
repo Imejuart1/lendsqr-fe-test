@@ -31,9 +31,33 @@
       margin-bottom: 1vw;
     }
      .status{
+      display: flex;
+      height: 30px;
       border-radius: 100px;
-      opacity: 0.1px;      
+      align-items: center;
+      justify-content: center;
+  
+      .spanstatus{
+      
+       }
+       
      }
+
+     .Active {
+      width: 70px; 
+    }
+    
+    .Pending {
+      width: 90px;
+    }
+    
+    .Blacklisted {
+      width: 100px; 
+    }
+    
+    .Inactive {
+      width: 80px; 
+    }
     td {
       font-family: 'Work Sans';
       padding: 2vw 0vw;
