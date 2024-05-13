@@ -1,7 +1,41 @@
 import React, { useEffect, useState } from 'react';
 import './Table.scss';
+import Pagination from '../Pagination/Pagination.tsx';
+
+const getUserStatusColor = (status: string) => {
+  switch (status) {
+    case 'Active':
+      return 'rgba(57, 205, 98, 1)'; 
+    case 'Pending':
+      return 'rgba(233, 178, 0, 1)';
+    case 'Blacklisted':
+      return 'rgba(228, 3, 59, 1)'; 
+    case 'Inactive':
+      return 'rgba(84, 95, 125, 1)'; 
+    default:
+      return 'rgba(255, 255, 255, 1)'; 
+  }
+};
+
+const getUserStatusBackgroundColor = (status: string) => {
+  switch (status) {
+    case 'Active':
+      return 'rgba(57, 205, 98, 0.1)';
+    case 'Pending':
+      return 'rgba(233, 178, 0, 0.1)'; 
+    case 'Blacklisted':
+      return 'rgba(228, 3, 59, 0.1)'; 
+    case 'Inactive':
+      return 'rgba(84, 95, 125, 0.1)'; 
+    default:
+      return 'rgba(255, 255, 255, 1)';
+  }
+};
 
 const Table: React.FC = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [usersPerPage] = useState(10);
+
   const [userData, setUserData] = useState([]);
   useEffect(()=>{
     fetch('https://66413bb3a7500fcf1a9fe52e.mockapi.io/API/user/data')
@@ -9,6 +43,12 @@ const Table: React.FC = () => {
     .then((data)=> setUserData(data))
     .catch((error) => console.error('Error fetching data:', error))
   },[])
+
+  const indexOfLastUser = currentPage * usersPerPage;
+  const indexOfFirstUser = indexOfLastUser - usersPerPage;
+  const currentUsers = userData.slice(indexOfFirstUser, indexOfLastUser);
+
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
   return (
     <div className='lendsqr-table'>
       <table className="table">
@@ -42,7 +82,7 @@ const Table: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {userData.map((user: any, index: number) =>(
+          {currentUsers.map((user: any, index: number) =>(
                         <tr key={index} className='tr_line'>
                         <td>{user.ORGANIZATION}</td>
                         <td>{user.USERNAME}</td>
@@ -61,38 +101,16 @@ const Table: React.FC = () => {
           ))}
         </tbody>
       </table>
+      <Pagination
+        usersPerPage={usersPerPage}
+        totalUsers={userData.length}
+        paginate={paginate}
+        currentPage={currentPage}
+      />
     </div>
   );
 };
 
-const getUserStatusColor = (status: string) => {
-  switch (status) {
-    case 'Active':
-      return 'rgba(57, 205, 98, 1)'; 
-    case 'Pending':
-      return 'rgba(233, 178, 0, 1)';
-    case 'Blacklisted':
-      return 'rgba(228, 3, 59, 1)'; 
-    case 'Inactive':
-      return 'rgba(84, 95, 125, 1)'; 
-    default:
-      return 'rgba(255, 255, 255, 1)'; 
-  }
-};
 
-const getUserStatusBackgroundColor = (status: string) => {
-  switch (status) {
-    case 'Active':
-      return 'rgba(57, 205, 98, 0.1)';
-    case 'Pending':
-      return 'rgba(233, 178, 0, 0.1)'; 
-    case 'Blacklisted':
-      return 'rgba(228, 3, 59, 0.1)'; 
-    case 'Inactive':
-      return 'rgba(84, 95, 125, 0.1)'; 
-    default:
-      return 'rgba(255, 255, 255, 1)';
-  }
-};
 
 export default Table;
