@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Table.scss';
 import Pagination from '../Pagination/Pagination.tsx';
+import MoreInfoPopup from '../moreinfo/MoreInfoPopup.tsx';
 
 const getUserStatusColor = (status: string) => {
   switch (status) {
@@ -36,11 +37,13 @@ const Table: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [usersPerPage, setUsersPerPage] = useState(10);
   const [userData, setUserData] = useState<any[]>([]);
+  const [selectedUser, setSelectedUser] = useState<any | null>(null);
+  const [popupPosition, setPopupPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     fetch('https://66413bb3a7500fcf1a9fe52e.mockapi.io/API/user/data')
       .then((response) => response.json())
-      .then((data) => setUserData(data))
+      .then((data) => setUserData(data.map((user, index) => ({...user, positionX: 0, positionY: 0}))))
       .catch((error) => console.error('Error fetching data:', error));
   }, []);
 
@@ -55,6 +58,26 @@ const Table: React.FC = () => {
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
   const currentUsers = userData.slice(indexOfFirstUser, indexOfLastUser);
 
+  const handleMoreInfoClick = (user: any, event: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
+    setSelectedUser({...user});
+    const rect = (event.target as HTMLElement).getBoundingClientRect();
+    setPopupPosition({ x: rect.left - 120, y: rect.top + 40 });
+  };
+
+  const handleClosePopup = () => {
+    setSelectedUser(null);
+  };
+
+  const handleBlacklistUser = () => {
+    // Code to blacklist user
+    handleClosePopup();
+  };
+
+  const handleActivateUser = () => {
+    // Code to activate user
+    handleClosePopup();
+  };
+
   return (
     <div>
       <div className="lendsqr-table">
@@ -62,7 +85,7 @@ const Table: React.FC = () => {
           <thead>
             <tr>
               <th>
-                <span>ORGANIZATION</span>
+                ORGANIZATION
                 <img src="/images/filter-results-button.svg" alt="Filter icon" />
               </th>
               <th>
@@ -105,13 +128,27 @@ const Table: React.FC = () => {
                   </div>
                 </td>
                 <td>
-                  <img src="images/dot3.svg" alt="icon" />
+                  <img
+                    src="/images/dot3.svg"
+                    alt="More options"
+                    onClick={(event) => handleMoreInfoClick(user, event)}
+                  />
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+      {selectedUser && (
+        <MoreInfoPopup
+          user={selectedUser}
+          onClose={handleClosePopup}
+          onBlacklist={handleBlacklistUser}
+          onActivate={handleActivateUser}
+          positionX={popupPosition.x}
+          positionY={popupPosition.y}
+        />
+      )}
       <Pagination
         usersPerPage={usersPerPage}
         totalUsers={userData.length}
