@@ -1,8 +1,11 @@
 .dashboard-container {
     margin-left: 19vw; 
     background-color: rgba(210, 212, 224, 0.15);
+    overflow-y: scroll;
+    height: 100vh;
     .dashboard_main{
         padding: 4vw 4vw;
+        margin-bottom: 10vw;
     }
     h2{
         //margin-top: 30px;

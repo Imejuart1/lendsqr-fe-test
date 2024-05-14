@@ -6,6 +6,7 @@ import './Sidebar.scss';
 
 const Sidebar: React.FC = () => {
   return (
+    <div className='sidebar_main'>
     <div className="sidebar">
       <div className="sidebar-header">
         <div className="org-switch">
@@ -102,7 +103,8 @@ const Sidebar: React.FC = () => {
           <BsClipboardData className="icon" />
           Audit Logs
         </Link>
-      </div>/
+      </div>
+    </div>
     </div>
   );
 };

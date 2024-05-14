@@ -1,13 +1,14 @@
+.sidebar_main{
+  height: 100vh;
+  position: fixed;
+  overflow-y: auto;
+}
 .sidebar {
   width: 15vw;
-  padding: 30px 1.6vw 30px 2.63vw;
+  padding: 30px 1.6vw 6vw 2.63vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  //background-color: rgba(255, 255, 255, 1);
-  position: fixed;
-  overflow-y: auto;
-  height: 100%;
 }
 
 .sidebar-header {
