@@ -1,5 +1,6 @@
 import React from 'react';
 import './Pagination.scss';
+import CustomSelect from '../customselect/CustomSelect.tsx';
 
 interface PaginationProps {
   usersPerPage: number;
@@ -103,15 +104,9 @@ const Pagination: React.FC<PaginationProps> = ({
 
   return (
     <nav className="pagination_main">
-      <div className='showoption'>
+       <div className='showoption'>
         Showing{' '}
-        <select onChange={handleItemsPerPageChange} value={usersPerPage}>
-          {options.map((perPage) => (
-            <option key={perPage} value={perPage}>
-              {perPage}
-            </option>
-          ))}
-        </select>{' '}
+        <CustomSelect options={options} value={usersPerPage} onChange={handleItemsPerPageChange} />{' '}
         out of {totalUsers}
       </div>
       <ul className="pagination">
