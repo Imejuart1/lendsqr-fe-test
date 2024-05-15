@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { selectUser } from '../Redux/Action'; // Import the action
 import './MoreInfoPopup.scss';
 
 interface MoreInfoPopupProps {
@@ -11,6 +13,8 @@ interface MoreInfoPopupProps {
 }
 
 const MoreInfoPopup: React.FC<MoreInfoPopupProps> = ({ user, onClose, onBlacklist, onActivate, positionX, positionY }) => {
+  const dispatch = useDispatch(); // Get dispatch function from Redux
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
@@ -25,10 +29,16 @@ const MoreInfoPopup: React.FC<MoreInfoPopupProps> = ({ user, onClose, onBlacklis
     };
   }, [onClose]);
 
+  const handleViewDetails = () => {
+    dispatch(selectUser(user)); // Dispatch action to update selected user
+    window.location.href = `/user-details/${user.id}`; // Navigate to UserDetails page
+    onClose();
+  };
+
   return (
     <div className="more-info-popup" style={{ top: positionY, left: positionX, position: 'absolute' }}>
       <div className="popup-content">
-        <div className="popup-option" onClick={onClose}>
+        <div className="popup-option" onClick={handleViewDetails}>
           <img src='images/view.svg' alt="View Icon" />
           <span>View Details</span>
         </div>
@@ -40,7 +50,6 @@ const MoreInfoPopup: React.FC<MoreInfoPopupProps> = ({ user, onClose, onBlacklis
           <img src='images/Activate.svg' alt="Activate Icon" />
           <span>Activate User</span>
         </div>
-
       </div>
     </div>
   );
