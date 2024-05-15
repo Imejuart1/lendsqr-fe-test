@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { selectUser } from '../Redux/Action'; // Import the action
+import { selectUser } from '../Redux/Action.tsx'; // Import the action
 import './MoreInfoPopup.scss';
 
 interface MoreInfoPopupProps {
