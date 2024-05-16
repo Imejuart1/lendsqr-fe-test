@@ -1,10 +1,14 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { selectUser } from '../Redux/Action.tsx'; // Import the action
+// MoreInfoPopup.tsx
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './MoreInfoPopup.scss';
 
 interface MoreInfoPopupProps {
-  user: any;
+  user: {
+    USERNAME: string;
+    EMAIL: string;
+    'PHONE NUMBER': string;
+  };
   onClose: () => void;
   onBlacklist: () => void;
   onActivate: () => void;
@@ -12,27 +16,19 @@ interface MoreInfoPopupProps {
   positionY: number;
 }
 
-const MoreInfoPopup: React.FC<MoreInfoPopupProps> = ({ user, onClose, onBlacklist, onActivate, positionX, positionY }) => {
-  const dispatch = useDispatch(); // Get dispatch function from Redux
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
-      if (!target.closest('.more-info-popup')) {
-        onClose();
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [onClose]);
+const MoreInfoPopup: React.FC<MoreInfoPopupProps> = ({
+  user,
+  onClose,
+  onBlacklist,
+  onActivate,
+  positionX,
+  positionY,
+}) => {
+  const navigate = useNavigate();
 
   const handleViewDetails = () => {
-    dispatch(selectUser(user)); // Dispatch action to update selected user
-    window.location.href = `/user-details/${user.id}`; // Navigate to UserDetails page
-    onClose();
+    // Navigate to the user details page with the user object
+    navigate(`/user-details/${user.USERNAME}`, { state: { user } });
   };
 
   return (

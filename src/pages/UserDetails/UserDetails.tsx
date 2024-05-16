@@ -1,34 +1,28 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { RouteComponentProps } from 'react-router-dom';
-import { selectUser } from '../../components/Redux/Action.tsx';
+// UserDetails.tsx
+import React from 'react';
+import { useLocation, useParams } from 'react-router-dom';
+import './UserDetails.scss'
+import PersonalInformation from './PersonalInformation.tsx';
 
-interface UserDetailsProps extends RouteComponentProps<{ id: string }> {}
-
-const UserDetails: React.FC<UserDetailsProps> = ({ match }) => {
-  const dispatch = useDispatch();
-  const selectedUser = useSelector((state: any) => state.selectedUser);
-
-  useEffect(() => {
-    // Fetch user data based on the id from the route params
-    const userId = match.params.id;
-    // Fetch user data based on userId
-    // You should implement your own logic to fetch user data
-    // For example:
-    // fetchUser(userId).then((user) => dispatch(selectUser(user)));
-  }, [match.params.id, dispatch]);
+const UserDetails: React.FC = () => {
+  const location = useLocation();
+  const { username } = useParams();
+  const user = location.state.user;
 
   return (
-    <div>
-      <h1>User Details</h1>
-      {selectedUser && (
-        <div>
-          <p>Username: {selectedUser.USERNAME}</p>
-          <p>Email: {selectedUser.EMAIL}</p>
-          <p>Phone Number: {selectedUser['PHONE NUMBER']}</p>
-          {/* Add more user details here */}
-        </div>
-      )}
+    <div className='details-container'>
+      <div className='dashboard_main'>
+        
+        <h2>User Details</h2>
+        <PersonalInformation user={user} />
+      <div className="dashboard-cards">
+      
+      </div>
+      <div className="dashboard-table">
+
+
+      </div>
+      </div>
     </div>
   );
 };

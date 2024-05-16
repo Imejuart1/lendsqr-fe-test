@@ -1,0 +1,24 @@
+.details-container {
+    margin-left: 19vw; 
+    background-color: rgba(210, 212, 224, 0.15);
+    overflow-y: scroll;
+    height: 100vh;
+    .dashboard_main{
+        padding: 4vw 4vw;
+        margin-bottom: 10vw;
+    }
+    h2{
+        //margin-top: 30px;
+        margin-bottom: 1.97vw;
+        font-family: 'Work Sans';
+        font-size: 1.58vw;
+        font-weight: 500;
+        text-align: left;
+        color: rgba(33, 63, 125, 1);
+    }
+    .dashboard-cards{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+  }

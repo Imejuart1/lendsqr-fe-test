@@ -2,50 +2,27 @@ import React, { useEffect, useState } from 'react';
 import './Table.scss';
 import Pagination from '../Pagination/Pagination.tsx';
 import MoreInfoPopup from '../moreinfo/MoreInfoPopup.tsx';
-
-const getUserStatusColor = (status: string) => {
-  switch (status) {
-    case 'Active':
-      return 'rgba(57, 205, 98, 1)';
-    case 'Pending':
-      return 'rgba(233, 178, 0, 1)';
-    case 'Blacklisted':
-      return 'rgba(228, 3, 59, 1)';
-    case 'Inactive':
-      return 'rgba(84, 95, 125, 1)';
-    default:
-      return 'rgba(255, 255, 255, 1)';
-  }
-};
-
-const getUserStatusBackgroundColor = (status: string) => {
-  switch (status) {
-    case 'Active':
-      return 'rgba(57, 205, 98, 0.1)';
-    case 'Pending':
-      return 'rgba(233, 178, 0, 0.1)';
-    case 'Blacklisted':
-      return 'rgba(228, 3, 59, 0.1)';
-    case 'Inactive':
-      return 'rgba(84, 95, 125, 0.1)';
-    default:
-      return 'rgba(255, 255, 255, 1)';
-  }
-};
+import FilterPopup from '../Filter/FilterPopup.tsx';
 
 const Table: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [usersPerPage, setUsersPerPage] = useState(10);
   const [userData, setUserData] = useState<any[]>([]);
+  const [filteredData, setFilteredData] = useState<any[]>([]);
   const [selectedUser, setSelectedUser] = useState<any | null>(null);
   const [popupPosition, setPopupPosition] = useState({ x: 0, y: 0 });
+  const [showFilterPopup, setShowFilterPopup] = useState(false);
 
   useEffect(() => {
     fetch('https://66413bb3a7500fcf1a9fe52e.mockapi.io/API/user/data')
       .then((response) => response.json())
-      .then((data) => setUserData(data.map((user, index) => ({...user, positionX: 0, positionY: 0}))))
+      .then((data) => setUserData(data.map((user, index) => ({ ...user, positionX: 0, positionY: 0 }))))
       .catch((error) => console.error('Error fetching data:', error));
   }, []);
+
+  useEffect(() => {
+    setFilteredData(userData);
+  }, [userData]);
 
   useEffect(() => {
     setCurrentPage(1); // Reset currentPage when usersPerPage changes
@@ -56,10 +33,10 @@ const Table: React.FC = () => {
 
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
-  const currentUsers = userData.slice(indexOfFirstUser, indexOfLastUser);
+  const currentUsers = filteredData.slice(indexOfFirstUser, indexOfLastUser);
 
   const handleMoreInfoClick = (user: any, event: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
-    setSelectedUser({...user});
+    setSelectedUser({ ...user });
     const rect = (event.target as HTMLElement).getBoundingClientRect();
     setPopupPosition({ x: rect.left - 120, y: rect.top + 40 });
   };
@@ -78,8 +55,30 @@ const Table: React.FC = () => {
     handleClosePopup();
   };
 
+  const handleFilter = (filters: any) => {
+    if (!userData) return;
+    const filtered = userData.filter(user => {
+      for (let key in filters) {
+        if (filters[key] !== '' && !user[key]?.toLowerCase().includes(filters[key].toLowerCase())) {
+          return false;
+        }
+      }
+      return true;
+    });
+    console.log(filtered);
+    setFilteredData(filtered);
+  };
+
   return (
     <div>
+      <div className="filter-button-container">
+        <img
+          src="/images/filter-results-button.svg"
+          alt="Filter icon"
+          className="filter-button"
+          onClick={() => setShowFilterPopup(true)}
+        />
+      </div>
       <div className="lendsqr-table">
         <table className="table">
           <thead>
@@ -149,9 +148,15 @@ const Table: React.FC = () => {
           positionY={popupPosition.y}
         />
       )}
+      {showFilterPopup && (
+        <FilterPopup
+          onClose={() => setShowFilterPopup(false)}
+          onFilter={handleFilter}
+        />
+      )}
       <Pagination
         usersPerPage={usersPerPage}
-        totalUsers={userData.length}
+        totalUsers={filteredData.length}
         paginate={handlePageChange}
         currentPage={currentPage}
         changeItemsPerPage={handleItemsPerPageChange}
@@ -161,3 +166,34 @@ const Table: React.FC = () => {
 };
 
 export default Table;
+
+
+const getUserStatusColor = (status: string) => {
+  switch (status) {
+    case 'Active':
+      return 'rgba(57, 205, 98, 1)';
+    case 'Pending':
+      return 'rgba(233, 178, 0, 1)';
+    case 'Blacklisted':
+      return 'rgba(228, 3, 59, 1)';
+    case 'Inactive':
+      return 'rgba(84, 95, 125, 1)';
+    default:
+      return 'rgba(255, 255, 255, 1)';
+  }
+};
+
+const getUserStatusBackgroundColor = (status: string) => {
+  switch (status) {
+    case 'Active':
+      return 'rgba(57, 205, 98, 0.1)';
+    case 'Pending':
+      return 'rgba(233, 178, 0, 0.1)';
+    case 'Blacklisted':
+      return 'rgba(228, 3, 59, 0.1)';
+    case 'Inactive':
+      return 'rgba(84, 95, 125, 0.1)';
+    default:
+      return 'rgba(255, 255, 255, 1)';
+  }
+};

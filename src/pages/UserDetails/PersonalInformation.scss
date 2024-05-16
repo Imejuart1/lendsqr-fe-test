@@ -1,0 +1,21 @@
+/* PersonalInformation.scss */
+.personal-information {
+    display: flex;
+    flex-direction: column;
+  
+    .personal-info-item {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+  
+      .info-label {
+        font-weight: bold;
+        width: 150px;
+      }
+  
+      .info-value {
+        flex: 1;
+      }
+    }
+  }
+  
