@@ -14,12 +14,12 @@ const UserDetails: React.FC = () => {
       <div className='dashboard_main'>
         
         <h2>User Details</h2>
-        <PersonalInformation user={user} />
+       
       <div className="dashboard-cards">
       
       </div>
       <div className="dashboard-table">
-
+      <PersonalInformation user={user} />
 
       </div>
       </div>
