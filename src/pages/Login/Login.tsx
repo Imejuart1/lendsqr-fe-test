@@ -1,68 +1,77 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
-import './Login.scss'; 
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
-const Login: React.FC =()=>{
-    const [email, setEmail]= useState('');
-    const [password, setPassword] = useState('');
-    const [showPassword, setShowPassword] = useState(false);
+import './Login.scss';
 
-    const handleEmailChange = (e: ChangeEvent<HTMLInputElement>)=> {
-        setEmail(e.target.value);
-    }
+const Login: React.FC = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
-    const handlePasswordChnage = (e: ChangeEvent<HTMLInputElement>) =>{
-        setPassword(e.target.value);
-    }
+  const navigate = useNavigate(); // Utilize useNavigate hook
 
-    const handleSubmit = (e:FormEvent<HTMLFormElement>) =>{
-        e.preventDefault();
-    }
+  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
 
-    const togglePasswordVisibility = () =>{
-      setShowPassword(!showPassword);
-    }
-    return(
-        <div className="login-container">
-          <div className='login-left_main'>
-      <div className="login-left">
-      <img className='lendqr-logo' src="/images/Group.webp" alt="Login" />
-        <img className='pablo' src="/images/welcome.png" alt="Login" />
-      </div>
+  const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+      navigate('/dashboard'); 
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  return (
+    <div className="login-container">
+      <div className='login-left_main'>
+        <div className="login-left">
+          <img className='lendqr-logo' src="/images/Group.webp" alt="Login" />
+          <img className='pablo' src="/images/welcome.png" alt="Login" />
+        </div>
       </div>
       <div className="login-right">
-      <div className='right-info'>
-      <h2>Welcome!</h2>
-      <p>Enter details to login.</p>
-      </div>
-       <form onSubmit={handleSubmit}>
-      <div className='right-inputs'>
-        <input 
-        type="email"
-        placeholder='Email'
-        value={email}
-        onChange={handleEmailChange}
-        />
-         <div className="password-input">
-        <input
-        type={showPassword ? 'text' : 'password'}
-        placeholder='Password'
-        value={password}
-        onChange={handlePasswordChnage}
-        />
-        {showPassword 
-        ?(
-          <span className='password-toggle' onClick={togglePasswordVisibility}>HIDE</span>
-        ):(<span className='password-toggle' onClick={togglePasswordVisibility}>SHOW</span>)}
+        <div className='right-info'>
+          <h2>Welcome!</h2>
+          <p>Enter details to login.</p>
         </div>
-        <span><a href="#">FORGOT PASSWORD?</a></span>
-        <button type='submit'>LOG IN</button>
-        </div>
-      </form>
+        <form onSubmit={handleSubmit}>
+          <div className='right-inputs'>
+            <input
+              type="email"
+              placeholder='Email'
+              value={email}
+              onChange={handleEmailChange}
+            />
+            <div className="password-input">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                placeholder='Password'
+                value={password}
+                onChange={handlePasswordChange}
+              />
+              {showPassword ? (
+                <span className='password-toggle' onClick={togglePasswordVisibility}>
+                  HIDE
+                </span>
+              ) : (
+                <span className='password-toggle' onClick={togglePasswordVisibility}>
+                  SHOW
+                </span>
+              )}
+            </div>
+            <span><a href="#">FORGOT PASSWORD?</a></span>
+            <button type='submit'>LOG IN</button>
+          </div>
+        </form>
       </div>
-
-      </div>
-   
-    );
+    </div>
+  );
 };
 
 export default Login;

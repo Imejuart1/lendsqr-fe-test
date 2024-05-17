@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect, useRef  } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './FilterPopup.scss';
@@ -17,7 +17,8 @@ interface Filters {
   status: string;
 }
 
-const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, onFilter }) => {
+const FilterPopup: React.FC<FilterPopupProps> = ({  onFilter, onClose }) => {
+  const filterRef = useRef<HTMLDivElement>(null);
   const [filters, setFilters] = useState<Filters>({
     organization: '',
     username: '',
@@ -26,6 +27,20 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, onFilter }) => {
     dateJoined: null,
     status: '',
   });
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (filterRef.current && !filterRef.current.contains(event.target as Node)) {
+        onClose();
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [onClose]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>, field: string) => {
     setFilters({ ...filters, [field]: e.target.value });
@@ -51,8 +66,9 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, onFilter }) => {
     });
   };
 
+
   return (
-    <div className="filter-popup">
+    <div className="filter-popup" ref={filterRef}>
       <div className="filter-popup-content">
         <div className="filter-field">
           <label htmlFor="organization">Organization:</label>

@@ -1,14 +1,14 @@
 .filter-popup {
   display: flex;
-  width: 230px;
-  height: 580px;
+  width: 15.14vw;
+  height: 38.18vw;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #ffffff;
-  padding: 20px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.32vw;
+  box-shadow: 0px 0px 0.66vw rgba(0, 0, 0, 0.1);
   z-index: 1000;
 
   .filter-popup-content {
@@ -22,13 +22,13 @@
 
   .filter-field {
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 0.99vw;
   }
 
   .filter-field label {
     display: block;
     font-family: 'Work Sans';
-    font-size: 14px;
+    font-size: 0.92vw;
     font-weight: 500;
     text-align: left;
     color: rgba(84, 95, 125, 1);
@@ -36,12 +36,12 @@
   }
 
   .filter-field input[type='text'] {
-    width: 93%;
-    height: 35px;
-    border: 1px solid rgba(33, 63, 125, 0.2);
-    border-radius: 8px;
-    font-size: 14px;
-    padding-left: 15px;
+    width: 92.5%;
+    height: 2.30vw;
+    border: 0.0658vw solid rgba(33, 63, 125, 0.2);
+    border-radius: 0.53vw;
+    font-size: 0.92vw;
+    padding-left: 0.99vw;
     color: rgba(84, 95, 125, 0.7);
   }
   .custo-select {
@@ -50,11 +50,11 @@
 
     select {
       width: 100%;
-      padding: 10px 10px 10px 15px;
+      padding: 0.66vw 0.66vw 0.66vw 0.99vw;
       color: rgba(84, 95, 125, 0.7);
-      border: 1px solid rgba(33, 63, 125, 0.2);
-      border-radius: 8px;
-      font-size: 14px;
+      border: 0.0658vw solid rgba(33, 63, 125, 0.2);
+      border-radius: 0.53vw;
+      font-size: 0.92vw;
       appearance: none; 
       option{
         color: rgba(84, 95, 125, 1);
@@ -62,9 +62,11 @@
     }
 
     img {
+      width:0.958vw;
+      height:0.958vw;
       position: absolute;
       top: 50%;
-      right: 20px;
+      right: 1.32vw;
       transform: translateY(-50%);
       pointer-events: none;
     }
@@ -75,17 +77,19 @@
     width: 100%;
 
     .date-picker-input {
-      width: 215px !important;
+      width: 14.15vw !important;
       color: rgba(84, 95, 125, 1);
-      border: 1px solid rgba(33, 63, 125, 0.2);
-      border-radius: 8px;
-      font-size: 14px;
+      border: 0.66vw solid rgba(33, 63, 125, 0.2);
+      border-radius: 0.53vw;
+      font-size: 0.92vw;
     }
 
     img {
+      width:0.958vw;
+      height:0.958vw;
       position: absolute;
       top: 50%;
-      right: 20px;
+      right: 1.32vw;
       transform: translateY(-50%);
       pointer-events: none;
     }
@@ -93,18 +97,18 @@
 
   .filter-buttons {
     display: flex;
-    gap: 10px;
+    gap: 0.66vw;
 
     button {
       cursor: pointer;
-      border-radius: 8px;
-      width: 98px;
-      height: 40px;
-      font-size: 14px;
+      border-radius: 0.53vw;
+      width: 6.45vw;
+      height: 2.63vw;
+      font-size: 0.92vw;
       font-family: 'Work Sans';
       background-color: transparent;
       color: rgba(84, 95, 125, 1);
-      border: 1px solid rgba(84, 95, 125, 1);
+      border: 0.0658vw solid rgba(84, 95, 125, 1);
 
       &:last-child {
         background-color: rgba(57, 205, 204, 1);
