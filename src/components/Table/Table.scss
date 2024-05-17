@@ -17,54 +17,57 @@
     th {
       display: flex;
       align-items:center;
-      gap:0.5rem;
+      gap:0.5vw;
       //flex-direction: row;
       font-family: 'Work Sans';
-      font-size: 0.75rem;
+      font-size: 0.79vw;
       font-weight: 600;
-      line-height: 14.08px;
       text-align: left;
       color:rgba(84, 95, 125, 1);
       margin-bottom: 1vw;
+      img{
+        width:1.05vw;
+        height:1.05vw;
+      }
     }
      .status{
       display: flex;
-      height: 30px;
-      border-radius: 100px;
+      height: 1.97vw;
+      border-radius: 6.59vw;
       align-items: center;
       justify-content: center;
-  
-      .spanstatus{
-      
-       }
-       
      }
 
      .Active {
-      width: 70px; 
+      width: 4.61vw; 
     }
     
     .Pending {
-      width: 90px;
+      width: 5.93vw;
     }
     
     .Blacklisted {
-      width: 100px; 
+      width: 6.59vw; 
     }
     
     .Inactive {
-      width: 80px; 
+      width: 5.27vw; 
     }
     td {
       font-family: 'Work Sans';
       padding: 1vw 0vw;
-     
-      font-size: 0.875rem;
+      font-size:0.92vw;
       font-weight: 400;
       //line-height: 16.42px;
       text-align: left;
       align-items:center;
       color:rgba(84, 95, 125, 1);
+      img{
+        width:1.32vw;
+        height:1.32vw;
+        //width:0.22vw;
+        //height: 0.95vw;
+      }
     }
   }
 

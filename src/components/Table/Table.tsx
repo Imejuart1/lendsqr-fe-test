@@ -72,12 +72,6 @@ const Table: React.FC = () => {
   return (
     <div>
       <div className="filter-button-container">
-        <img
-          src="/images/filter-results-button.svg"
-          alt="Filter icon"
-          className="filter-button"
-          onClick={() => setShowFilterPopup(true)}
-        />
       </div>
       <div className="lendsqr-table">
         <table className="table">
@@ -85,27 +79,33 @@ const Table: React.FC = () => {
             <tr>
               <th>
                 ORGANIZATION
-                <img src="/images/filter-results-button.svg" alt="Filter icon" />
+                <img src="/images/filter-results-button.svg" alt="Filter icon" 
+                      onClick={() => setShowFilterPopup(true)} />
               </th>
               <th>
                 USERNAME
-                <img src="/images/filter-results-button.svg" alt="Filter icon" />
+                <img src="/images/filter-results-button.svg" alt="Filter icon" 
+                      onClick={() => setShowFilterPopup(true)} />
               </th>
               <th>
                 EMAIL
-                <img src="/images/filter-results-button.svg" alt="Filter icon" />
+                <img src="/images/filter-results-button.svg" alt="Filter icon" 
+                      onClick={() => setShowFilterPopup(true)} />
               </th>
               <th>
                 PHONE NUMBER
-                <img src="/images/filter-results-button.svg" alt="Filter icon" />
+                <img src="/images/filter-results-button.svg" alt="Filter icon" 
+                      onClick={() => setShowFilterPopup(true)} />
               </th>
               <th>
                 DATE JOINED
-                <img src="/images/filter-results-button.svg" alt="Filter icon" />
+                <img src="/images/filter-results-button.svg" alt="Filter icon" 
+                      onClick={() => setShowFilterPopup(true)} />
               </th>
               <th>
                 STATUS
-                <img src="/images/filter-results-button.svg" alt="Filter icon" />
+                <img src="/images/filter-results-button.svg" alt="Filter icon" 
+                      onClick={() => setShowFilterPopup(true)} />
               </th>
               <th></th>
             </tr>
@@ -116,7 +116,7 @@ const Table: React.FC = () => {
                 <td>{user.ORGANIZATION}</td>
                 <td>{user.USERNAME}</td>
                 <td>{user.EMAIL}</td>
-                <td>{user['PHONE NUMBER']}</td>
+                <td>0{user['PHONE NUMBER']}</td>
                 <td>{user['DATE JOINED']}</td>
                 <td>
                   <div

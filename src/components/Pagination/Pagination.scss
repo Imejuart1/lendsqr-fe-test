@@ -1,51 +1,58 @@
-.pagination_main{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+.pagination_main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .pagination {
-    list-style: none;
-    display: flex;
-    gap: 5px;
-    margin-top: 20px;
-  }
-  
-  .pagination li {
-    display: flex;
-    align-items: center;
-  }
-  
-  .pagination button {
-    background: none;
-    border: none;
-    color: #333;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    font-family: 'Work Sans';
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 18.77px;
-    text-align: left;
-    color:rgba(84, 95, 125, 1);
-    opacity: 60%;
-  }
-  
-  .pagination button:hover {
-    //background-color: #ddd;
-  }
-  
-  .pagination .active button {
-    opacity: 100%;
-    color:rgba(84, 95, 125, 1);
-  }
-  .showoption{
-    font-family: 'Work Sans';
-    font-size: 0.875rem;
-    font-weight: 400;
-    line-height: 16.42px;
-    text-align: left;
-    color:rgba(84, 95, 125, 1)
+  list-style: none;
+  display: flex;
+  gap: 0.33vw;
+  margin-top: 1.32vw;
+}
+
+.pagination li {
+  display: flex;
+  align-items: center;
+}
+
+.pagination button {
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-family: 'Work Sans';
+  font-size: 1.03vw;
+  font-weight: 500;
+  text-align: left;
+  color: rgba(84, 95, 125, 1);
+  opacity: 60%;
+  line-height: 1.08vw;
+}
+
+.pagination button:hover {
+  /* background-color: #ddd; */
+}
+
+.pagination .active button {
+  opacity: 100%;
+  color: rgba(84, 95, 125, 1);
+}
+
+.showoption {
+  font-family: 'Work Sans';
+  font-size: 0.91vw;
+  font-weight: 400;
+  line-height: 1.08vw;
+  text-align: left;
+  color: rgba(84, 95, 125, 1);
+}
+button{
+  img{
+    width:1.58vw;
+    height:1.58vw;
   }
 }

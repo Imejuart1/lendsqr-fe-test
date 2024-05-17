@@ -1,34 +1,32 @@
-// CustomSelect.scss
-
 .custom-select {
-    position: relative;
-    display: inline-block;
-  
-    select {
-      font-family:  'Work Sans';
-      border: none;
-      background-color: rgba(33, 63, 125, 0.1);
-      color: rgba(33, 63, 125, 1);
-      padding: 6px 45px 6px 10px; /* Adjusted padding */
-      border-radius:4px;
-      font-size: 0.875rem;
-      font-weight:500;
-      margin: 0px 10px;
-      -webkit-appearance: none; /* Remove default arrow */
-      -moz-appearance: none; /* Remove default arrow */
-      appearance: none; /* Remove default arrow */
-      background-repeat: no-repeat;
-      background-position: right center;
-      background-size: 12px 12px;
-    }
-  
-    img {
-        width:13px;
-      position: absolute;
-      right: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      pointer-events: none;
-    }
-  }
-  
+  position: relative;
+  display: inline-block;
+
+  select {
+    font-family:  'Work Sans';
+    border: none;
+    background-color: rgba(33, 63, 125, 0.1);
+    color: rgba(33, 63, 125, 1);
+    padding: 0.39vw 2.96vw 0.39vw 0.66vw; 
+    border-radius: 0.26vw;
+    font-size: 0.91vw; 
+    font-weight: 500;
+    margin: 0px 0.66vw; 
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+    appearance: none; 
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 0.79vw 0.79vw; 
+
+
+}
+img {
+  width: 0.85vw; 
+  position: absolute;
+  right: 1.32vw; 
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+}
