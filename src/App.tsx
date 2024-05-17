@@ -5,6 +5,7 @@ import Dashboard from './pages/Dashboard/Dashboard.tsx';
 import Navbar from './components/Navbar/Navbar.tsx';
 import Sidebar from './components/Sidebar/Sidebar.tsx';
 import UserDetails from './pages/UserDetails/UserDetails.tsx';
+import Users from './pages/Users/Users.tsx';
 
 const App: React.FC = () => {
   const location = useLocation();
@@ -20,6 +21,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/users" element={<Users />} />
         <Route path="/user-details/:username" element={<UserDetails />} />
       </Routes>
     </>
