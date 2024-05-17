@@ -4,26 +4,28 @@
     justify-self: center;
     height:100vh;
     .login-left_main{   
-      height:100vh;     
+         height: 100vh;
+         display: flex;
+         justify-content: center;
       width: 50%;     
       background-color: rgba(223, 226, 236, 0.15);
     .login-left {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      justify-content: flex-start;
-      margin: 10rem 5rem;
-      gap:7rem;
+      justify-content: center;
+      margin: 10vw 5vw;
+      gap:7vw;
         .lendqr-logo{
-          margin-top: -4rem;
-          margin-left: 2rem;
-          width:173.76px;
-          height:36px;
+          margin-top: -4vw;
+          margin-left: 2vw;
+          width:11.44vw;
+          height:2.37vw;
         }
         .pablo{
           //margin-top: 6rem;
           width: 39.4vw;
-          height: 46.3vh;
+          height: 22.22vw;
         }
       }
       }
@@ -31,22 +33,22 @@
         width: 50%;
         display: flex;
         flex-direction: column;
-        gap: 10px;
-        margin: 0rem 6rem;
+        gap:0.66vw;
+        margin: 0rem 6vw;
         .right-info{
           display: flex;
           flex-direction: column;
           align-items: flex-start;
-          gap:10px;
-          margin-bottom: 3.5rem;
+          gap:0.66vw;
+          margin-bottom: 3.5vw;
           h2{
-            font-size: 2.5rem;
+            font-size: 2.5vw;
             font-weight: 700;
             text-align: left; 
             color:rgba(33, 63, 125, 1)          
           }
           p{
-            font-size: 20px;
+            font-size: 1.32vw;
             font-weight: 400;
             text-align: left;
             color: rgba(84, 95, 125, 1);
@@ -55,59 +57,118 @@
        .right-inputs{
           display: flex;
         flex-direction: column;
-        gap:20px;
+        gap:1.32vw;
         width: 29.4vw;
-        input{ 
-          padding: 15px 10px;
-          border-radius: 5px;
-          opacity: 0px;
-          border-color: rgba(84, 95, 125, 0.15);
-        }
- 
-        input::placeholder{
-          font-size: 14px;
-          font-weight: 400;
-          text-align: left;
-          color:rgba(84, 95, 125, 1);
-          opacity: 60%;        
-          left: 60px;     
-        }
         .password-input {
           position: relative;
           box-sizing: border-box;
           width:100%;
           input{
-            
-            width: calc(100% - 25px);
+            width: calc(100% - 1.6vw);
+            padding: 0.99vw 0.66vw;
+            border: 0.13vw solid rgba(84, 95, 125, 0.15);;
+            border-radius: 0.33vw;
+            border-color: rgba(84, 95, 125, 0.15);
+            font-size: 0.92vw;
           }
+           
+        input::placeholder{
+          font-size: 0.92vw;
+          font-weight: 400;
+          text-align: left;
+          color:rgba(84, 95, 125, 1);
+          opacity: 60%;        
+          left: 3.95vw;     
+        }
           .password-toggle {
             position: absolute;
             top: 50%;
-            right: 20px;
+            right: 1.32vw;
             transform: translateY(-50%);
             cursor: pointer;
           }
           
         }
            span{
-          font-size: 12px;
+          font-size: 0.79vw ;
           font-weight: 600;
           color:rgba(57, 205, 204, 1);
-          letter-spacing: 1px;
+          letter-spacing: 0.066vw;
         }
         button{
-          
-          margin-top: 1rem;
-          padding: 15px 10px;
+          width:100%;
+          margin-top: 1vw;
+          padding: 0.99vw 0.66vw;
           border: none;
-          border-radius: 8px;
+          border-radius: 0.53vw;
           color:rgba(255, 255, 255, 1);
           background-color: rgba(57, 205, 204, 1);
-          font-size: 14px;
+          font-size: 0.92vw;
           font-weight: 600;
-          letter-spacing: 0.1em;
+          letter-spacing: 0.1vw;
           text-align: center;    
         }
         }
       }
 }
+
+  /* Media query for screens narrower than 720px */
+  @media screen and (max-width: 800px) {
+    .login-container {
+    .login-left_main {
+      display: none; 
+    }
+
+    .login-right {
+      width: 100%;
+      margin: 0 3rem; 
+      gap: 1.32vw; 
+
+      .right-info {
+        margin-bottom: 3.5rem;
+        h2 {
+          font-size:  2.5rem;
+        }
+
+        p {
+          font-size: 1.32rem; 
+        }
+      }
+
+      .right-inputs {
+        width:100%;
+        gap:1.32rem;
+        .password-input {
+          input{
+            width: calc(100% - 1.4rem);
+            padding: 0.99rem 0.66rem;
+            border-radius: 0.33rem;
+            font-size: 0.92rem;
+          }
+          input::placeholder{
+            font-size: 0.92rem;
+          }
+          .password-toggle {
+            position: absolute;
+            right: 1.32rem;
+            font-size: 0.7rem;
+          }
+
+      }
+      span{
+        font-size: 0.79rem ;
+        font-weight: 600;
+      }
+      button{
+        width:100%;
+        margin-top: 1rem;
+        padding: 0.99rem 0.66rem;
+        border-radius: 0.53rem;
+        font-size: 0.92rem;
+      }
+      
+    }
+    }
+  }
+  }
+

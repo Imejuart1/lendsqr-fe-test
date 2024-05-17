@@ -42,13 +42,15 @@ const Login: React.FC = () => {
         </div>
         <form onSubmit={handleSubmit}>
           <div className='right-inputs'>
+          <span className="password-input">
             <input
               type="email"
               placeholder='Email'
               value={email}
               onChange={handleEmailChange}
             />
-            <div className="password-input">
+             </span>
+            <span className="password-input">
               <input
                 type={showPassword ? 'text' : 'password'}
                 placeholder='Password'
@@ -64,9 +66,11 @@ const Login: React.FC = () => {
                   SHOW
                 </span>
               )}
-            </div>
+            </span>
             <span><a href="#">FORGOT PASSWORD?</a></span>
+    
             <button type='submit'>LOG IN</button>
+ 
           </div>
         </form>
       </div>
