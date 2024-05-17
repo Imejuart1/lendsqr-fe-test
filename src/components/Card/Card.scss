@@ -1,39 +1,39 @@
 .card {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    background-color: #fff;
-    width: 14.47vw; 
-    height: 21.94vh;
-    border-radius: 4px;
-    border: 1px;
-    padding-left: 1.32vw;
-    box-shadow: 0 4px 10px rgba(33, 63, 125, 0.06);
-    .card-icon{
-      margin-top: -2.06vh;
-      img{
-        width: 2.63vw; 
-  height: 5.48vh;
-      }
-    }
-    .card-info h3 {
-      font-family: 'Work Sans';
-      font-size:  0.92vw;
-      font-weight: 500;
-      text-align: left;
-      color: rgba(84, 95, 125, 1); 
-      text-transform: uppercase; 
-      margin: 0.41vh 0 2.19vh 0; 
-    }
-  
-    .card-info p {
-      font-family: Work Sans;
-      font-size: 1.58vw;
-      font-weight: 600;
-      text-align: left;
-      color: rgba(33, 63, 125, 1);
-    }
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: #fff;
+  width: 14.47vw; 
+  height: 10.54vw;
+  border-radius: 0.26vw;
+  border: 1px;
+  padding-left: 1.32vw;
+  box-shadow: 0 4px 10px rgba(33, 63, 125, 0.06);
+}
 
-  
+.card-icon {
+  margin-top: -0.38vw; /* Converted margin-top */
+  img {
+    width: 2.63vw; /* Converted width */
+    height: 2.63vw;  /* Converted height */
+  }
+}
+
+.card-info h3 {
+  font-family: 'Work Sans';
+  font-size: 0.92vw;
+  font-weight: 500;
+  text-align: left;
+  color: rgba(84, 95, 125, 1); 
+  text-transform: uppercase; 
+  margin: 0.056vw 0 0.3vw 0; /* Converted margin */
+}
+
+.card-info p {
+  font-family: Work Sans;
+  font-size: 1.58vw;
+  font-weight: 600;
+  text-align: left;
+  color: rgba(33, 63, 125, 1);
+}
