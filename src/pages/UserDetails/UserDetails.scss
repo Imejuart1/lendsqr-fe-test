@@ -88,6 +88,10 @@
             display: flex;
             flex-direction: column;
             gap:0.4vw;
+            img{
+                width: 6.59vw;
+                height: 6.59vw;
+            }
             span{
                 font-family: 'Work Sans';
                 font-size: 1.45vw;
@@ -106,7 +110,7 @@
             }
             .Tier{
                 font-family: 'Work Sans';
-                font-size: 14px;
+                font-size: 0.92vw;
                 font-weight: 500;
                 line-height: 16.42px;
                 text-align: left;
@@ -115,6 +119,10 @@
             .star{
                 display: flex;
                 gap:0.3vw;
+                img{
+                   width: 1.053vw;
+                   height: 1.053vw;
+                }
             }
         }
     }
@@ -149,5 +157,4 @@
 
     }
     }
-
   }

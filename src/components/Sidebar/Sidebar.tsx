@@ -10,97 +10,98 @@ const Sidebar: React.FC = () => {
     <div className="sidebar">
       <div className="sidebar-header">
         <div className="org-switch">
-          <img src="/images/switch_org.svg" alt="switch_org" />
+          <img src="/images/switch_org.svg" className="icon_arrow" />
           <span className="switch">Switch Organization</span>
-          <img src="/images/downarrow2.svg" className="icon" />
+          <img src="/images/downarrow2.svg" className="icon_arrow" />
         </div>
       </div>
       <div className="sidebar-menu">
         <Link to="/dashboard">
-          <BsFillGrid1X2Fill className="icon" />
+        <img src="/images/home 1.svg" className="dash_icon" />
           Dashboard
         </Link>
         <div className="section-title">CUSTOMERS</div>
         <Link to="/users">
-          <FiUsers className="icon" />
+        <img src="/images/user-friends 1.svg" className="icon" />
+
           Users
         </Link>
         <Link to="/guarantors">
-          <BsPeopleFill className="icon" />
+        <img src="/images/users 1.svg" className="icon" />
           Guarantors
         </Link>
         <Link to="/loans">
-          <BsClipboardData className="icon" />
+        <img src="/images/loans.svg" className="icon" />
           Loans
         </Link>
         <Link to="/decision-models">
-          <FiTrendingUp className="icon" />
+        <img src="/images/handshake-regular 1.svg" className="icon" />
           Decision Models
         </Link>
         <Link to="/savings">
-          <FiDollarSign className="icon" />
+        <img src="/images/piggy-bank 1.svg" className="icon" />
           Savings
         </Link>
         <Link to="/loan-requests">
-          <BsClipboardData className="icon" />
+        <img src="/images/Group 104.svg" className="icon" />
           Loan Requests
         </Link>
         <Link to="/whitelist">
-          <BsFillGrid1X2Fill className="icon" />
+        <img src="/images/user-check 1.svg" className="icon" />
           Whitelist
         </Link>
         <Link to="/karma">
-          <BsClipboardData className="icon" />
+        <img src="/images/user-times 1.svg" className="icon" />
           Karma
         </Link>
         <div className="section-title">BUSINESSES</div>
         <Link to="/organization">
-          <BsPeopleFill className="icon" />
+        <img src="/images/switch_org.svg"  className="icon"/>
           Organization
         </Link>
         <Link to="/loan-products">
-          <BsClipboardData className="icon" />
+        <img src="/images/Group 104.svg" className="icon" />
           Loan Products
         </Link>
         <Link to="/savings-products">
-          <BsClipboardData className="icon" />
+        <img src="/images/sproduc.svg" className="icon" />
           Savings Products
         </Link>
         <Link to="/fees-and-charges">
-          <BsClipboardData className="icon" />
+        <img src="/images/coins-solid 1.svg" className="icon" />
           Fees and Charges
         </Link>
         <Link to="/transactions">
-          <BsClipboardData className="icon" />
+        <img src="/images/icon(1).svg" className="icon" />
           Transactions
         </Link>
         <Link to="/services">
-          <BsClipboardData className="icon" />
+        <img src="/images/Vector.svg" className="icon" />
           Services
         </Link>
         <Link to="/service-account">
-          <BsClipboardData className="icon" />
+        <img src="/images/user-cog 1.svg" className="icon" />
           Service Account
         </Link>
         <Link to="/settlements">
-          <BsClipboardData className="icon" />
+        <img src="/images/scroll 1.svg" className="icon" />
           Settlements
         </Link>
         <Link to="/reports">
-          <BsClipboardData className="icon" />
+        <img src="/images/chart-bar 2.svg" className="icon" />
           Reports
         </Link>
         <div className="section-title">SETTINGS</div>
         <Link to="/preferences">
-          <FiSettings className="icon" />
+        <img src="/images/sliders-h 1.svg" className="icon" />
           Preferences
         </Link>
         <Link to="/fees-and-pricing">
-          <BsClipboardData className="icon" />
+        <img src="/images/badge-percent 1.svg" className="icon" />
           Fees and Pricing
         </Link>
         <Link to="/audit-logs">
-          <BsClipboardData className="icon" />
+        <img src="/images/clipboard-list 1.svg" className="icon" />
           Audit Logs
         </Link>
       </div>

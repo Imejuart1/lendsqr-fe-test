@@ -93,11 +93,11 @@ const UserDetails: React.FC = () => {
         </div>
         <div className="dashboard-table">
           {selectedNav === 'General Details' && <PersonalInformation user={user} />}
-          {selectedNav === 'Documents' && <div style={{marginTop:'2vw', backgroundColor:'white', textAlign:'center'}}>Documents</div>}
-          {selectedNav === 'Bank Details' && <div style={{marginTop:'2vw', backgroundColor:'white', textAlign:'center'}}>Bank Details</div>}
-          {selectedNav === 'Loans' && <div style={{marginTop:'2vw', backgroundColor:'white', textAlign:'center'}}>Loans</div>}
-          {selectedNav === 'Savings' && <div style={{marginTop:'2vw', backgroundColor:'white', textAlign:'center'}}>Savings</div>}
-          {selectedNav === 'App and System' && <div style={{marginTop:'2vw', backgroundColor:'white', textAlign:'center'}}>App and System</div>}
+          {selectedNav === 'Documents' && <div style={{marginTop:'2vw', backgroundColor:'white', textAlign:'center', fontSize:'1vw'}}>Documents</div>}
+          {selectedNav === 'Bank Details' && <div style={{marginTop:'2vw', backgroundColor:'white', textAlign:'center', fontSize:'1vw'}}>Bank Details</div>}
+          {selectedNav === 'Loans' && <div style={{marginTop:'2vw', backgroundColor:'white', textAlign:'center', fontSize:'1vw'}}>Loans</div>}
+          {selectedNav === 'Savings' && <div style={{marginTop:'2vw', backgroundColor:'white', textAlign:'center', fontSize:'1vw'}}>Savings</div>}
+          {selectedNav === 'App and System' && <div style={{marginTop:'2vw', backgroundColor:'white', textAlign:'center', fontSize:'1vw'}}>App and System</div>}
         </div>
       </div>
     </div>

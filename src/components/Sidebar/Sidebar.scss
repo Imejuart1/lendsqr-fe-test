@@ -25,18 +25,12 @@
 }
 
 .switch {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-right: 0.758vw;
   font-family: 'Work Sans';
   font-size: 1.05vw;
   font-weight: 400;
-  line-height: 18.77px;
   text-align: left;
   color: rgba(33, 63, 125, 1);
-}
-
-.dropdown-icon {
-  margin-left: 5px;
 }
 
 .sidebar-menu {
@@ -67,6 +61,22 @@
   }
   
 }
+.switch_org{
+  width: 1.053vw;
+  height:1.053vw;
+}
+.icon_arrow {
+  width:0.921vw;
+  height:0.921vw;
+  margin-right: 0.758vw;
+}
+.dash_icon{
+  margin-right: 0.758vw;
+  width:1.053vw;
+  height:0.936vw;
+}
 .icon {
-  margin-right: 10px;
+  width:1.053vw;
+  height:0.842vw;
+  margin-right: 0.758vw;
 }
