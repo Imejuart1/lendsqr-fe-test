@@ -27,7 +27,7 @@
     .dashboard-container {
         margin: 0rem; 
         .dashboard_main{
-            padding: 4rem 4rem;
+            padding: 2rem 2rem;
             margin-bottom: 10rem;
         }
         h2{
@@ -37,7 +37,10 @@
         .dashboard-cards{
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
+            justify-content: center;
+            align-items: center;
+            gap:1rem; 
+            flex-wrap: wrap;
         }
       }
   }

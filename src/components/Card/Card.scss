@@ -37,3 +37,40 @@
   text-align: left;
   color: rgba(33, 63, 125, 1);
 }
+
+
+@media (max-width: 800px) {
+  .card {
+    width: 14.47rem; 
+    height: 10.54rem;
+    border-radius: 0.26rem;
+    border: 1px;
+    padding-left: 1.32rem;
+    box-shadow: 0 4px 10px rgba(33, 63, 125, 0.06);
+  }
+  
+  .card-icon {
+    margin-top: -0.38rem; 
+    img {
+      width: 2.63rem; /* Converted width */
+      height: 2.63rem;  /* Converted height */
+    }
+  }
+  
+  .card-info h3 {
+    font-size: 0.92rem;
+    font-weight: 500;
+    text-align: left;
+    color: rgba(84, 95, 125, 1); 
+    text-transform: uppercase; 
+    margin: 0.056rem 0 0.3rem 0; 
+  }
+  
+  .card-info p {
+    font-size: 1.58rem;
+    font-weight: 600;
+    text-align: left;
+    color: rgba(33, 63, 125, 1);
+  }
+  
+}

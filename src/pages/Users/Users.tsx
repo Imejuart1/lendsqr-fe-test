@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../../components/Card/Card.tsx';
 import Table from '../../components/Table/Table.tsx';
-import './Users.scss';
+import '../Dashboard/Dashboard.scss';
 import UsersIcon from '../../assets/images/users.svg';
 import ActiveUsersIcon from '../../assets/images/active-users.svg';
 import UsersWithLoansIcon from '../../assets/images/users-with-loans.svg';
