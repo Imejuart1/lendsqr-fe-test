@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import './FilterPopup.scss';
 
 interface FilterPopupProps {
@@ -11,7 +13,7 @@ interface Filters {
   username: string;
   email: string;
   phoneNumber: string;
-  dateJoined: string;
+  dateJoined: Date | null;
   status: string;
 }
 
@@ -21,12 +23,16 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, onFilter }) => {
     username: '',
     email: '',
     phoneNumber: '',
-    dateJoined: '',
+    dateJoined: null,
     status: '',
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>, field: string) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>, field: string) => {
     setFilters({ ...filters, [field]: e.target.value });
+  };
+
+  const handleDateChange = (date: Date | null) => {
+    setFilters({ ...filters, dateJoined: date });
   };
 
   const handleFilter = () => {
@@ -34,26 +40,43 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, onFilter }) => {
     onClose();
   };
 
+  const handleReset = () => {
+    setFilters({
+      organization: '',
+      username: '',
+      email: '',
+      phoneNumber: '',
+      dateJoined: null,
+      status: '',
+    });
+  };
+
   return (
     <div className="filter-popup">
       <div className="filter-popup-content">
-        <h2>Filter</h2>
         <div className="filter-field">
           <label htmlFor="organization">Organization:</label>
-          <input
-            type="text"
-            id="organization"
-            value={filters.organization}
-            onChange={(e) => handleChange(e, 'organization')}
-          />
+          <div className="custo-select">
+            <select
+              id="organization"
+              value={filters.organization}
+              onChange={(e) => handleChange(e, 'organization')}
+            >
+              <option value="">Select</option>
+              <option value="Lendsqr">Lendsqr</option>
+              <option value="Irorrun">Irorrun</option>
+            </select>
+            <img src="/images/downarrow2.svg" alt="Dropdown" />
+          </div>
         </div>
         <div className="filter-field">
-          <label htmlFor="username">Username:</label>
+          <label htmlFor="username">Username</label>
           <input
             type="text"
             id="username"
             value={filters.username}
             onChange={(e) => handleChange(e, 'username')}
+            placeholder="Username"
           />
         </div>
         <div className="filter-field">
@@ -63,7 +86,21 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, onFilter }) => {
             id="email"
             value={filters.email}
             onChange={(e) => handleChange(e, 'email')}
+            placeholder="Email"
           />
+        </div>
+        <div className="filter-field">
+          <label htmlFor="dateJoined">Date:</label>
+          <div className="custom-date-picker">
+            <DatePicker
+              selected={filters.dateJoined}
+              onChange={handleDateChange}
+              placeholderText="Select date"
+              dateFormat="yyyy/MM/dd"
+              className="date-picker-input"
+            />
+            <img src="/images/calender.svg" alt="Calendar" />
+          </div>
         </div>
         <div className="filter-field">
           <label htmlFor="phoneNumber">Phone Number:</label>
@@ -72,29 +109,29 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, onFilter }) => {
             id="phoneNumber"
             value={filters.phoneNumber}
             onChange={(e) => handleChange(e, 'phoneNumber')}
-          />
-        </div>
-        <div className="filter-field">
-          <label htmlFor="dateJoined">Date Joined:</label>
-          <input
-            type="text"
-            id="dateJoined"
-            value={filters.dateJoined}
-            onChange={(e) => handleChange(e, 'dateJoined')}
+            placeholder="Phone Number"
           />
         </div>
         <div className="filter-field">
           <label htmlFor="status">Status:</label>
-          <input
-            type="text"
-            id="status"
-            value={filters.status}
-            onChange={(e) => handleChange(e, 'status')}
-          />
+          <div className="custo-select">
+            <select
+              id="status"
+              value={filters.status}
+              onChange={(e) => handleChange(e, 'status')}
+            >
+              <option value="">Select</option>
+              <option value="Pending">Pending</option>
+              <option value="Active">Active</option>
+              <option value="InActive">InActive</option>
+              <option value="Blacklisted">Blacklisted</option>
+            </select>
+            <img src="/images/downarrow2.svg" alt="Dropdown" />
+          </div>
         </div>
         <div className="filter-buttons">
-          <button onClick={handleFilter}>Apply Filter</button>
-          <button onClick={onClose}>Close</button>
+          <button onClick={handleReset}>Reset</button>
+          <button onClick={handleFilter}>Filter</button>
         </div>
       </div>
     </div>

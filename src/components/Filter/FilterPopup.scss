@@ -1,55 +1,116 @@
 .filter-popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #ffffff;
-    padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    z-index: 1000;
-  }
-  
+  display: flex;
+  width: 230px;
+  height: 580px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+
   .filter-popup-content {
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
   }
-  
-  .filter-popup-content h2 {
-    margin-bottom: 20px;
-  }
-  
+
   .filter-field {
+    width: 100%;
     margin-bottom: 15px;
   }
-  
+
   .filter-field label {
     display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+    font-family: 'Work Sans';
+    font-size: 14px;
+    font-weight: 500;
+    text-align: left;
+    color: rgba(84, 95, 125, 1);
+    margin-bottom: 0.3vw;
   }
-  
+
   .filter-field input[type='text'] {
+    width: 93%;
+    height: 35px;
+    border: 1px solid rgba(33, 63, 125, 0.2);
+    border-radius: 8px;
+    font-size: 14px;
+    padding-left: 15px;
+    color: rgba(84, 95, 125, 0.7);
+  }
+  .custo-select {
+    position: relative;
     width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+
+    select {
+      width: 100%;
+      padding: 10px 10px 10px 15px;
+      color: rgba(84, 95, 125, 0.7);
+      border: 1px solid rgba(33, 63, 125, 0.2);
+      border-radius: 8px;
+      font-size: 14px;
+      appearance: none; 
+      option{
+        color: rgba(84, 95, 125, 1);
+      }
+    }
+
+    img {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
   }
-  
+
+  .custom-date-picker {
+    position: relative;
+    width: 100%;
+
+    .date-picker-input {
+      width: 215px !important;
+      color: rgba(84, 95, 125, 1);
+      border: 1px solid rgba(33, 63, 125, 0.2);
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    img {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+  }
+
   .filter-buttons {
-    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+
+    button {
+      cursor: pointer;
+      border-radius: 8px;
+      width: 98px;
+      height: 40px;
+      font-size: 14px;
+      font-family: 'Work Sans';
+      background-color: transparent;
+      color: rgba(84, 95, 125, 1);
+      border: 1px solid rgba(84, 95, 125, 1);
+
+      &:last-child {
+        background-color: rgba(57, 205, 204, 1);
+        color: #ffffff;
+        border: none;
+      }
+    }
   }
-  
-  .filter-buttons button {
-    padding: 10px 20px;
-    margin-right: 10px;
-    border: none;
-    background-color: #007bff;
-    color: #ffffff;
-    cursor: pointer;
-    border-radius: 3px;
-  }
-  
-  .filter-buttons button:last-child {
-    background-color: #dc3545;
-  }
-  
+}
