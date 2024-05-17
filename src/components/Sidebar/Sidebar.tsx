@@ -3,9 +3,14 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Sidebar.scss';
 
-const Sidebar: React.FC = () => {
+interface SidebarProps {
+  isOpen: boolean; 
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
+
   return (
-    <div className='sidebar_main'>
+    <div className={`sidebar_main ${isOpen ? 'open' : ''}`}>
       <div className="sidebar">
         <div className="sidebar-header">
           <div className="org-switch">

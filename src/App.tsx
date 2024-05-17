@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import Login from './pages/Login/Login.tsx';
 import Dashboard from './pages/Dashboard/Dashboard.tsx';
@@ -9,13 +9,21 @@ import Users from './pages/Users/Users.tsx';
 
 const App: React.FC = () => {
   const location = useLocation();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  // Function to toggle the sidebar visibility
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
 
   return (
     <>
+      {/* Pass toggleSidebar function to Navbar */}
       {location.pathname !== '/' && (
         <>
-          <Navbar />
-          <Sidebar />
+          <Navbar toggleSidebar={toggleSidebar} />
+          {/* Pass isSidebarOpen state to Sidebar */}
+          <Sidebar isOpen={isSidebarOpen} />
         </>
       )}
       <Routes>
@@ -28,4 +36,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App
+export default App;

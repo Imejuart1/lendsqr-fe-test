@@ -1,12 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BsSearch, BsBell, BsPerson, BsChevronDown } from 'react-icons/bs';
 import './Navbar.scss';
+import Hamburger from 'hamburger-react'
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  toggleSidebar: () => void; 
+}
+
+const Navbar: React.FC<NavbarProps> = ({ toggleSidebar }) => {
   return (
     <nav className="navbar">
       <div className='logosearch'>
+      <div className="hamburger-icon" onClick={toggleSidebar}>
+      <Hamburger />
+      </div>
         <div className="logo">
           <img src="/images/Group.webp" alt="Logo" />
         </div>

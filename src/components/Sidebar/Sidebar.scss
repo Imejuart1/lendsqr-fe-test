@@ -101,3 +101,29 @@
   margin-right: 0.758vw;
 }
 
+
+
+@media (max-width: 700px) {
+  .sidebar_main{
+    display: none;
+  }
+  .open{
+    display: block;
+    width: 100vw; /* Take full width of the screen */
+    height: 100vh;
+    position: fixed;
+    overflow-y: auto;
+    background-color: rgba(91, 86, 86, 0.5); /* Semi-transparent background */
+    z-index: 1000; /* Ensure the sidebar overlays other content */
+    transition: transform 0.3s ease; /* Smooth transition animation */
+    transform: translateX(0); /* Move the sidebar into view */
+  }
+  .sidebar {
+    width: 70%; 
+    height: 100vh;
+    background-color: #fff; 
+    transition: transform 0.3s ease; /* Smooth transition animation */
+    transform: translateX(0); /* Move the sidebar into view */
+  }
+  
+}
