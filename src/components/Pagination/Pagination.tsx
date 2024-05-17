@@ -18,7 +18,7 @@ const Pagination: React.FC<PaginationProps> = ({
   changeItemsPerPage,
 }) => {
   const pageNumbers: number[] = [];
-  const MAX_BUTTONS = 5; // Maximum number of page buttons to display
+  const MAX_BUTTONS = 5; 
 
   for (let i = 1; i <= Math.ceil(totalUsers / usersPerPage); i++) {
     pageNumbers.push(i);

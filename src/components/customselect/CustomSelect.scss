@@ -18,8 +18,6 @@
     background-repeat: no-repeat;
     background-position: right center;
     background-size: 0.79vw 0.79vw; 
-
-
 }
 img {
   width: 0.85vw; 
@@ -29,4 +27,24 @@ img {
   transform: translateY(-50%);
   pointer-events: none;
 }
+}
+@media (max-width: 800px) {
+  .custom-select {
+  select {
+    padding: 0.39rem 2.96rem 0.39rem 0.66rem; 
+    border-radius: 0.26rem;
+    font-size: 0.91rem; 
+    font-weight: 500;
+    margin: 0px 0.66rem; 
+    background-size: 0.79rem 0.79rem; 
+}
+img {
+  width: 0.85rem; 
+  position: absolute;
+  right: 1.32rem; 
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+  }
 }

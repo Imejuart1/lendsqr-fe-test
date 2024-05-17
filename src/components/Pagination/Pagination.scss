@@ -33,10 +33,6 @@
   line-height: 1.08vw;
 }
 
-.pagination button:hover {
-  /* background-color: #ddd; */
-}
-
 .pagination .active button {
   opacity: 100%;
   color: rgba(84, 95, 125, 1);
@@ -54,5 +50,63 @@ button{
   img{
     width:1.58vw;
     height:1.58vw;
+  }
+}
+@media (max-width: 800px) {
+  .pagination_main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+  
+  .pagination {
+    list-style: none;
+    display: flex;
+    gap: 0rem;
+    margin-top: 1.32rem;
+  }
+  
+  .pagination li {
+    display: flex;
+    align-items: center;
+  }
+  
+  .pagination button {
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-family: 'Work Sans';
+    font-size: 1.03rem;
+    font-weight: 500;
+    text-align: left;
+    color: rgba(84, 95, 125, 1);
+    opacity: 60%;
+    line-height: 1.08rem;
+  }
+  
+  .pagination .active button {
+    opacity: 100%;
+    color: rgba(84, 95, 125, 1);
+  }
+  
+  .showoption {
+    font-family: 'Work Sans';
+    font-size: 0.91rem;
+    font-weight: 400;
+    line-height: 1.08rem;
+    text-align: left;
+    color: rgba(84, 95, 125, 1);
+  }
+  button{
+    img{
+      width:1.58rem;
+      height:1.58rem;
+    }
   }
 }
