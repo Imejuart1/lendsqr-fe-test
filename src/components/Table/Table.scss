@@ -224,12 +224,16 @@ width: 1%;
   th:first-child,
   td:first-child {
     width: 40%;
+    overflow: hidden;  
+  text-overflow: ellipsis; 
   }
   
   th:nth-child(2),
   td:nth-child(2) {
     width: 40%;
-    word-break: break-all;
+    overflow: hidden;  
+  text-overflow: ellipsis; 
+    
   }
   
   th:nth-child(3),
@@ -253,7 +257,9 @@ width: 1%;
   th:nth-child(6),
   td:nth-child(6) {
     width: 15%;
-    display: none;
+    white-space: nowrap; 
+  overflow: hidden;  
+  text-overflow: ellipsis; 
   }
   th:nth-child(7),
 td:nth-child(7) {
