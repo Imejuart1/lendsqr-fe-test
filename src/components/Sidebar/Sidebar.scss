@@ -15,7 +15,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2.63vw;
+  margin-bottom: 3.5vw;
 }
 
 .org-switch {
@@ -34,19 +34,16 @@
 }
 
 .sidebar-menu {
-  padding: 0;
-  margin: 0;
   .section-title {
     margin-top: 0px;
     margin-bottom:1.5vw;
     font-family: 'Work Sans';
-    font-size: 12px;
+    font-size: 0.79vw;
     font-weight: 500;
-    line-height: 14.08px;
     text-align: left;
     color:rgba(84, 95, 125, 1)
   }
-  a{
+  .reactive-link{
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -54,10 +51,33 @@
     font-family: 'Work Sans';
     font-size: 1.05vw;
     font-weight: 400;
-    line-height: 18.77px;
-    text-align: l/eft;
+    text-align: left;
     color: rgba(33, 63, 125, 1);
     opacity: 70%;
+  }
+  .reactive-link:hover{
+    border-left: 0.3vw solid rgba(57, 205, 204, 1);
+    background-color: rgba(57, 205, 204, 0.06);
+    padding: 0.5vw 0vw 0.5vw 2.35vw;
+    opacity: 100%;
+    margin: -0.5vw  0vw 1.5vw -2.63vw;
+    width: 18.63vw;
+  }
+  .active-link {
+    background-color: rgba(57, 205, 204, 0.06);
+   width: 18.63vw;
+    border-left: 0.3vw solid rgba(57, 205, 204, 1);
+    padding: 0.5vw 0vw 0.5vw 2.35vw;
+    opacity: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin: -0.5vw  0vw 1.5vw -2.63vw;
+    font-family: 'Work Sans';
+    font-size: 1.05vw;
+    font-weight: 400;
+    text-align: left;
+    color: rgba(33, 63, 125, 1);
   }
   
 }
@@ -80,3 +100,4 @@
   height:0.842vw;
   margin-right: 0.758vw;
 }
+
