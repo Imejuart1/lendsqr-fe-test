@@ -106,24 +106,78 @@
 @media (max-width: 700px) {
   .sidebar_main{
     display: none;
+    height: 100vh;
   }
   .open{
     display: block;
-    width: 100vw; /* Take full width of the screen */
+    width: 100vw; 
     height: 100vh;
     position: fixed;
     overflow-y: auto;
-    background-color: rgba(91, 86, 86, 0.5); /* Semi-transparent background */
-    z-index: 1000; /* Ensure the sidebar overlays other content */
-    transition: transform 0.3s ease; /* Smooth transition animation */
-    transform: translateX(0); /* Move the sidebar into view */
+    background-color: rgba(91, 86, 86, 0.5); 
+    z-index: 1000;
+    transition: transform 0.3s ease; 
+    transform: translateX(0); 
   }
   .sidebar {
     width: 70%; 
-    height: 100vh;
+    padding: 1.97rem 1.6rem 6rem 2.63rem;
+   //height: 100vh;
     background-color: #fff; 
     transition: transform 0.3s ease; /* Smooth transition animation */
     transform: translateX(0); /* Move the sidebar into view */
+  }
+  .sidebar-header {
+    margin-bottom: 3.5rem;
+  }
+  .switch {
+    margin-right: 0.758rem;
+    font-size: 1.05rem;
+  }
+  .sidebar-menu {
+    .section-title {
+      margin-bottom:1.5rem;
+      font-family: 'Work Sans';
+      font-size: 0.79rem;
+    }
+    .reactive-link{
+      margin-bottom:2rem;
+      font-size: 1.05rem;
+    }
+    .reactive-link:hover{
+      border-left: 0.3rem solid rgba(57, 205, 204, 1);
+      background-color: rgba(57, 205, 204, 0.06);
+      padding: 0.5rem 0 0.5rem 2.35rem;
+      margin: -0.5rem  0 1.5rem -2.63rem;
+      width: 18.63rem;
+    }
+    .active-link {
+     width: 18.63rem;
+      border-left: 0.3rem solid rgba(57, 205, 204, 1);
+      padding: 0.5rem 0 0.5rem 2.35rem;
+      margin: -0.5rem 0 1.5rem -2.63rem;
+      font-size: 1.05rem;
+    }
+    
+  }
+  .switch_org{
+    width: 1.053rem;
+    height:1.053rem;
+  }
+  .icon_arrow {
+    width:0.921rem;
+    height:0.921rem;
+    margin-right: 0.758rem;
+  }
+  .dash_icon{
+    margin-right: 0.758rem;
+    width:1.053rem;
+    height:0.936rem;
+  }
+  .icon {
+    width:1.053rem;
+    height:0.842rem;
+    margin-right: 0.758rem;
   }
   
 }
