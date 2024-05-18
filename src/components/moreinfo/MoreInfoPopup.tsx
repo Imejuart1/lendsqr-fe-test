@@ -27,7 +27,6 @@ const MoreInfoPopup: React.FC<MoreInfoPopupProps> = ({
   const popupRef = useRef<HTMLDivElement>(null);
 
   const handleViewDetails = () => {
-    // Navigate to the user details page with the user object
     navigate(`/user-details/${user.USERNAME}`, { state: { user } });
   };
 
@@ -39,23 +38,36 @@ const MoreInfoPopup: React.FC<MoreInfoPopupProps> = ({
 
   useEffect(() => {
     const handleScroll = () => {
-      // Recalculate the position of the popup when scrolling occurs
       if (popupRef.current) {
-        const { top, left } = popupRef.current.getBoundingClientRect();
-        popupRef.current.style.top = `${top + window.scrollY}px`;
-        popupRef.current.style.left = `${left + window.scrollX}px`;
+        const { top, left, bottom, right } = popupRef.current.getBoundingClientRect();
+        const { innerHeight, innerWidth } = window;
+        
+        // Check if any part of the popup is outside the viewport
+        const isOutsideTop = top < 0;
+        const isOutsideBottom = bottom > innerHeight;
+        const isOutsideLeft = left < 0;
+        const isOutsideRight = right > innerWidth;
+
+        // If any part is outside, adjust the position
+        if (isOutsideTop || isOutsideBottom || isOutsideLeft || isOutsideRight) {
+          const newY = isOutsideTop ? window.scrollY : positionY;
+          const newX = isOutsideLeft ? window.scrollX : positionX;
+          
+          popupRef.current.style.top = `${newY}px`;
+          popupRef.current.style.left = `${newX}px`;
+        }
       }
     };
-  
+
     document.addEventListener('scroll', handleScroll);
     document.addEventListener('mousedown', handleClickOutside);
-  
+
     return () => {
       document.removeEventListener('scroll', handleScroll);
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, []);
-  
+  }, [positionX, positionY]);
+
   return (
     <div
       className="more-info-popup"
@@ -81,3 +93,4 @@ const MoreInfoPopup: React.FC<MoreInfoPopupProps> = ({
 };
 
 export default MoreInfoPopup;
+      
