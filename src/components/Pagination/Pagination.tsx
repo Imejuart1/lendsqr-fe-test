@@ -18,7 +18,7 @@ const Pagination: React.FC<PaginationProps> = ({
   changeItemsPerPage,
 }) => {
   const pageNumbers: number[] = [];
-  const MAX_BUTTONS = 5; 
+  const MAX_BUTTONS = 5;
 
   for (let i = 1; i <= Math.ceil(totalUsers / usersPerPage); i++) {
     pageNumbers.push(i);
@@ -26,65 +26,39 @@ const Pagination: React.FC<PaginationProps> = ({
 
   const renderPageNumbers = () => {
     const totalPages = pageNumbers.length;
-    const visibleStartPage = Math.max(
-      Math.min(currentPage - Math.floor(MAX_BUTTONS / 2), totalPages - MAX_BUTTONS + 1),
-      1
-    );
-    const visibleEndPage = Math.min(visibleStartPage + MAX_BUTTONS - 1, totalPages);
-
     const pageItems: JSX.Element[] = [];
 
-    if (visibleStartPage > 1) {
-      if (visibleStartPage > 3) {
-        pageItems.push(
-          <li key={1} className={currentPage === 1 ? 'active' : ''}>
-            <button onClick={() => paginate(1)}>1</button>
-          </li>
-        );
-        pageItems.push(
-          <li key={'startEllipsis'}>
-            <span>...</span>
-          </li>
-        );
-      } else {
-        for (let number = 1; number < visibleStartPage; number++) {
-          pageItems.push(
-            <li key={number} className={currentPage === number ? 'active' : ''}>
-              <button onClick={() => paginate(number)}>{number}</button>
-            </li>
-          );
-        }
+    const showEllipsis = (start: number, end: number) => {
+      if (end - start > 1) {
+        pageItems.push(<li key={'ellipsis-' + start}><span>...</span></li>);
       }
-    }
+    };
 
-    for (let number = visibleStartPage; number <= visibleEndPage; number++) {
-      pageItems.push(
-        <li key={number} className={currentPage === number ? 'active' : ''}>
-          <button onClick={() => paginate(number)}>{number}</button>
-        </li>
-      );
-    }
-
-    if (visibleEndPage < totalPages) {
-      if (visibleEndPage < totalPages - 2) {
+    if (totalPages <= MAX_BUTTONS) {
+      for (let number = 1; number <= totalPages; number++) {
         pageItems.push(
-          <li key={'endEllipsis'}>
-            <span>...</span>
+          <li key={number} className={currentPage === number ? 'active' : ''}>
+            <button onClick={() => paginate(number)}>{number}</button>
           </li>
         );
+      }
+    } else {
+      for (let number = 1; number <= 3; number++) {
         pageItems.push(
-          <li key={totalPages} className={currentPage === totalPages ? 'active' : ''}>
-            <button onClick={() => paginate(totalPages)}>{totalPages}</button>
+          <li key={number} className={currentPage === number ? 'active' : ''}>
+            <button onClick={() => paginate(number)}>{number}</button>
           </li>
         );
-      } else {
-        for (let number = visibleEndPage + 1; number <= totalPages; number++) {
-          pageItems.push(
-            <li key={number} className={currentPage === number ? 'active' : ''}>
-              <button onClick={() => paginate(number)}>{number}</button>
-            </li>
-          );
-        }
+      }
+
+      showEllipsis(3, totalPages - 2);
+
+      for (let number = totalPages - 1; number <= totalPages; number++) {
+        pageItems.push(
+          <li key={number} className={currentPage === number ? 'active' : ''}>
+            <button onClick={() => paginate(number)}>{number}</button>
+          </li>
+        );
       }
     }
 
@@ -104,7 +78,7 @@ const Pagination: React.FC<PaginationProps> = ({
 
   return (
     <nav className="pagination_main">
-       <div className='showoption'>
+      <div className='showoption'>
         Showing{' '}
         <CustomSelect options={options} value={usersPerPage} onChange={handleItemsPerPageChange} />{' '}
         out of {totalUsers}
@@ -112,7 +86,7 @@ const Pagination: React.FC<PaginationProps> = ({
       <ul className="pagination">
         <li>
           <button onClick={() => paginate(currentPage === 1 ? currentPage : currentPage - 1)}>
-            <img src="/images/prev btn.svg" alt="Filter icon" />
+            <img src="/images/prev btn.svg" alt="Previous button" />
           </button>
         </li>
         {renderPageNumbers()}
@@ -122,7 +96,7 @@ const Pagination: React.FC<PaginationProps> = ({
               paginate(currentPage === pageNumbers.length ? currentPage : currentPage + 1)
             }
           >
-            <img src="/images/next btn.svg" alt="Filter icon" />
+            <img src="/images/next btn.svg" alt="Next button" />
           </button>
         </li>
       </ul>
@@ -131,3 +105,4 @@ const Pagination: React.FC<PaginationProps> = ({
 };
 
 export default Pagination;
+            
