@@ -68,7 +68,7 @@ const MoreInfoPopup: React.FC<MoreInfoPopupProps> = ({
           <span>View Details</span>
         </div>
         <div className="popup-option" onClick={onBlacklist}>
-          <img src='images/Blacklist.svg' alt="Blacklist Icon" />
+          <img src='images/blacklist.svg' alt="Blacklist Icon" />
           <span>Blacklist User</span>
         </div>
         <div className="popup-option" onClick={onActivate}>
