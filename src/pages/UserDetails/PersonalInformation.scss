@@ -1,4 +1,4 @@
-/* PersonalInformation.scss */
+
 .general_details{
     background-color: white;
     display: flex;
@@ -58,4 +58,65 @@
     border-bottom: 1px solid rgba(33, 63, 125, 0.1);
     margin:2vw 0 2vw 0;
    }
+}
+
+@media screen and (max-width:800px) {
+  .general_details{
+    padding: 2.5rem;
+    margin-top: 4rem;
+
+    .personal-info-row{
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap:1rem;
+      }
+.personal-information {
+    display: flex;
+    flex-direction: column;
+    margin-right: 0rem;
+    .general_subhead{
+        font-family: 'Work Sans';
+        font-size: 1.053rem;
+        font-weight: 500;
+        text-align: left;
+        color:rgba(33, 63, 125, 1);
+        margin-bottom:2rem;
+    }
+
+    .personal-info-item_main{
+        display: flex;
+        flex-direction: column;
+        gap:2rem;
+    .personal-info-item {
+      display: flex;
+      flex-direction: column;
+      gap:0.5rem;
+      width:100%;
+      .info-label {
+        font-weight: bold;
+        font-family: 'Work Sans';
+        font-size: 0.791rem;
+        font-weight: 400;
+        text-align: left;
+        color:rgba(84, 95, 125, 1);
+        text-transform: uppercase;
+        }
+      .info-value {
+        flex: 1;
+        font-family: 'Work Sans';
+        font-size: 1.053rem;
+        font-weight: 500;
+        text-align: left;
+        color:rgba(84, 95, 125, 1)
+      }
+    }
+}  
+  }
+  .tr_line{
+    border-bottom: 1px solid rgba(33, 63, 125, 0.1);
+    margin:2vw 0 2rem 0;
+   }
+}
 }
