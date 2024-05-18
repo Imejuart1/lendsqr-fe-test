@@ -131,7 +131,7 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, positionX, positionY
   }, [dragging]);
 
   return (
-    <div className="filter-popup" ref={filterRef} >
+    <div className="filter-popup" ref={filterRef} onMouseDown={handleMouseDown}>
       
       <div className="filter-popup-content">
         <div className="filter-field">
@@ -149,9 +149,9 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, positionX, positionY
             <img src="/images/downarrow2.svg" alt="Dropdown" />
           </div>
         </div>
-        <div className="filter-field" >
+        <div className="filter-field">
           <label htmlFor="username">Username</label>
-          <input 
+          <input
             type="text"
             id="username"
             value={filters.searchUsername}
