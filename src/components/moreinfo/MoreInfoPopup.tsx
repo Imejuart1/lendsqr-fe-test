@@ -73,7 +73,7 @@ const MoreInfoPopup: React.FC<MoreInfoPopupProps> = ({
       className="more-info-popup"
       style={{ top: positionY, left: positionX, position: 'absolute' }}
       ref={popupRef}
-    >
+    > {positionY}
       <div className="popup-content">
         <div className="popup-option" onClick={handleViewDetails}>
           <img src='images/view.svg' alt="View Icon" />
