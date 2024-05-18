@@ -25,7 +25,7 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, positionX, positionY
   const [dragging, setDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [startY, setStartY] = useState(0);
-
+  
   const [filters, setFilters] = useState<Filters>({
     organization: '',
     searchUsername: '',
@@ -46,24 +46,6 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, positionX, positionY
     });
   }, [filterCriteria]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>, field: string) => {
-    e.stopPropagation(); 
-    updateFilterCriteria({ ...filterCriteria, [field]: e.target.value });
-  };
-  
-
-  const handleDateChange = (date: Date | null) => {
-    const formattedDate = date ? date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : null;
-    const updatedFilters = { ...filters, searchDateJoined: formattedDate };
-    setFilters(updatedFilters);
-    updateFilterCriteria(updatedFilters);
-  };
-  
-  
-  const handleFilter = () => {
-    onClose();
-  };
-
   const handleReset = () => {
     const resetFilters = {
       organization: '',
@@ -77,6 +59,24 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, positionX, positionY
     updateFilterCriteria(resetFilters);
   };
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>, field: string) => {
+    e.stopPropagation();
+    const updatedFilters = { ...filters, [field]: e.target.value };
+    setFilters(updatedFilters);
+    updateFilterCriteria(updatedFilters);
+  };
+
+  const handleDateChange = (date: Date | null) => {
+    const formattedDate = date ? date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : null;
+    const updatedFilters = { ...filters, searchDateJoined: formattedDate };
+    setFilters(updatedFilters);
+    updateFilterCriteria(updatedFilters);
+  };
+
+  const handleFilter = () => {
+    onClose();
+  };
+
   const handleClickOutside = (event: MouseEvent) => {
     if (filterRef.current && !filterRef.current.contains(event.target as Node)) {
       onClose();
@@ -85,13 +85,8 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, positionX, positionY
 
   useEffect(() => {
     if (filterRef.current) {
-      if (window.innerWidth <= 800) {
-        filterRef.current.style.left = `${positionX}`; 
-      } else {
-        filterRef.current.style.left = `${positionX}px`;
-      }
+      filterRef.current.style.left = `${positionX}px`;
       filterRef.current.style.top = `${positionY}px + 200px`;
-  
   
       document.addEventListener('mousedown', handleClickOutside);
       return () => {
@@ -99,7 +94,6 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, positionX, positionY
       };
     }
   }, [positionX, positionY, onClose]);
-  
 
   const handleMouseDown = (event: React.MouseEvent) => {
     setDragging(true);
@@ -132,7 +126,6 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, positionX, positionY
 
   return (
     <div className="filter-popup" ref={filterRef} onMouseDown={handleMouseDown}>
-      
       <div className="filter-popup-content">
         <div className="filter-field">
           <label htmlFor="organization">Organization:</label>
@@ -173,7 +166,7 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, positionX, positionY
           <label htmlFor="dateJoined">Date:</label>
           <div className="custom-date-picker">
             <DatePicker
-               selected={filters.searchDateJoined ? new Date(filters.searchDateJoined) : null}
+              selected={filters.searchDateJoined ? new Date(filters.searchDateJoined) : null}
               onChange={handleDateChange}
               placeholderText="Select date"
               dateFormat="yyyy/MM/dd"

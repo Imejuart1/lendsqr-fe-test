@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState} from 'react';
 import './Table.scss';
 import Pagination from '../Pagination/Pagination.tsx';
 import MoreInfoPopup from '../moreinfo/MoreInfoPopup.tsx';
