@@ -11,7 +11,7 @@ interface CustomSelectProps {
 const CustomSelect: React.FC<CustomSelectProps> = ({ options, value, onChange }) => {
   return (
     <div className="custom-select">
-      <select onChange={onChange} value={value}>
+      <select onChange={onChange} value={value} role="select">
         {options.map((option) => (
           <option key={option} value={option}>
             {option}
