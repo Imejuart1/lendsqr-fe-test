@@ -43,12 +43,21 @@
     font-size: 0.92vw;
     padding-left: 0.99vw;
     color: rgba(84, 95, 125, 0.7);
+    font-family: 'Work Sans';
+  }
+  .filter-field input[type='text']::placeholder{
+    font-size: 0.92vw;
+    font-family: 'Work Sans';
+    font-weight: 400;
+    text-align: left; 
+    color: rgba(84, 95, 125, 0.7);
   }
   .custo-select {
     position: relative;
     width: 100%;
 
     select {
+      font-family: 'Work Sans';
       width: 100%;
       padding: 0.66vw 0.66vw 0.66vw 0.99vw;
       color: rgba(84, 95, 125, 0.7);

@@ -3,6 +3,13 @@ import './Table.scss';
 import Pagination from '../Pagination/Pagination.tsx';
 import MoreInfoPopup from '../moreinfo/MoreInfoPopup.tsx';
 import FilterPopup from '../Filter/FilterPopup.tsx';
+interface User {
+  ORGANIZATION: string;
+  USERNAME: string;
+  EMAIL: string;
+  PHONENUMBER: string;
+  STATUS:string;
+}
 
 const Table: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -24,7 +31,7 @@ const Table: React.FC = () => {
   useEffect(() => {
     fetch('https://66413bb3a7500fcf1a9fe52e.mockapi.io/API/user/data')
       .then((response) => response.json())
-      .then((data) => setUserData(data.map(user => ({ ...user })))) // Remove positionX and positionY
+      .then((data: User[]) => setUserData(data.map(user => ({ ...user })))) 
       .catch((error) => console.error('Error fetching data:', error));
   }, []);
   
@@ -41,15 +48,19 @@ const Table: React.FC = () => {
 
   useEffect(() => {
     const filtered = userData.filter(user => {
+      const searchDate = filterCriteria.searchDateJoined;
+      const isDateInRange = !searchDate || user['DATE JOINED'].toLowerCase().includes(searchDate.toLowerCase());
       return user.ORGANIZATION.toLowerCase().includes(filterCriteria.organization.toLowerCase())
         && user.USERNAME.toLowerCase().includes(filterCriteria.searchUsername.toLowerCase())
         && user.EMAIL.toLowerCase().includes(filterCriteria.searchEmail.toLowerCase())
         && user['PHONE NUMBER'].toLowerCase().includes(filterCriteria.searchPhoneNumber.toLowerCase())
-        && user['DATE JOINED'].toLowerCase().includes(filterCriteria.searchDateJoined.toLowerCase())
+        && isDateInRange
         && user.STATUS.toLowerCase().includes(filterCriteria.searchStatus.toLowerCase());
     });
     setFilteredData(filtered);
   }, [userData, filterCriteria]);
+  
+  
   
   const handleUpdateFilterCriteria = (criteria: any) => {
    

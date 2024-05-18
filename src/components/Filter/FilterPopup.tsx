@@ -16,7 +16,7 @@ interface Filters {
   searchUsername: string;
   searchEmail: string;
   searchPhoneNumber: string;
-  searchDateJoined: Date | null;
+  searchDateJoined: string | null;
   searchStatus: string;
 }
 
@@ -46,14 +46,19 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, positionX, positionY
     });
   }, [filterCriteria]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>, field: string) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>, field: string) => {
     updateFilterCriteria({ ...filterCriteria, [field]: e.target.value });
   };
+  
 
   const handleDateChange = (date: Date | null) => {
-    setFilters({ ...filters, searchDateJoined: date });
+    const formattedDate = date ? date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : null;
+    const updatedFilters = { ...filters, searchDateJoined: formattedDate };
+    setFilters(updatedFilters);
+    updateFilterCriteria(updatedFilters);
   };
-
+  
+  
   const handleFilter = () => {
     onClose();
   };
@@ -74,7 +79,7 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, positionX, positionY
   useEffect(() => {
     if (filterRef.current) {
       filterRef.current.style.left = `${positionX}px`;
-      filterRef.current.style.top = `${positionY}px`;
+      filterRef.current.style.top = `${positionY}`;
 
       const handleClickOutside = (event: MouseEvent) => {
         if (filterRef.current && !filterRef.current.contains(event.target as Node)) {
