@@ -40,7 +40,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleSidebar }) => {
   </div>
   <div className="nav-item_notify">
     <Link to="/notifications" className="nav-link">
-      <img src="/images/notify.svg" alt="notify" className='notify'/>
+      <img src="/images/bell.svg" alt="notify" className='notify'/>
     </Link>
   </div>
   </div>
