@@ -78,21 +78,26 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, positionX, positionY
 
   useEffect(() => {
     if (filterRef.current) {
-      filterRef.current.style.left = `${positionX}px`;
+      if (window.innerWidth <= 800) {
+        filterRef.current.style.left = `${positionX}`; // Set left position to 10px if window width is <= 800px
+      } else {
+        filterRef.current.style.left = `${positionX}px`;
+      }
       filterRef.current.style.top = `${positionY}`;
-
+  
       const handleClickOutside = (event: MouseEvent) => {
         if (filterRef.current && !filterRef.current.contains(event.target as Node)) {
           onClose();
         }
       };
-
+  
       document.addEventListener('mousedown', handleClickOutside);
       return () => {
         document.removeEventListener('mousedown', handleClickOutside);
       };
     }
   }, [positionX, positionY, onClose]);
+  
 
   const handleMouseDown = (event: React.MouseEvent) => {
     setDragging(true);

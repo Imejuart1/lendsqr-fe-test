@@ -170,6 +170,9 @@
     padding-left: 0.99rem;
     color: rgba(84, 95, 125, 0.7);
   }
+  .filter-field input[type='text']::placeholder{
+    font-size: 0.92rem;
+  }
   .custo-select {
     position: relative;
     width: 100%;
