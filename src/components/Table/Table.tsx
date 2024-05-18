@@ -86,7 +86,7 @@ const Table: React.FC = () => {
 
   const handleFilterIconClick = (event: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
     const rect = (event.target as HTMLElement).getBoundingClientRect();
-    setFilterPopupPosition({ x: rect.left, y: rect.top -20 });
+    setFilterPopupPosition({ x: rect.left, y: rect.top + 40 });
     setShowFilterPopup(true);
   };
 

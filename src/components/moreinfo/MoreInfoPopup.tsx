@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './MoreInfoPopup.scss';
 
@@ -25,6 +25,8 @@ const MoreInfoPopup: React.FC<MoreInfoPopupProps> = ({
 }) => {
   const navigate = useNavigate();
   const popupRef = useRef<HTMLDivElement>(null);
+  const [adjustedPositionX, setAdjustedPositionX] = useState(positionX);
+  const [initialViewportWidth, setInitialViewportWidth] = useState(window.innerWidth);
 
   const handleViewDetails = () => {
     navigate(`/user-details/${user.USERNAME}`, { state: { user } });
@@ -44,13 +46,26 @@ const MoreInfoPopup: React.FC<MoreInfoPopupProps> = ({
     };
   }, []);
 
-  // Ensure positionY doesn't go above 600
+  useEffect(() => {
+    const handleResize = () => {
+      const viewportWidthDifference = window.innerWidth - initialViewportWidth;
+      setAdjustedPositionX(prevX => prevX + viewportWidthDifference);
+      setInitialViewportWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [initialViewportWidth]);
+
   const adjustedPositionY = positionY > 600 ? 600 : positionY;
 
   return (
     <div
       className="more-info-popup"
-      style={{ top: adjustedPositionY, left: positionX, position: 'absolute' }}
+      style={{ top: adjustedPositionY, left: adjustedPositionX, position: 'absolute' }}
       ref={popupRef}
     >
       <div className="popup-content">
@@ -63,7 +78,7 @@ const MoreInfoPopup: React.FC<MoreInfoPopupProps> = ({
           <span>Blacklist User</span>
         </div>
         <div className="popup-option" onClick={onActivate}>
-          <img src='images/Activate.svg' alt="Activate Icon" />
+          <img src='images/activate.svg' alt="Activate Icon" />
           <span>Activate User</span>
         </div>
       </div>

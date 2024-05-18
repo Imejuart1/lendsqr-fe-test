@@ -73,7 +73,7 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, positionX, positionY
   useEffect(() => {
     if (filterRef.current) {
       filterRef.current.style.left = `${positionX}px`;
-      filterRef.current.style.top = `${positionY}px`;
+      filterRef.current.style.top = `${positionY}`;
 
       const handleClickOutside = (event: MouseEvent) => {
         if (filterRef.current && !filterRef.current.contains(event.target as Node)) {
@@ -90,6 +90,7 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, positionX, positionY
 
   return (
     <div className="filter-popup" ref={filterRef}>
+      
       <div className="filter-popup-content">
         <div className="filter-field">
           <label htmlFor="organization">Organization:</label>
