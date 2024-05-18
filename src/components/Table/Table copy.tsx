@@ -21,6 +21,15 @@ const Table: React.FC = () => {
     searchDateJoined: '',
     searchStatus: ''
   });
+
+  const [searchOrganization, setSearchOrganization] = useState('');
+  const [searchUsername, setSearchUsername] = useState('');
+  const [searchEmail, setSearchEmail] = useState('');
+  const [searchPhoneNumber, setSearchPhoneNumber] = useState('');
+  const [searchDateJoined, setSearchDateJoined] = useState('');
+  const [searchStatus, setSearchStatus] = useState('');
+
+
   useEffect(() => {
     fetch('https://66413bb3a7500fcf1a9fe52e.mockapi.io/API/user/data')
       .then((response) => response.json())
@@ -41,23 +50,18 @@ const Table: React.FC = () => {
 
   useEffect(() => {
     const filtered = userData.filter(user => {
-      return user.ORGANIZATION.toLowerCase().includes(filterCriteria.organization.toLowerCase())
-        && user.USERNAME.toLowerCase().includes(filterCriteria.searchUsername.toLowerCase())
-        && user.EMAIL.toLowerCase().includes(filterCriteria.searchEmail.toLowerCase())
-        && user['PHONE NUMBER'].toLowerCase().includes(filterCriteria.searchPhoneNumber.toLowerCase())
-        && user['DATE JOINED'].toLowerCase().includes(filterCriteria.searchDateJoined.toLowerCase())
-        && user.STATUS.toLowerCase().includes(filterCriteria.searchStatus.toLowerCase());
+      return user.ORGANIZATION.toLowerCase().includes(organization.toLowerCase())
+        && user.USERNAME.toLowerCase().includes(searchUsername.toLowerCase())
+        && user.EMAIL.toLowerCase().includes(searchEmail.toLowerCase())
+        && user['PHONE NUMBER'].toLowerCase().includes(searchPhoneNumber.toLowerCase())
+        && user['DATE JOINED'].toLowerCase().includes(searchDateJoined.toLowerCase())
+        && user.STATUS.toLowerCase().includes(searchStatus.toLowerCase());
     });
     setFilteredData(filtered);
-  }, [userData, filterCriteria]);
+  }, [userData,filterCriteria]);
   
   const handleUpdateFilterCriteria = (criteria: any) => {
-   
-    if (Object.values(criteria).every(value => value === '' || value === null)) {
-      setFilteredData(userData);
-    }else{
-      setFilterCriteria(criteria);
-    }
+    setFilterCriteria(criteria);
   };
 
   const indexOfLastUser = currentPage * usersPerPage;

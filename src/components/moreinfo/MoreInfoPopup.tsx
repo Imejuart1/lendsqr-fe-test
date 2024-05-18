@@ -38,12 +38,24 @@ const MoreInfoPopup: React.FC<MoreInfoPopupProps> = ({
   };
 
   useEffect(() => {
+    const handleScroll = () => {
+      // Recalculate the position of the popup when scrolling occurs
+      if (popupRef.current) {
+        const { top, left } = popupRef.current.getBoundingClientRect();
+        popupRef.current.style.top = `${top + window.scrollY}px`;
+        popupRef.current.style.left = `${left + window.scrollX}px`;
+      }
+    };
+  
+    document.addEventListener('scroll', handleScroll);
     document.addEventListener('mousedown', handleClickOutside);
+  
     return () => {
+      document.removeEventListener('scroll', handleScroll);
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
-
+  
   return (
     <div
       className="more-info-popup"

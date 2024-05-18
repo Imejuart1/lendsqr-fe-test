@@ -1,65 +1,80 @@
-import React, { useState ,useEffect, useRef  } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './FilterPopup.scss';
 
 interface FilterPopupProps {
   onClose: () => void;
-  onFilter: (filters: Filters) => void;
   positionX: number;
   positionY: number;
+  filterCriteria: any;
+  updateFilterCriteria: (criteria: any) => void;
 }
 
 interface Filters {
   organization: string;
-  username: string;
-  email: string;
-  phoneNumber: string;
-  dateJoined: Date | null;
-  status: string;
+  searchUsername: string;
+  searchEmail: string;
+  searchPhoneNumber: string;
+  searchDateJoined: Date | null;
+  searchStatus: string;
 }
 
-const FilterPopup: React.FC<FilterPopupProps> = ({  onFilter, onClose, positionX, positionY }) => {
+const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, positionX, positionY, filterCriteria, updateFilterCriteria }) => {
   const filterRef = useRef<HTMLDivElement>(null);
+
   const [filters, setFilters] = useState<Filters>({
     organization: '',
-    username: '',
-    email: '',
-    phoneNumber: '',
-    dateJoined: null,
-    status: '',
+    searchUsername: '',
+    searchEmail: '',
+    searchPhoneNumber: '',
+    searchDateJoined: null,
+    searchStatus: '',
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>, field: string) => {
-    setFilters({ ...filters, [field]: e.target.value });
+  useEffect(() => {
+    setFilters({
+      organization: filterCriteria.organization,
+      searchUsername: filterCriteria.searchUsername,
+      searchEmail: filterCriteria.searchEmail,
+      searchPhoneNumber: filterCriteria.searchPhoneNumber,
+      searchDateJoined: filterCriteria.searchDateJoined,
+      searchStatus: filterCriteria.searchStatus,
+    });
+  }, [filterCriteria]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>, field: string) => {
+    updateFilterCriteria({ ...filterCriteria, [field]: e.target.value });
   };
 
   const handleDateChange = (date: Date | null) => {
-    setFilters({ ...filters, dateJoined: date });
+    setFilters({ ...filters, searchDateJoined: date });
   };
 
   const handleFilter = () => {
-    onFilter(filters);
     onClose();
   };
 
   const handleReset = () => {
-    setFilters({
+    const resetFilters = {
       organization: '',
-      username: '',
-      email: '',
-      phoneNumber: '',
-      dateJoined: null,
-      status: '',
-    });
+      searchUsername: '',
+      searchEmail: '',
+      searchPhoneNumber: '',
+      searchDateJoined: null,
+      searchStatus: '',
+    };
+    setFilters(resetFilters);
+    updateFilterCriteria(resetFilters);
+
   };
+  
 
   useEffect(() => {
     if (filterRef.current) {
       filterRef.current.style.left = `${positionX}px`;
       filterRef.current.style.top = `${positionY}px`;
 
-      // Add event listener to close popup on click outside
       const handleClickOutside = (event: MouseEvent) => {
         if (filterRef.current && !filterRef.current.contains(event.target as Node)) {
           onClose();
@@ -86,7 +101,7 @@ const FilterPopup: React.FC<FilterPopupProps> = ({  onFilter, onClose, positionX
             >
               <option value="">Select</option>
               <option value="Lendsqr">Lendsqr</option>
-              <option value="Irorrun">Irorrun</option>
+              <option value="Irorun">Irorun</option>
             </select>
             <img src="/images/downarrow2.svg" alt="Dropdown" />
           </div>
@@ -96,8 +111,8 @@ const FilterPopup: React.FC<FilterPopupProps> = ({  onFilter, onClose, positionX
           <input
             type="text"
             id="username"
-            value={filters.username}
-            onChange={(e) => handleChange(e, 'username')}
+            value={filters.searchUsername}
+            onChange={(e) => handleChange(e, 'searchUsername')}
             placeholder="Username"
           />
         </div>
@@ -106,8 +121,8 @@ const FilterPopup: React.FC<FilterPopupProps> = ({  onFilter, onClose, positionX
           <input
             type="text"
             id="email"
-            value={filters.email}
-            onChange={(e) => handleChange(e, 'email')}
+            value={filters.searchEmail}
+            onChange={(e) => handleChange(e, 'searchEmail')}
             placeholder="Email"
           />
         </div>
@@ -115,7 +130,7 @@ const FilterPopup: React.FC<FilterPopupProps> = ({  onFilter, onClose, positionX
           <label htmlFor="dateJoined">Date:</label>
           <div className="custom-date-picker">
             <DatePicker
-              selected={filters.dateJoined}
+              selected={filters.searchDateJoined}
               onChange={handleDateChange}
               placeholderText="Select date"
               dateFormat="yyyy/MM/dd"
@@ -129,8 +144,8 @@ const FilterPopup: React.FC<FilterPopupProps> = ({  onFilter, onClose, positionX
           <input
             type="text"
             id="phoneNumber"
-            value={filters.phoneNumber}
-            onChange={(e) => handleChange(e, 'phoneNumber')}
+            value={filters.searchPhoneNumber}
+            onChange={(e) => handleChange(e, 'searchPhoneNumber')}
             placeholder="Phone Number"
           />
         </div>
@@ -139,8 +154,8 @@ const FilterPopup: React.FC<FilterPopupProps> = ({  onFilter, onClose, positionX
           <div className="custo-select">
             <select
               id="status"
-              value={filters.status}
-              onChange={(e) => handleChange(e, 'status')}
+              value={filters.searchStatus}
+              onChange={(e) => handleChange(e, 'searchStatus')}
             >
               <option value="">Select</option>
               <option value="Pending">Pending</option>
