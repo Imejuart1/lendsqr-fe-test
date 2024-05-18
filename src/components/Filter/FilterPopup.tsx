@@ -47,6 +47,7 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, positionX, positionY
   }, [filterCriteria]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>, field: string) => {
+    e.stopPropagation(); 
     updateFilterCriteria({ ...filterCriteria, [field]: e.target.value });
   };
   
@@ -76,6 +77,12 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, positionX, positionY
     updateFilterCriteria(resetFilters);
   };
 
+  const handleClickOutside = (event: MouseEvent) => {
+    if (filterRef.current && !filterRef.current.contains(event.target as Node)) {
+      onClose();
+    }
+  };
+
   useEffect(() => {
     if (filterRef.current) {
       if (window.innerWidth <= 800) {
@@ -85,11 +92,6 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, positionX, positionY
       }
       filterRef.current.style.top = `${positionY}px + 200px`;
   
-      const handleClickOutside = (event: MouseEvent) => {
-        if (filterRef.current && !filterRef.current.contains(event.target as Node)) {
-          onClose();
-        }
-      };
   
       document.addEventListener('mousedown', handleClickOutside);
       return () => {
@@ -129,7 +131,7 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, positionX, positionY
   }, [dragging]);
 
   return (
-    <div className="filter-popup" ref={filterRef} onMouseDown={handleMouseDown}>
+    <div className="filter-popup" ref={filterRef} >
       
       <div className="filter-popup-content">
         <div className="filter-field">
@@ -147,9 +149,9 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, positionX, positionY
             <img src="/images/downarrow2.svg" alt="Dropdown" />
           </div>
         </div>
-        <div className="filter-field">
+        <div className="filter-field" >
           <label htmlFor="username">Username</label>
-          <input
+          <input 
             type="text"
             id="username"
             value={filters.searchUsername}
