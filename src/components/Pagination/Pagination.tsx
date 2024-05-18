@@ -28,37 +28,46 @@ const Pagination: React.FC<PaginationProps> = ({
     const totalPages = pageNumbers.length;
     const pageItems: JSX.Element[] = [];
 
-    const showEllipsis = (start: number, end: number) => {
-      if (end - start > 1) {
-        pageItems.push(<li key={'ellipsis-' + start}><span>...</span></li>);
-      }
+    const showEllipsis = (key: string) => {
+      pageItems.push(<li key={key}><span>...</span></li>);
+    };
+
+    const addPageButton = (number: number) => {
+      pageItems.push(
+        <li key={number} className={currentPage === number ? 'active' : ''}>
+          <button onClick={() => paginate(number)}>{number}</button>
+        </li>
+      );
     };
 
     if (totalPages <= MAX_BUTTONS) {
       for (let number = 1; number <= totalPages; number++) {
-        pageItems.push(
-          <li key={number} className={currentPage === number ? 'active' : ''}>
-            <button onClick={() => paginate(number)}>{number}</button>
-          </li>
-        );
+        addPageButton(number);
       }
     } else {
-      for (let number = 1; number <= 3; number++) {
-        pageItems.push(
-          <li key={number} className={currentPage === number ? 'active' : ''}>
-            <button onClick={() => paginate(number)}>{number}</button>
-          </li>
-        );
-      }
-
-      showEllipsis(3, totalPages - 2);
-
-      for (let number = totalPages - 1; number <= totalPages; number++) {
-        pageItems.push(
-          <li key={number} className={currentPage === number ? 'active' : ''}>
-            <button onClick={() => paginate(number)}>{number}</button>
-          </li>
-        );
+      if (currentPage <= 3) {
+        for (let number = 1; number <= 3; number++) {
+          addPageButton(number);
+        }
+        showEllipsis('start-ellipsis');
+        addPageButton(totalPages - 1);
+        addPageButton(totalPages);
+      } else if (currentPage > totalPages - 3) {
+        addPageButton(1);
+        addPageButton(2);
+        showEllipsis('end-ellipsis');
+        for (let number = totalPages - 2; number <= totalPages; number++) {
+          addPageButton(number);
+        }
+      } else {
+        addPageButton(1);
+        showEllipsis('start-ellipsis');
+        for (let number = currentPage - 1; number <= currentPage + 1; number++) {
+          addPageButton(number);
+        }
+        showEllipsis('end-ellipsis');
+        addPageButton(totalPages - 1);
+        addPageButton(totalPages);
       }
     }
 
@@ -105,4 +114,3 @@ const Pagination: React.FC<PaginationProps> = ({
 };
 
 export default Pagination;
-            
