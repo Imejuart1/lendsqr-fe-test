@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Login from './pages/Login/Login.tsx';
 import Dashboard from './pages/Dashboard/Dashboard.tsx';
 import Navbar from './components/Navbar/Navbar.tsx';
