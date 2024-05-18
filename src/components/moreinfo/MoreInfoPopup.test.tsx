@@ -1,6 +1,5 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { MemoryRouter, Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import MoreInfoPopup from './MoreInfoPopup';
 
