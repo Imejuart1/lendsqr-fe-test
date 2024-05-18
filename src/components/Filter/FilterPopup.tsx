@@ -86,7 +86,7 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, positionX, positionY
   useEffect(() => {
     if (filterRef.current) {
       filterRef.current.style.left = `${positionX}px`;
-      filterRef.current.style.top = `${positionY}px + 200px`;
+      filterRef.current.style.top = `${positionY}`;
   
       document.addEventListener('mousedown', handleClickOutside);
       return () => {

@@ -4,7 +4,7 @@ import './Card.scss';
 interface CardProps {
   title: string;
   value: string;
-  icon: string;
+  icon: any;
 }
 
 const Card: React.FC<CardProps> = ({ title, value, icon }) => {
