@@ -6,6 +6,8 @@ import './FilterPopup.scss';
 interface FilterPopupProps {
   onClose: () => void;
   onFilter: (filters: Filters) => void;
+  positionX: number;
+  positionY: number;
 }
 
 interface Filters {
@@ -17,7 +19,7 @@ interface Filters {
   status: string;
 }
 
-const FilterPopup: React.FC<FilterPopupProps> = ({  onFilter, onClose }) => {
+const FilterPopup: React.FC<FilterPopupProps> = ({  onFilter, onClose, positionX, positionY }) => {
   const filterRef = useRef<HTMLDivElement>(null);
   const [filters, setFilters] = useState<Filters>({
     organization: '',
@@ -27,20 +29,6 @@ const FilterPopup: React.FC<FilterPopupProps> = ({  onFilter, onClose }) => {
     dateJoined: null,
     status: '',
   });
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (filterRef.current && !filterRef.current.contains(event.target as Node)) {
-        onClose();
-      }
-    };
-
-    document.addEventListener('click', handleClickOutside);
-
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
-  }, [onClose]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>, field: string) => {
     setFilters({ ...filters, [field]: e.target.value });
@@ -66,6 +54,24 @@ const FilterPopup: React.FC<FilterPopupProps> = ({  onFilter, onClose }) => {
     });
   };
 
+  useEffect(() => {
+    if (filterRef.current) {
+      filterRef.current.style.left = `${positionX}px`;
+      filterRef.current.style.top = `${positionY}px`;
+
+      // Add event listener to close popup on click outside
+      const handleClickOutside = (event: MouseEvent) => {
+        if (filterRef.current && !filterRef.current.contains(event.target as Node)) {
+          onClose();
+        }
+      };
+
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }
+  }, [positionX, positionY, onClose]);
 
   return (
     <div className="filter-popup" ref={filterRef}>

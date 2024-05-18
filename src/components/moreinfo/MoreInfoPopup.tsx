@@ -1,5 +1,4 @@
-// MoreInfoPopup.tsx
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './MoreInfoPopup.scss';
 
@@ -25,14 +24,32 @@ const MoreInfoPopup: React.FC<MoreInfoPopupProps> = ({
   positionY,
 }) => {
   const navigate = useNavigate();
+  const popupRef = useRef<HTMLDivElement>(null);
 
   const handleViewDetails = () => {
     // Navigate to the user details page with the user object
     navigate(`/user-details/${user.USERNAME}`, { state: { user } });
   };
 
+  const handleClickOutside = (event: MouseEvent) => {
+    if (popupRef.current && !popupRef.current.contains(event.target as Node)) {
+      onClose();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="more-info-popup" style={{ top: positionY, left: positionX, position: 'absolute' }}>
+    <div
+      className="more-info-popup"
+      style={{ top: positionY, left: positionX, position: 'absolute' }}
+      ref={popupRef}
+    >
       <div className="popup-content">
         <div className="popup-option" onClick={handleViewDetails}>
           <img src='images/view.svg' alt="View Icon" />

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './Table.scss';
 import Pagination from '../Pagination/Pagination.tsx';
 import MoreInfoPopup from '../moreinfo/MoreInfoPopup.tsx';
@@ -12,6 +12,7 @@ const Table: React.FC = () => {
   const [selectedUser, setSelectedUser] = useState<any | null>(null);
   const [popupPosition, setPopupPosition] = useState({ x: 0, y: 0 });
   const [showFilterPopup, setShowFilterPopup] = useState(false);
+  const [filterPopupPosition, setFilterPopupPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     fetch('https://66413bb3a7500fcf1a9fe52e.mockapi.io/API/user/data')
@@ -25,7 +26,7 @@ const Table: React.FC = () => {
   }, [userData]);
 
   useEffect(() => {
-    setCurrentPage(1); // Reset currentPage when usersPerPage changes
+    setCurrentPage(1);
   }, [usersPerPage]);
 
   const handlePageChange = (pageNumber: number) => setCurrentPage(pageNumber);
@@ -69,6 +70,13 @@ const Table: React.FC = () => {
     setFilteredData(filtered);
   };
 
+
+  const handleFilterIconClick = (event: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
+    const rect = (event.target as HTMLElement).getBoundingClientRect();
+    setFilterPopupPosition({ x: rect.left, y: rect.top + 380 });
+    setShowFilterPopup(true);
+  };
+
   return (
     <div>
       <div className="filter-button-container">
@@ -80,32 +88,32 @@ const Table: React.FC = () => {
               <th>
                 ORGANIZATION
                 <img src="/images/filter-results-button.svg" alt="Filter icon" 
-                      onClick={() => setShowFilterPopup(true)} />
+                      onClick={handleFilterIconClick} />
               </th>
               <th>
                 USERNAME
                 <img src="/images/filter-results-button.svg" alt="Filter icon" 
-                      onClick={() => setShowFilterPopup(true)} />
+                      onClick={handleFilterIconClick} />
               </th>
               <th>
                 EMAIL
                 <img src="/images/filter-results-button.svg" alt="Filter icon" 
-                      onClick={() => setShowFilterPopup(true)} />
+                      onClick={handleFilterIconClick} />
               </th>
               <th>
                 PHONE NUMBER
                 <img src="/images/filter-results-button.svg" alt="Filter icon" 
-                      onClick={() => setShowFilterPopup(true)} />
+                      onClick={handleFilterIconClick} />
               </th>
               <th>
                 DATE JOINED
                 <img src="/images/filter-results-button.svg" alt="Filter icon" 
-                      onClick={() => setShowFilterPopup(true)} />
+                      onClick={handleFilterIconClick} />
               </th>
               <th>
                 STATUS
                 <img src="/images/filter-results-button.svg" alt="Filter icon" 
-                      onClick={() => setShowFilterPopup(true)} />
+                      onClick={handleFilterIconClick} />
               </th>
               <th></th>
             </tr>
@@ -139,20 +147,26 @@ const Table: React.FC = () => {
         </table>
       </div>
       {selectedUser && (
-        <MoreInfoPopup
-          user={selectedUser}
-          onClose={handleClosePopup}
-          onBlacklist={handleBlacklistUser}
-          onActivate={handleActivateUser}
-          positionX={popupPosition.x}
-          positionY={popupPosition.y}
-        />
+        <div>
+          <MoreInfoPopup
+            user={selectedUser}
+            onClose={handleClosePopup}
+            onBlacklist={handleBlacklistUser}
+            onActivate={handleActivateUser}
+            positionX={popupPosition.x}
+            positionY={popupPosition.y}
+          />
+        </div>
       )}
       {showFilterPopup && (
-        <FilterPopup
-          onClose={() => setShowFilterPopup(false)}
-          onFilter={handleFilter}
-        />
+        <div >
+          <FilterPopup
+            onClose={() => setShowFilterPopup(false)}
+            onFilter={handleFilter}
+            positionX={filterPopupPosition.x}
+            positionY={filterPopupPosition.y}
+          />
+        </div>
       )}
       <Pagination
         usersPerPage={usersPerPage}
@@ -166,7 +180,6 @@ const Table: React.FC = () => {
 };
 
 export default Table;
-
 
 const getUserStatusColor = (status: string) => {
   switch (status) {

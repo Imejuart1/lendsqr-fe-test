@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 
 const UserDetails: React.FC = () => {
   const location = useLocation();
-  const { username } = useParams();
 
   const user = location.state.user;
   const navigate = useNavigate();
