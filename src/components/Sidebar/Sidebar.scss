@@ -124,10 +124,11 @@
     padding: 1.97rem 1.6rem 6rem 2.63rem;
    //height: 100vh;
     background-color: #fff; 
-    transition: transform 0.3s ease; /* Smooth transition animation */
-    transform: translateX(0); /* Move the sidebar into view */
+    transition: transform 0.3s ease; 
+    transform: translateX(0); 
   }
   .sidebar-header {
+    margin-top: 3rem;
     margin-bottom: 3.5rem;
   }
   .switch {
@@ -149,10 +150,10 @@
       background-color: rgba(57, 205, 204, 0.06);
       padding: 0.5rem 0 0.5rem 2.35rem;
       margin: -0.5rem  0 1.5rem -2.63rem;
-      width: 18.63rem;
+      width: 100%;
     }
     .active-link {
-     width: 18.63rem;
+     width: 100%;
       border-left: 0.3rem solid rgba(57, 205, 204, 1);
       padding: 0.5rem 0 0.5rem 2.35rem;
       margin: -0.5rem 0 1.5rem -2.63rem;
