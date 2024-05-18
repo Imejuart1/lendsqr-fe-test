@@ -79,11 +79,11 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, positionX, positionY
   useEffect(() => {
     if (filterRef.current) {
       if (window.innerWidth <= 800) {
-        filterRef.current.style.left = `${positionX}`; // Set left position to 10px if window width is <= 800px
+        filterRef.current.style.left = `${positionX}`; 
       } else {
         filterRef.current.style.left = `${positionX}px`;
       }
-      filterRef.current.style.top = `${positionY}`;
+      filterRef.current.style.top = `${positionY}px + 200px`;
   
       const handleClickOutside = (event: MouseEvent) => {
         if (filterRef.current && !filterRef.current.contains(event.target as Node)) {
@@ -171,7 +171,7 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, positionX, positionY
           <label htmlFor="dateJoined">Date:</label>
           <div className="custom-date-picker">
             <DatePicker
-              selected={filters.searchDateJoined}
+               selected={filters.searchDateJoined ? new Date(filters.searchDateJoined) : null}
               onChange={handleDateChange}
               placeholderText="Select date"
               dateFormat="yyyy/MM/dd"

@@ -26,10 +26,7 @@ const MoreInfoPopup: React.FC<MoreInfoPopupProps> = ({
   const navigate = useNavigate();
   const popupRef = useRef<HTMLDivElement>(null);
   const [adjustedPositionX, setAdjustedPositionX] = useState(positionX);
-  const [adjustedPositionY, setAdjustedPositionY] = useState(positionY);
-  const [dragging, setDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [startY, setStartY] = useState(0);
+  const [initialViewportWidth, setInitialViewportWidth] = useState(window.innerWidth);
 
   const handleViewDetails = () => {
     navigate(`/user-details/${user.USERNAME}`, { state: { user } });
@@ -51,8 +48,9 @@ const MoreInfoPopup: React.FC<MoreInfoPopupProps> = ({
 
   useEffect(() => {
     const handleResize = () => {
-      setAdjustedPositionX(positionX);
-      setAdjustedPositionY(positionY);
+      const viewportWidthDifference = window.innerWidth - initialViewportWidth;
+      setAdjustedPositionX(prevX => prevX + viewportWidthDifference);
+      setInitialViewportWidth(window.innerWidth);
     };
 
     window.addEventListener('resize', handleResize);
@@ -60,43 +58,15 @@ const MoreInfoPopup: React.FC<MoreInfoPopupProps> = ({
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [positionX, positionY]);
+  }, [initialViewportWidth]);
 
-  const handleMouseDown = (event: React.MouseEvent) => {
-    setDragging(true);
-    setStartX(event.clientX - adjustedPositionX);
-    setStartY(event.clientY - adjustedPositionY);
-  };
-
-  const handleMouseMove = (event: MouseEvent) => {
-    if (dragging) {
-      const newX = event.clientX - startX;
-      const newY = event.clientY - startY;
-      setAdjustedPositionX(newX);
-      setAdjustedPositionY(newY);
-    }
-  };
-
-  const handleMouseUp = () => {
-    setDragging(false);
-  };
-
-  useEffect(() => {
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseup', handleMouseUp);
-
-    return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseup', handleMouseUp);
-    };
-  }, [dragging]);
+  const adjustedPositionY = positionY > 600 ? 600 : positionY;
 
   return (
     <div
       className="more-info-popup"
       style={{ top: adjustedPositionY, left: adjustedPositionX, position: 'absolute' }}
       ref={popupRef}
-      onMouseDown={handleMouseDown}
     >
       <div className="popup-content">
         <div className="popup-option" onClick={handleViewDetails}>
