@@ -20,7 +20,7 @@ const Login: React.FC = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-      navigate('/dashboard'); 
+    navigate('/dashboard'); 
   };
 
   const togglePasswordVisibility = () => {
@@ -40,7 +40,7 @@ const Login: React.FC = () => {
           <h2>Welcome!</h2>
           <p>Enter details to login.</p>
         </div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} data-testid="form">
           <div className='right-inputs'>
           <span className="password-input">
             <input
