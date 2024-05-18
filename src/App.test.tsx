@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter, Router } from 'react-router-dom';
-import { createMemoryHistory, MemoryHistory } from 'history';
+import { createMemoryHistory } from 'history';
 
 import App from './App';
 
@@ -30,9 +30,9 @@ describe('App component', () => {
 
   it('navigates to Dashboard page when /dashboard route is accessed', () => {
     const history = createMemoryHistory();
-    history.push('/dashboard'); // Directly set route before rendering
+    history.push('/dashboard');
     render(
-      <Router navigator={history} location={history.location}> {/* Add location property */}
+      <Router navigator={history} location={history.location}>
         <App />
       </Router>
     );
@@ -41,7 +41,7 @@ describe('App component', () => {
   
   it('navigates to Users page when /users route is accessed', () => {
     const history = createMemoryHistory();
-    history.push('/users'); // Directly set route before rendering
+    history.push('/users'); 
     render(
       <Router navigator={history} location={history.location}>
         <App />
@@ -50,9 +50,4 @@ describe('App component', () => {
     expect(screen.queryByText(/Users/i)).toBeInTheDocument();
   });
   
-  
-  
-  
-
-  // Add more tests for other routes if needed
 });
