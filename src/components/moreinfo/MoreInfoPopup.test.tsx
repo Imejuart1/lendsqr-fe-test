@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { createMemoryHistory } from 'history';
 import MoreInfoPopup from './MoreInfoPopup';
+import { Router } from 'react-router-dom';
 
 const mockUser = {
   USERNAME: 'john_doe',
