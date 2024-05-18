@@ -22,6 +22,9 @@ interface Filters {
 
 const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, positionX, positionY, filterCriteria, updateFilterCriteria }) => {
   const filterRef = useRef<HTMLDivElement>(null);
+  const [dragging, setDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [startY, setStartY] = useState(0);
 
   const [filters, setFilters] = useState<Filters>({
     organization: '',
@@ -66,14 +69,12 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, positionX, positionY
     };
     setFilters(resetFilters);
     updateFilterCriteria(resetFilters);
-
   };
-  
 
   useEffect(() => {
     if (filterRef.current) {
       filterRef.current.style.left = `${positionX}px`;
-      filterRef.current.style.top = `${positionY}`;
+      filterRef.current.style.top = `${positionY}px`;
 
       const handleClickOutside = (event: MouseEvent) => {
         if (filterRef.current && !filterRef.current.contains(event.target as Node)) {
@@ -88,8 +89,37 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, positionX, positionY
     }
   }, [positionX, positionY, onClose]);
 
+  const handleMouseDown = (event: React.MouseEvent) => {
+    setDragging(true);
+    setStartX(event.clientX - positionX);
+    setStartY(event.clientY - positionY);
+  };
+
+  const handleMouseMove = (event: MouseEvent) => {
+    if (dragging) {
+      const newX = event.clientX - startX;
+      const newY = event.clientY - startY;
+      filterRef.current!.style.left = `${newX}px`;
+      filterRef.current!.style.top = `${newY}px`;
+    }
+  };
+
+  const handleMouseUp = () => {
+    setDragging(false);
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, [dragging]);
+
   return (
-    <div className="filter-popup" ref={filterRef}>
+    <div className="filter-popup" ref={filterRef} onMouseDown={handleMouseDown}>
       
       <div className="filter-popup-content">
         <div className="filter-field">
