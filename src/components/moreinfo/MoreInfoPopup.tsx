@@ -37,43 +37,19 @@ const MoreInfoPopup: React.FC<MoreInfoPopupProps> = ({
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (popupRef.current) {
-        const { top, left, bottom, right } = popupRef.current.getBoundingClientRect();
-        const { innerHeight, innerWidth } = window;
-        
-        // Check if any part of the popup is outside the viewport
-        const isOutsideTop = top < 0;
-        const isOutsideBottom = bottom > innerHeight;
-        const isOutsideLeft = left < 0;
-        const isOutsideRight = right > innerWidth;
-
-        // If any part is outside, adjust the position
-        if (isOutsideTop || isOutsideBottom || isOutsideLeft || isOutsideRight) {
-          const newY = isOutsideTop ? window.scrollY : positionY;
-          const newX = isOutsideLeft ? window.scrollX : positionX;
-          
-          popupRef.current.style.top = `${newY}px`;
-          popupRef.current.style.left = `${newX}px`;
-        }
-      }
-    };
-
-    document.addEventListener('scroll', handleScroll);
     document.addEventListener('mousedown', handleClickOutside);
 
     return () => {
-      document.removeEventListener('scroll', handleScroll);
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [positionX, positionY]);
+  }, []);
 
   return (
     <div
       className="more-info-popup"
       style={{ top: positionY, left: positionX, position: 'absolute' }}
       ref={popupRef}
-    > {positionY}
+    >
       <div className="popup-content">
         <div className="popup-option" onClick={handleViewDetails}>
           <img src='images/view.svg' alt="View Icon" />
@@ -93,4 +69,3 @@ const MoreInfoPopup: React.FC<MoreInfoPopupProps> = ({
 };
 
 export default MoreInfoPopup;
-      
