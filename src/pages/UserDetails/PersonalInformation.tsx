@@ -1,7 +1,6 @@
 // PersonalInformation.tsx
 import React from 'react';
 import './PersonalInformation.scss'
-// Import your user data type
 
 interface PersonalInformationProps {
   user: any;

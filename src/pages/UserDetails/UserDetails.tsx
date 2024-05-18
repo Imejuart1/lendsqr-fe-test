@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import './UserDetails.scss';
 import PersonalInformation from './PersonalInformation.tsx';
 import { useNavigate } from 'react-router-dom';
