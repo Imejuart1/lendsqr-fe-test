@@ -126,11 +126,11 @@ const FilterPopup: React.FC<FilterPopupProps> = ({ onClose, positionX, positionY
 
   return (
     <div className="filter-popup" ref={filterRef} onMouseDown={handleMouseDown}>
-      <div className="filter-popup-content">
+      <div className="filter-popup-content" >
         <div className="filter-field">
           <label htmlFor="organization">Organization:</label>
-          <div className="custo-select">
-            <select
+          <div className="custo-select" >
+            <select 
               id="organization"
               value={filters.organization}
               onChange={(e) => handleChange(e, 'organization')}
