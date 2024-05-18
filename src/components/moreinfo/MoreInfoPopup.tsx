@@ -44,10 +44,13 @@ const MoreInfoPopup: React.FC<MoreInfoPopupProps> = ({
     };
   }, []);
 
+  // Ensure positionY doesn't go above 600
+  const adjustedPositionY = positionY > 600 ? 600 : positionY;
+
   return (
     <div
       className="more-info-popup"
-      style={{ top: positionY, left: positionX, position: 'absolute' }}
+      style={{ top: adjustedPositionY, left: positionX, position: 'absolute' }}
       ref={popupRef}
     >
       <div className="popup-content">
